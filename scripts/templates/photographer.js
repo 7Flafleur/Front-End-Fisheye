@@ -1,13 +1,15 @@
 function photographerTemplate(data) {
-    const { name, portrait } = data;
+    const { name,id,city,country,tagline,price, portrait, } = data;
 
-    const picture = `assets/photographers/${portrait}`;
-        const id  = `assets/photographers/${id}`;
-        const city = `assets/photographers/${city}`;
-        const country = `assets/photographers/${country}`;
-        const tagline = `assets/photographers/${tagline}`;
-        const price = `assets/photographers/${price}`;
+        const picture = `assets/photographers/${portrait}`;
+        const idhtml  = `assets/photographers/${id}`;
+        const cityh = `assets/photographers/${city}`;
+        const countryh = `assets/photographers/${country}`;
+        const taglineh = `assets/photographers/${tagline}`;
+        const priceh = `assets/photographers/${price}`;
 
+        console.log(idhtml)
+        console.log
 
 
     function getUserCardDOM() {
@@ -16,6 +18,11 @@ function photographerTemplate(data) {
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
+
+        article.setAttribute("id",idhtml)
+
+
+
 
         article.appendChild(img);
         article.appendChild(h2);
@@ -31,7 +38,7 @@ function photographerTemplate(data) {
 
 
 
-    return { name, picture, getUserCardDOM }
+    return { name, picture,idhtml, getUserCardDOM }
 
 
 
