@@ -1,7 +1,7 @@
 
 //get the .json data from server, return promise
 async function fetchData() {
-    let response = await fetch('/data/photographers.json');
+    let response = await fetch('./data/photographers.json');
     let data = await response.json();
     let photographers = data.photographers;
     return photographers;
