@@ -9,8 +9,20 @@ function photographerTemplate(data) {
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
+        const  = document.createElement
+        const  = document.createElement
+        const  = document.createElement
+        const  = document.createElement
+        const  = document.createElement
         article.appendChild(img);
         article.appendChild(h2);
+        article.appendChild();
+        article.appendChild();
+        article.appendChild();
+        article.appendChild();
+        article.appendChild();
+
+
         return (article);
     }
     return { name, picture, getUserCardDOM }
