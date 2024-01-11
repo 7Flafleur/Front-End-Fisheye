@@ -40,10 +40,12 @@ img{
 
 .photographer_section a {
     text-decoration: none;
+    
 }
 
 a:focus{
-    outline: 3px dotted saddlebrown;
+    outline: 3px dotted #D3573C ;
+    border-radius: 30%;
 }
 
 
