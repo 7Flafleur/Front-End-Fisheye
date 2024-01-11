@@ -36,8 +36,8 @@ function photographerTemplate(data) {
         let text = cityh + "," + countryh
         h3.textContent = text;
 
-        const divtag = document.createElement('div');
-        divtag.textContent=taglineh;
+        const blockquote = document.createElement('blockquote');
+        blockquote.textContent=taglineh;
 
         const pricetag = document.createElement('div');
         pricetag.textContent = priceh +"€/jour";
@@ -51,7 +51,7 @@ function photographerTemplate(data) {
         article.appendChild(img);
         article.appendChild(h2);
         article.appendChild(h3);
-        article.appendChild(divtag);
+        article.appendChild(blockquote);
         article.appendChild(pricetag);
         
         
