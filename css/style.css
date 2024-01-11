@@ -37,6 +37,10 @@ img{
     margin-top: 100px;
 }
 
+.photographer_section a {
+    text-decoration: none;
+}
+
 .photographer_section article {
     justify-self: center;
     display: flex;
@@ -48,6 +52,7 @@ img{
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    margin-bottom: 0;
 }
 
 .photographer_section article img {
@@ -55,7 +60,6 @@ img{
     width: 200px;
 }
 
-.photographer_section h2{
-    margin-bottom: 0;
-
+.photographer_section h3,div{
+    color: black;
 }

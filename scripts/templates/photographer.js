@@ -16,6 +16,10 @@ function photographerTemplate(data) {
        
 
     function getUserCardDOM() {
+
+        const href= document.createElement('a');
+        href.setAttribute("href","#")
+
         const article = document.createElement( 'article' );
         article.setAttribute("id",idhtml)  // create id for each article
 
@@ -43,7 +47,7 @@ function photographerTemplate(data) {
         
 
 
-
+        href.appendChild(article);
 
         article.appendChild(img);
         article.appendChild(h2);
@@ -53,7 +57,7 @@ function photographerTemplate(data) {
         
         
 
-        return (article);
+        return (href);
     }
 
 
