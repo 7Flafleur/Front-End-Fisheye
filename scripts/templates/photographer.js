@@ -17,8 +17,10 @@ function photographerTemplate(data) {
 
     function getUserCardDOM() {
 
+        const photographerpage ="photographer.html?id="+idhtml
+
         const href= document.createElement('a');
-        href.setAttribute("href","#")
+        href.setAttribute("href",photographerpage)
         href.setAttribute("class","focusable")
         href.setAttribute("tabindex","0")
 
