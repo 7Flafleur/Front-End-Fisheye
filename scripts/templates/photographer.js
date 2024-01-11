@@ -21,6 +21,11 @@ function photographerTemplate(data) {
 
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
+        let imgatt= "image de " + name
+        img.setAttribute("alt",imgatt)
+
+
+
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
 
@@ -46,11 +51,7 @@ function photographerTemplate(data) {
         article.appendChild(divtag);
         article.appendChild(pricetag);
         
-        // article.appendChild();
-        // article.appendChild();
-        // article.appendChild();
-        // article.appendChild();
-
+        
 
         return (article);
     }

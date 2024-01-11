@@ -19,6 +19,8 @@ h1 {
     margin-right: 100px;
 }
 
+
+
 img{
     object-fit: cover;
 }
@@ -51,4 +53,9 @@ img{
 .photographer_section article img {
     height: 200px;
     width: 200px;
+}
+
+.photographer_section h2{
+    margin-bottom: 0;
+
 }
