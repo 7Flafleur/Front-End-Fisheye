@@ -8,11 +8,6 @@ function photographerTemplate(data) {
         const taglineh = `${tagline}`;
         const priceh = `${price}`;
 
-        // console.log(idhtml)
-        // console.log(cityh)
-        // console.log(countryh)
-        // console.log(taglineh)
-        // console.log(priceh)
        
 
     function getUserCardDOM() {
