@@ -19,6 +19,8 @@ function photographerTemplate(data) {
 
         const href= document.createElement('a');
         href.setAttribute("href","#")
+        href.setAttribute("class","focusable")
+        href.setAttribute("tabindex","0")
 
         const article = document.createElement( 'article' );
         article.setAttribute("id",idhtml)  // create id for each article

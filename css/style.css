@@ -41,6 +41,11 @@ img{
     text-decoration: none;
 }
 
+a:focus{
+    outline: 3px dotted saddlebrown;
+}
+
+
 .photographer_section article {
     justify-self: center;
     display: flex;
