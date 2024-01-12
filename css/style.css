@@ -65,7 +65,7 @@ a:focus {
 }
 
 .photographer_section h3 {
-  margin: 0;
+  margin: 0 0 2px 0;
   color: #901c1c;
   text-align: center;
   font-style: normal;
@@ -80,7 +80,7 @@ a:focus {
 }
 
 .photographer_section blockquote {
-  margin: 0;
+  margin: 0 0 2px 0;
   color: #000;
   text-align: center;
 
