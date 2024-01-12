@@ -1,74 +1,98 @@
 @import url("photographer.css");
 
 body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
 }
 
-
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
+  color: #901c1c;
+  margin-right: 100px;
 }
 
-
-
-img{
-    object-fit: cover;
-    
+img {
+  object-fit: cover;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+  height: 50px;
+  margin-left: 100px;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
 }
 
 .photographer_section a {
-    text-decoration: none;
-    
+  text-decoration: none;
 }
 
-a:focus{
-    outline: 3px dotted #D3573C ;
-    border-radius: 30%;
+a:focus {
+  outline: 3px dotted #d3573c;
+  border-radius: 30%;
 }
-
 
 .photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
-    margin-bottom: 0;
+  color: #d3573c;
+  font-size: 36px;
+  margin-bottom: 0;
+  color: #d3573c;
+
+  text-align: center;
+
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.photographer_section h3 {
+  margin: 0;
+  color: #901c1c;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .photographer_section article img {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
 
-.photographer_section h3,div{
-    color: black;
+.photographer_section blockquote {
+  margin: 0;
+  color: #000;
+  text-align: center;
+
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.photographer_section div {
+  color: #757575;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
