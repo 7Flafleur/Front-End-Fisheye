@@ -34,7 +34,7 @@ function photographerTemplate(data) {
 
         const h3 = document.createElement('h3');
         let text = cityh + "," + countryh
-        h3.textContent = text;
+        h3.innerHTML = text;
 
         const blockquote = document.createElement('blockquote');
         blockquote.textContent=taglineh;
@@ -42,18 +42,21 @@ function photographerTemplate(data) {
         const pricetag = document.createElement('div');
         pricetag.textContent = priceh +"€/jour";
 
+        href.insertAdjacentElement('afterend',article)
 
+
+        href.appendChild(img);
+        href.appendChild(h2)
         
 
 
-        href.appendChild(article);
-
-        article.appendChild(img);
-        article.appendChild(h2);
         article.appendChild(h3);
         article.appendChild(blockquote);
         article.appendChild(pricetag);
+
+        h3.innerHTML=taglineh;
         
+        const photographersection= document.getElementById('photographer_section')
         
 
         return (href);
