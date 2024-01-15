@@ -18,13 +18,18 @@ async function fetchData() {
 
 // take array, target html section
 
-const mediasection=document.querySelector(".media_section")
+const mediaSection=document.querySelector(".media_section")
 
 
 
 
     //use template for each media in array, pass each media to function  according to its type
-
+    media.forEach((item) => {
+      const mediaModel = MediaTemplate(item);  //returns video or image mediamodel
+      const mediaCardDOM = mediaModel.getMediaCardDOM();  // function creates mediacard that has either video or img tag, according to object type
+      mediaSection.appendChild(mediaCardDOM);
+    });
+  
 
 
 
@@ -37,7 +42,7 @@ const mediasection=document.querySelector(".media_section")
       async function init() {
         // Récupère les datas des photographes
         const media = await getMedia();
-        displayData(photographers);
+        displayData(media);
       }
 
   // Call the init function within an async context
