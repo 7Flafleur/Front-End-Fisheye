@@ -7,13 +7,25 @@ const TYPES = {
 class Media {}
 
 
-class Image{}
+class Image  extends Media{
 
-class Video{}
+}
+
+class Movie extends Media{
+    
+}
 
 
 class MediaFactory{
-    createMedia(){
+    createMedia(type, name){
+        switch(type){
+            case TYPES.photo:
+                return new Image(name);
+            case TYPES.video:
+                return new Movie(name);
+        }
         
     }
 }
+
+let factory = new MediaFactory()
