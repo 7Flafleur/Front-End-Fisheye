@@ -21,6 +21,20 @@
     cursor: pointer;
 }
 
+.media_section{
+    display: grid;
+}
+
+
+
+
+
+
+
+
+
+
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;

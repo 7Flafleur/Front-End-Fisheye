@@ -1,3 +1,5 @@
+/////FACTORY t ocreate MEDIA OBJECT//////////
+
 const TYPES = {
     photo :"photo",
     video: "video"
@@ -28,4 +30,24 @@ class MediaFactory{
     }
 }
 
-let factory = new MediaFactory()
+
+
+
+////////////////
+
+function ImageTemplate(data){
+
+    const {id, photographerId,title,image,likes,date,price} = data;
+
+    const pic = `./assets/photographers/${image}`
+    const idhtml  = `${id}`;
+    const cityh = `${city}`;
+    const likesh = `${likes}`;
+    const dateh = `${date}`;
+    const priceh = `${price}`;
+    
+
+
+
+    return(mediasection)
+}

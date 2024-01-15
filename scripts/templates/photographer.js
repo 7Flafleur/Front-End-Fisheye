@@ -59,7 +59,6 @@ function photographerTemplate(data) {
 
         h3.innerHTML=taglineh;
         
-        const photographersection= document.getElementById('photographer_section');
         
 
         return (card);

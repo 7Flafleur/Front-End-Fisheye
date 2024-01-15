@@ -16,6 +16,22 @@ async function fetchData() {
         return media;
       }
 
+// take array, target html section
+
+const mediasection=document.querySelector(".media_section")
+
+
+
+
+    //use template for each media in array, pass each media to function  according to its type
+
+
+
+
+
+
+
+
 
 
       async function init() {
