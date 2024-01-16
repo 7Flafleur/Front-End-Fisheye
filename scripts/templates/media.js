@@ -69,10 +69,25 @@ function MediaTemplate(data) {
 
 function getMediaCardDOM() {
 
-    const mediacard = document.createElement('article');
+    const mediacard = document.createElement('figure');
     mediacard.setAttribute("class","mediacard");
 
-    //elements nécessaires pour la lightbox
+    const medialink = document.createElement('a');
+    medialink.setAttribute("class","focusable");
+    medialink.setAttribute("tabindex","0");  
+    medialink.setAttribute("href","#");    //elements nécessaires pour la lightbox
+
+    if (pic in data){
+        const picth = document.createElement('img')
+        picth.setAttribute("src",pic)
+        picth.setAttribute("alt",mediatitle)
+    }
+
+
+    const mediatitle =document.createElement('figcaption');
+    mediatitle.innerHTML=titleh;                                    // infos supplémentaires?
+
+    
 
 }
 
