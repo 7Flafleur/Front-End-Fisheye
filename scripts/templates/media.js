@@ -30,12 +30,16 @@ function MediaTemplate(data) {
         const mediatitle = document.createElement('figcaption');
         mediatitle.innerHTML = titleh;                                    // infos supplémentaires?
 
+        
+
 
 
         if (pic in data) {
             const picth = document.createElement('img');
             picth.setAttribute("src", pic);
-            picth.setAttribute("alt", "image de" + `${title}`);
+            picth.setAttribute("alt", "image de" + titleh);
+            medialink.appendChild(picth)
+            
 
 
         }
@@ -43,6 +47,7 @@ function MediaTemplate(data) {
             const movie =document.createElement('video');
             movie.setAttribute("src",videoh);
             movie.setAttribute("alt","video de"+titleh)
+            medialink.appendChild(movie)
             
         }
 
@@ -50,6 +55,8 @@ function MediaTemplate(data) {
         const icon = document.createElement('i');                                   //heart icon
         icon.classList.add('fa-solid', 'fa-heart', 'fa-lg');
         icon.setAttribute("style","color: #901c1c;")
+
+
 
 
         return(mediacard)

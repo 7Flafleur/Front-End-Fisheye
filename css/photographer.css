@@ -24,6 +24,14 @@
 .media_section{
     display: flex;
     flex-wrap: wrap;
+    gap: 100px;
+    margin: 0 100px;
+}
+
+.media_section img,video{
+    height:300px ;
+    width:350px;
+    object-fit: cover;
 }
 
 
