@@ -6,10 +6,11 @@ function MediaTemplate(data) {
     const { title, image, video, likes } = data;
 
     const pic = `./assets/media/${image}`
-    const videoh = `${video}`;
+    const videoh = `./assets/media/${video}`;
     const titleh = `${title}`;
     const likesh = `${likes}`;
 
+    const dataset = {pic,videoh,titleh,likesh}
 
 
 
@@ -32,12 +33,18 @@ function MediaTemplate(data) {
 
         const mediatitle = document.createElement('figcaption');
         mediatitle.innerHTML = titleh;                                    // infos supplémentaires?
-
+        mediacard.appendChild(mediatitle)
 
         const icon = document.createElement('i');                                   //heart icon
         icon.classList.add('fa-solid', 'fa-heart', 'fa-lg');
         icon.setAttribute("style", "color: #901c1c;")
+        mediacard.appendChild(icon)
+        
+        const likes = document.createElement('span')
+        likes.setAttribute("class","likes")
+        likes.innerHTML=likesh
 
+        mediacard.appendChild(likes)
 
         return mediacard;
 
@@ -48,10 +55,30 @@ function MediaTemplate(data) {
     //constructor function for Mediacards with video
     function getMovieCardDOM() {
 
+        const medialink = document.createElement('a');
+        medialink.setAttribute("class", "focusable");
+        medialink.setAttribute("tabindex", "0");
+        medialink.setAttribute("href", "#");    //elements nécessaires pour la lightbox
+
+        const mediacard = document.createElement('figure');
+        mediacard.setAttribute("class", "mediacard");
+        medialink.appendChild(mediacard)
+
         const movie = document.createElement('video');
         movie.setAttribute("src", videoh);
-        movie.setAttribute("alt", "video de" + titleh)
+        movie.controls=true;
+    
         mediacard.appendChild(movie)
+
+        const mediatitle = document.createElement('figcaption');
+        mediatitle.innerHTML = titleh;                                    // infos supplémentaires?
+        mediacard.appendChild(mediatitle)
+
+
+        const icon = document.createElement('i');                                   //heart icon
+        icon.classList.add('fa-solid', 'fa-heart', 'fa-lg');
+        icon.setAttribute("style", "color: #901c1c;")
+
 
 
         return mediacard;
@@ -60,7 +87,7 @@ function MediaTemplate(data) {
     //factory function that returns either one or the other type of object
     function getMediaCardDOM() {
         // Determine whether to create an image media card or a video media card based on the available data
-        if (data.image != 'undefined') {
+        if (data.image != undefined) {
             return getPhotoCardDOM();
         } else //if (data.video!='undefined') 
         {
