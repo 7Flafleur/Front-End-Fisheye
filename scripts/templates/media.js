@@ -86,10 +86,21 @@ function MediaTemplate(data) {
         if (pic in data) {
             const picth = document.createElement('img');
             picth.setAttribute("src", pic);
-            picth.setAttribute("alt", "image de" + mediatitle);
+            picth.setAttribute("alt", "image de" + titleh);
 
 
         }
+        else if (videoh in data){
+            const movie =document.createElement('video');
+            movie.setAttribute("src",videoh);
+            movie.setAttribute("alt","video de"+titleh)
+            
+        }
+
+
+        const icon = document.createElement('i');
+        icon.classList.add('fa-solid', 'fa-heart', 'fa-lg');
+        icon.setAttribute("style","color: #901c1c;")
 
 
         return(mediacard)
