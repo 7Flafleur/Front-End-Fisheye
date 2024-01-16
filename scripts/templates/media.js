@@ -98,7 +98,7 @@ function MediaTemplate(data) {
         }
 
 
-        const icon = document.createElement('i');
+        const icon = document.createElement('i');                                   //heart icon
         icon.classList.add('fa-solid', 'fa-heart', 'fa-lg');
         icon.setAttribute("style","color: #901c1c;")
 
