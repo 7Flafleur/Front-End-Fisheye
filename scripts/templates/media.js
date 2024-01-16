@@ -32,19 +32,25 @@ function MediaTemplate(data) {
 
 
         const mediatitle = document.createElement('figcaption');
-        mediatitle.innerHTML = titleh;                                    // infos supplémentaires?
         mediacard.appendChild(mediatitle)
+        const captioncontainer = document.createElement('div')
+        captioncontainer.setAttribute("class","captioncontainer")
+        mediatitle.appendChild(captioncontainer)
+        captioncontainer.innerHTML = titleh;                                    // infos supplémentaires?
 
         const icon = document.createElement('i');                                   //heart icon
         icon.classList.add('fa-solid', 'fa-heart', 'fa-lg');
         icon.setAttribute("style", "color: #901c1c;")
-        mediacard.appendChild(icon)
+        
         
         const likes = document.createElement('span')
         likes.setAttribute("class","likes")
         likes.innerHTML=likesh
+        likes.appendChild(icon)
 
-        mediacard.appendChild(likes)
+        captioncontainer.appendChild(likes)
+
+
 
         return mediacard;
 
@@ -71,13 +77,25 @@ function MediaTemplate(data) {
         mediacard.appendChild(movie)
 
         const mediatitle = document.createElement('figcaption');
-        mediatitle.innerHTML = titleh;                                    // infos supplémentaires?
         mediacard.appendChild(mediatitle)
+        const captioncontainer = document.createElement('div')
+        captioncontainer.setAttribute("class","captioncontainer")
+        mediatitle.appendChild(captioncontainer)
+        captioncontainer.innerHTML = titleh;                                    // infos supplémentaires?
+        
 
 
         const icon = document.createElement('i');                                   //heart icon
         icon.classList.add('fa-solid', 'fa-heart', 'fa-lg');
         icon.setAttribute("style", "color: #901c1c;")
+        
+        
+        const likes = document.createElement('span')
+        likes.setAttribute("class","likes")
+        likes.innerHTML=likesh
+        likes.appendChild(icon)
+
+        captioncontainer.appendChild(likes)
 
 
 

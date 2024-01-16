@@ -34,7 +34,10 @@
     object-fit: cover;
 }
 
-
+.captioncontainer{
+    display: flex;
+    justify-content: space-between;
+}
 
 
 
