@@ -22,16 +22,26 @@
 }
 
 .media_section{
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    gap: 100px;
-    margin: 0 100px;
+    gap:100px;
+    width: 1161px;
+    margin: 66px;
+    padding:0;
+
 }
 
 .media_section img,video{
-    height:300px ;
-    width:350px;
-    object-fit: cover;
+    max-width: 350px;
+    max-height: 300px;;
+    object-fit: contain;
+}
+
+.media_section figure{
+    box-sizing: border-box;
+    
+    padding:0;
 }
 
 .captioncontainer{
