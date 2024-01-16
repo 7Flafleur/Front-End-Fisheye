@@ -1,40 +1,3 @@
-/////FACTORY t ocreate MEDIA OBJECT//////////
-
-const TYPES = {
-    photo: "photo",
-    video: "video"
-}
-
-
-class Media { }
-
-
-class Image extends Media {
-
-}
-
-class Movie extends Media {
-
-}
-
-
-class MediaFactory {
-    createMedia(type) {
-        switch (type) {
-            case TYPES.photo:
-                return new Image(name);
-            case TYPES.video:
-                return new Movie(name);
-        }
-
-    }
-}
-
-
-
-
-////////////////
-
 function MediaTemplate(data) {
 
     //create image model
@@ -86,7 +49,7 @@ function MediaTemplate(data) {
         if (pic in data) {
             const picth = document.createElement('img');
             picth.setAttribute("src", pic);
-            picth.setAttribute("alt", "image de" + titleh);
+            picth.setAttribute("alt", "image de" + `${title}`);
 
 
         }
