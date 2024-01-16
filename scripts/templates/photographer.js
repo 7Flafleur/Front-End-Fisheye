@@ -14,8 +14,8 @@ function photographerTemplate(data) {
 
         const photographerpage ="photographer.html?id="+idhtml
 
-        const card = document.createElement('div');
-        card.setAttribute("class","card");
+        const usercard = document.createElement('div');
+        usercard.setAttribute("class","usercard");
 
         const href= document.createElement('a');
         href.setAttribute("href",photographerpage)
@@ -45,7 +45,7 @@ function photographerTemplate(data) {
         const pricetag = document.createElement('div');
         pricetag.textContent = priceh +"€/jour";
 
-        card.appendChild(href);
+        usercard.appendChild(href);
 
         href.appendChild(img);
         href.appendChild(h2);
@@ -61,7 +61,7 @@ function photographerTemplate(data) {
         
         
 
-        return (card);
+        return (usercard);
     }
 
 
