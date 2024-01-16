@@ -20,7 +20,7 @@ async function getMedia() {
   
   let indivmedia = new Array();
   media.forEach((object)=>{ 
-    console.log(urlid)
+    
     if(object.photographerId==urlid){
       indivmedia.push(object)
     }

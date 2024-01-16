@@ -61,9 +61,8 @@ function photographerTemplate(data) {
         
         
 
-        return (usercard);
+        return usercard;
     }
-
 
 
     return { name, picture,idhtml,cityh,countryh,taglineh,priceh, getUserCardDOM }
