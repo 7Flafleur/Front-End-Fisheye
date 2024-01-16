@@ -22,7 +22,8 @@
 }
 
 .media_section{
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 

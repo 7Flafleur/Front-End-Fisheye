@@ -1,11 +1,12 @@
 function MediaTemplate(data) {
 
     //create image model
-    if ('image' in data) {
+    
 
-        const { id, photographerId, title, image, likes, date, price } = data;
+        const { id, photographerId, title, image,video, likes, date, price } = data;
 
         const pic = `./assets/media/${image}`
+        const videoh= `${video}`
         const idhtml = `${id}`;
         const photographeridh = `${photographerId}`
         const titleh = `${title}`;
@@ -13,21 +14,6 @@ function MediaTemplate(data) {
         const dateh = `${date}`;
         const priceh = `${price}`;
 
-    }
-    else
-    //create video model
-    {
-        const { id, photographerId, title, video, likes, date, price } = data;
-
-        const videoh = `./assets/media/${video}`
-        const idhtml = `${id}`;
-        const photographeridh = `${photographerId}`;
-        const likesh = `${likes}`;
-        const titleh = `${title}`;
-        const dateh = `${date}`;
-        const priceh = `${price}`;
-
-    }
 
 
     function getMediaCardDOM() {
