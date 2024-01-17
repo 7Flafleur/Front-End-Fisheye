@@ -17,9 +17,12 @@ function MediaTemplate(data) {
     function getPhotoCardDOM() {
 
         const medialink = document.createElement('a');
-        medialink.setAttribute("class", "focusable");
+        medialink.setAttribute("class", "focusable medialink");
         medialink.setAttribute("tabindex", "0");
         medialink.setAttribute("href", "#");    //elements nécessaires pour la lightbox
+
+        
+
 
         const mediacard = document.createElement('figure');
         mediacard.setAttribute("class", "mediacard");
@@ -39,7 +42,7 @@ function MediaTemplate(data) {
         captioncontainer.innerHTML = titleh;                                    // infos supplémentaires?
 
         const icon = document.createElement('i');                                   //heart icon
-        icon.classList.add('fa-solid', 'fa-heart', 'fa-');
+        icon.classList.add('fa-solid', 'fa-heart', 'fa-sm');
         icon.setAttribute("style", "color: #901c1c;")
         
         
@@ -66,7 +69,7 @@ function MediaTemplate(data) {
         medialink.setAttribute("tabindex", "0");
         medialink.setAttribute("href", "#");    //elements nécessaires pour la lightbox
 
-        const mediacard = document.createElement('figure');
+        const mediacard = document.createElement('div');
         mediacard.setAttribute("class", "mediacard");
         medialink.appendChild(mediacard)
 
@@ -76,7 +79,7 @@ function MediaTemplate(data) {
     
         mediacard.appendChild(movie)
 
-        const mediatitle = document.createElement('figcaption');
+        const mediatitle = document.createElement('div');
         mediacard.appendChild(mediatitle)
         const captioncontainer = document.createElement('div')
         captioncontainer.setAttribute("class","captioncontainer")
