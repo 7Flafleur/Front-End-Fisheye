@@ -41,6 +41,7 @@ body{
     border:dashed #901C1C;
     display: flex;
     flex-wrap: wrap;
+    gap: 135px;
     align-items: center;
     justify-content: center;
     
@@ -55,8 +56,11 @@ body{
 
 }
 
-.mediacard{
+/* 
+.medialink{
     border:#312E2E dotted;
+    text-decoration: none;
+    height:100%;
     width:28%;
     display: flex;
     flex-direction: column;
@@ -65,12 +69,34 @@ body{
 
     
 
+} */
+
+.medialink {
+    border: #312E2E dotted;
+    text-decoration: none;
+    width: 28%;
+    padding-bottom: 28%; /* Set padding to create a square aspect ratio */
+    position: relative; /* Needed for absolute positioning */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
+
+/* Absolute positioning for child elements */
+.medialink > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+
 
 .media_section img,video{
     border-radius:3%;
-    width: 350px;
-    height:300px;
+    width: 100%;
+    height:85%;
     object-fit:cover ;
 }
 

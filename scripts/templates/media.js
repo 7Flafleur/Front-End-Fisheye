@@ -17,7 +17,7 @@ function MediaTemplate(data) {
     function getPhotoCardDOM() {
 
         const medialink = document.createElement('a');
-        medialink.setAttribute("class", "focusable");
+        medialink.setAttribute("class", "focusable medialink");
         medialink.setAttribute("tabindex", "0");
         medialink.setAttribute("href", "#");    //elements nécessaires pour la lightbox
 
@@ -52,7 +52,7 @@ function MediaTemplate(data) {
 
 
 
-        return mediacard;
+        return medialink;
 
 
     }
@@ -62,7 +62,7 @@ function MediaTemplate(data) {
     function getMovieCardDOM() {
 
         const medialink = document.createElement('a');
-        medialink.setAttribute("class", "focusable");
+        medialink.setAttribute("class", "focusable medialink");
         medialink.setAttribute("tabindex", "0");
         medialink.setAttribute("href", "#");    //elements nécessaires pour la lightbox
 
@@ -99,7 +99,7 @@ function MediaTemplate(data) {
 
 
 
-        return mediacard;
+        return medialink;
     }
 
     //factory function that returns either one or the other type of object
