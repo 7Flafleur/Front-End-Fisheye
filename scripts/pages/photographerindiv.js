@@ -9,10 +9,39 @@ console.log("URLId",urlid)
 
 //use function from index.js script
 
+async function fetchData() {
+  let response = await fetch('./data/photographers.json');
+  let data = await response.json();
+  let photographers = data.photographers;
+  return photographers;
+}
 
+//get data for header
 
+async function getPhotoHeader(){
+let data = await fetchData();
+console.log("Data",data)
 
+data.forEach((object)=>{
+  
+  let PhotographerData={}
+  if(object.photographerId==urlid){
+     PhotographerData = object;
+  }  
+})
+return PhotographerData;
+}
 
+async function displayHeader(indivmedia) {
+  const headerSection = document.querySelector(".phtotograph-header")
+
+  //use template for each media in array, pass each media to function  according to its type
+  ((item) => {
+    const headerModel = MediaTemplate(item);  //returns video or image mediamodel
+    const mediaCardDOM = mediaModel.getUserHeaderDOM();  // function creates mediacard that has either video or img tag, according to object type
+    mediaSection.appendChild(mediaCardDOM);
+  });
+}
 
 
 //get media
@@ -52,6 +81,8 @@ async function displayMedia(indivmedia) {
     mediaSection.appendChild(mediaCardDOM);
   });
 }
+
+
 
 
 

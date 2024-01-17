@@ -64,11 +64,33 @@ function photographerTemplate(data) {
         return usercard;
     }
 
-    // function get userHeaderDOM(){
+     function getuserHeaderDOM(){
+
+        const
+
+        const img = document.createElement( 'img' );
+        img.setAttribute("src", picture)
+        img.setAttribute("class","portrait" )
+        let imgatt= "image de " + name
+        img.setAttribute("alt",imgatt)
+
+        const infos =document.createElement('div');
+        infos.setAttribute("class","infos")
+
+        const h2 = document.createElement( 'h1' );
+        h2.textContent = name;
+
+        const h3 = document.createElement('h2');
+        let text = cityh + "," + countryh
+        h3.innerHTML = text;
+
+        const blockquote = document.createElement('blockquote');
+        blockquote.textContent=taglineh;
+        
         
 
 
-    // }
+     }
 
 
     return { name, picture,idhtml,cityh,countryh,taglineh,priceh, getUserCardDOM }
