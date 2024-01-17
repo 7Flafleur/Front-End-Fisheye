@@ -33,9 +33,10 @@
 }
 
 .media_section img,video{
+    border-radius:3%;
     max-width: 350px;
-    max-height: 300px;;
-    object-fit: contain;
+    max-height: 300px;
+    object-fit: cover;
 }
 
 .media_section figure{
