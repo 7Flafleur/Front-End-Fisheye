@@ -39,13 +39,13 @@ function MediaTemplate(data) {
         captioncontainer.innerHTML = titleh;                                    // infos supplémentaires?
 
         const icon = document.createElement('i');                                   //heart icon
-        icon.classList.add('fa-solid', 'fa-heart', 'fa-lg');
+        icon.classList.add('fa-solid', 'fa-heart', 'fa-');
         icon.setAttribute("style", "color: #901c1c;")
         
         
         const likes = document.createElement('span')
         likes.setAttribute("class","likes")
-        likes.innerHTML=likesh
+        likes.innerHTML=likesh+"  ";
         likes.appendChild(icon)
 
         captioncontainer.appendChild(likes)

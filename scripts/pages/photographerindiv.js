@@ -1,4 +1,4 @@
-
+//get photographer Id from URL
 const currentURLsearch =new URLSearchParams(window.location.search);
 const urlid=(currentURLsearch.get("id"));
 
@@ -6,7 +6,17 @@ console.log("URLId",urlid)
 
 
 //get the .json data from server, return promise
-async function fetchData() {
+
+//use function from index.js script
+
+
+
+
+
+
+
+//get media
+async function fetchMediaData() {
   let response = await fetch('./data/photographers.json');
   let data = await response.json();
   let media = data.media;
@@ -15,9 +25,10 @@ async function fetchData() {
 
 //await promise, return array
 async function getMedia() {
-  let media = await fetchData();
+  let media = await fetchMediaData();
   console.log("media:",media)
   
+  //get array for individual photographer
   let indivmedia = new Array();
   media.forEach((object)=>{ 
     
@@ -29,12 +40,8 @@ async function getMedia() {
   return indivmedia;
 }
 
-// sort overall array , create array with photographer's media
 
-
-
-
-// take array, target html section
+// take array, target MEDIA html section
 async function displayMedia(indivmedia) {
   const mediaSection = document.querySelector(".media_section")
 
@@ -54,7 +61,7 @@ async function init() {
   displayMedia(indivmedia);
 }
 
-// Call the init function within an async context
+// MAIN CODE Call the init function within an async context 
 (async () => {
   await init();
 })();
