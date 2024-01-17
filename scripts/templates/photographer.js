@@ -64,6 +64,12 @@ function photographerTemplate(data) {
         return usercard;
     }
 
+    function get userHeaderDOM(){
+        
+
+
+    }
+
 
     return { name, picture,idhtml,cityh,countryh,taglineh,priceh, getUserCardDOM }
 
