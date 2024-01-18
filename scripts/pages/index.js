@@ -25,7 +25,7 @@ async function fetchData() {
       photographersSection.appendChild(userCardDOM);
     });
   }
-  
+  /////////////////////////////////////////////////////////////////////////////////
   async function init() {
     // Récupère les datas des photographes
     const photographers = await getPhotographers();

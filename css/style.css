@@ -81,7 +81,7 @@ a:focus {
   line-height: normal;
 }
 
-.photographer_section  img {
+.photographer_section  img, .photograph-header img {
   height: 200px;
   width: 200px;
   border-radius: 50%;
