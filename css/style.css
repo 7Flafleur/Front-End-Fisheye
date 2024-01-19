@@ -59,7 +59,8 @@ a:focus {
   flex-direction: column;
 }
 
-.photographer_section  h2 {
+.photographer_section h2,
+.photograph-header h1 {
   color: #d3573c;
   font-size: 36px;
   margin-bottom: 0;
@@ -72,7 +73,8 @@ a:focus {
   line-height: normal;
 }
 
-.photographer_section h3 {
+.photographer_section h3,
+.photograph-header h2 {
   margin: 0 0 2px 0;
   color: #901c1c;
   text-align: center;
@@ -81,7 +83,8 @@ a:focus {
   line-height: normal;
 }
 
-.photographer_section  img, .photograph-header img {
+.photographer_section img,
+.photograph-header img {
   height: 200px;
   width: 200px;
   border-radius: 50%;
