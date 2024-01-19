@@ -18,6 +18,7 @@ body {
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+  z-index: 20;
 }
 
 .headercontainer {
@@ -36,6 +37,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-evenly;
+  height: 200px;
+  width: 350px;
 }
 
 .infos blockquote {
@@ -72,6 +76,7 @@ body {
   margin-right: 100px;
   margin-left: 100px;
   position: relative;
+  z-index: 20;
 }
 
 .medialink {
@@ -104,7 +109,7 @@ video {
 .captioncontainer {
   color: #901c1c;
   display: flex;
-  width: 350px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   font-family: DM Sans;
@@ -140,6 +145,7 @@ video {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  z-index: 30;
 }
 
 .modal {
@@ -151,7 +157,10 @@ video {
   align-items: center;
   justify-content: space-between;
   padding: 35px;
+  position: sticky;
+  top: 20px;
   margin: auto;
+  z-index: 30;
 }
 
 .modal header {
@@ -194,4 +203,10 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+#textarea {
+ 
+  height: 200px;
+
 }

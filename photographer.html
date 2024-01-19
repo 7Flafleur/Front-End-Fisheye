@@ -15,8 +15,8 @@
     <main id="main">
       <div class="photograph-header">
       </div>
-      <section class="media_section"></section>
-      <div id="pricetag"> LIKES----300€/jour </div>
+      <section class="media_section" role="media-section"></section>
+      <div id="pricetag" role="price"> LIKES----300€/jour </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -26,8 +26,15 @@
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="Prénom">Prénom</label>
+						<input type="text" name="Prénom"/>
+            <label for="Nom">Nom</label>
+						<input type="text" name="om"/>
+            <label for="email">Email</label>
+            <input type="email" name="email">
+            <label for="message">Votre message</label>
+            <input id="textarea" type="textarea" name="message">
+
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
