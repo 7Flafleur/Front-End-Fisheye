@@ -150,26 +150,6 @@ function displayHeader(dataobject) {
 
 
 
-//////////Main code//////////
-
-let Theperson = findperson(dataargument, urlid);
-
-console.log("Found Person:", Theperson);
-console.log("Person is :", typeof (Theperson));
-
-let deconstructedPerson = HeaderTemplate(Theperson);
-
-console.log("Deconstructed person:", deconstructedPerson)
-console.log("Deconstructed person is an ", typeof (deconstructedPerson))
-
-
-displayHeader(Theperson);
-
-
-
-
-
-
 
 
 //        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
