@@ -62,6 +62,13 @@ console.log("URLId",urlid)
 
 
 ////////////////
+//get the .json data from server, return promise
+async function fetchData() {
+  let response = await fetch('./data/photographers.json');
+  let data = await response.json();
+  let photographers = data.photographers;
+  return photographers;
+}
 
 
 //get media
@@ -70,7 +77,16 @@ async function fetchMediaData() {
   let data = await response.json();
   let media = data.media;
   return media;        ////////////array of JSON objects
+
+
 }
+
+  //await promise, return array
+  async function getPhotographers() {
+    let photographers = await fetchData();
+    console.log(photographers)
+    return photographers;
+  }
 
 //await promise, return array
 async function getMedia() {
@@ -110,6 +126,9 @@ async function displayMedia(indivmedia) {
 
 async function init() {
   // Get data from JSON file
+  const photographers = await getPhotographers();
+  const person = findperson(photographers, urlid);
+  displayHeader(person);
   const indivmedia = await getMedia();
   // const headermedia = await getPhotoHeader();
   // displayHeader(headermedia);
