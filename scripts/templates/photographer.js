@@ -40,7 +40,7 @@ function photographerTemplate(data) {
         h3.innerHTML = text;
         h3.textContent = cityh + "," + countryh;
 
-        console.log(text)
+       
 
         const blockquote = document.createElement('blockquote');
         blockquote.textContent=taglineh;
