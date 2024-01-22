@@ -2,17 +2,17 @@ function photographerTemplate(data) {
     const { name,id,city,country,tagline,price, portrait, } = data;
 
         const picture = `./assets/photographers/${portrait}`;
-        const idhtml  = `${id}`;
-        const cityh = `${city}`;
-        const countryh = `${country}`;
-        const taglineh = `${tagline}`;
-        const priceh = `${price}`;
+        // const id  = `${id}`;
+        // const city = `${city}`;
+        // const country = `${country}`;
+        // const tagline = `${tagline}`;
+        // const price = `${price}`;
 
        
 
     function getUserCardDOM() {
 
-        const photographerpage ="photographer.html?id="+idhtml
+        const photographerpage ="photographer.html?id="+id
 
         const usercard = document.createElement('div');
         usercard.setAttribute("class","usercard");
@@ -23,7 +23,7 @@ function photographerTemplate(data) {
         href.setAttribute("tabindex","0")
 
         const article = document.createElement( 'article' );
-        article.setAttribute("id",idhtml)  // create id for each article
+        article.setAttribute("id",id)  // create id for each article
 
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
@@ -36,17 +36,17 @@ function photographerTemplate(data) {
         h2.textContent = name;
 
         const h3 = document.createElement('h3');
-        let text = cityh + "," + countryh
+        let text = city + "," + country
         h3.innerHTML = text;
-        h3.textContent = cityh + "," + countryh;
+        h3.textContent = city + "," + country;
 
        
 
         const blockquote = document.createElement('blockquote');
-        blockquote.textContent=taglineh;
+        blockquote.textContent=tagline;
 
         const pricetag = document.createElement('aside');
-        pricetag.textContent = priceh +"€/jour";
+        pricetag.textContent = price +"€/jour";
 
         usercard.appendChild(href);
 
@@ -83,11 +83,11 @@ function photographerTemplate(data) {
         h2.textContent = name;
 
         const h3 = document.createElement('h2');
-        let text = cityh + "," + countryh
+        let text = city + "," + country
         h3.innerHTML = text;
 
         const blockquote = document.createElement('blockquote');
-        blockquote.textContent=taglineh;
+        blockquote.textContent=tagline;
 
         infos.append(h2,h3,blockquote);
 
@@ -120,10 +120,10 @@ function photographerTemplate(data) {
      }
 
 
-    return { name, picture,idhtml,cityh,countryh,taglineh,priceh, getUserCardDOM,getuserHeaderDOM }
+    return { name, picture,id,city,country,tagline,price, getUserCardDOM,getuserHeaderDOM }
 
 
 
 }
 
-//        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+

@@ -17,12 +17,12 @@ function HeaderTemplate(dataparameter) {
     const { name, id, city, country, tagline, price, portrait, } = dataparameter;
 
     const picture = `./assets/photographers/${portrait}`;
-    const idhtml = `${id}`;
-    const cityh = `${city}`;
-    const countryh = `${country}`;
-    const taglineh = `${tagline}`;
-    const priceh = `${price}`;
-    const nameh = `${name}`;
+   
+    
+    
+ 
+   
+    
 
     function getuserHeaderDOM() {
 
@@ -35,14 +35,14 @@ function HeaderTemplate(dataparameter) {
         infos.setAttribute("class", "infos")
 
         const h2 = document.createElement('h1');
-        h2.textContent = nameh;
+        h2.textContent = name;
 
         const h3 = document.createElement('h2');
-        let text = cityh + "," + country
+        let text = city + "," + country
         h3.innerHTML = text;
 
         const blockquote = document.createElement('blockquote');
-        blockquote.textContent = taglineh;
+        blockquote.textContent = tagline;
 
         infos.append(h2, h3, blockquote);
 
@@ -60,6 +60,8 @@ function HeaderTemplate(dataparameter) {
         const img = document.createElement('img');
         img.setAttribute("src", picture)
         let imgatt = "image de " + name
+console.log(imgatt)
+
         img.setAttribute("alt", imgatt)
 
         figure.appendChild(img)
@@ -78,7 +80,7 @@ function HeaderTemplate(dataparameter) {
     //     const name = 
     // }
 
-    return { name, picture, idhtml, cityh, countryh, taglineh, priceh, getuserHeaderDOM }
+    return { name, picture, id, city, country, tagline, price, getuserHeaderDOM }
 
 }
 
