@@ -22,6 +22,7 @@ function HeaderTemplate(dataparameter) {
     const countryh = `${country}`;
     const taglineh = `${tagline}`;
     const priceh = `${price}`;
+    const nameh = `${name}`;
 
     function getuserHeaderDOM() {
 
@@ -34,10 +35,10 @@ function HeaderTemplate(dataparameter) {
         infos.setAttribute("class", "infos")
 
         const h2 = document.createElement('h1');
-        h2.textContent = name;
+        h2.textContent = nameh;
 
         const h3 = document.createElement('h2');
-        let text = cityh + "," + countryh
+        let text = cityh + "," + country
         h3.innerHTML = text;
 
         const blockquote = document.createElement('blockquote');
@@ -72,6 +73,10 @@ function HeaderTemplate(dataparameter) {
         return userHeaderDOM
 
     }
+
+    // function getUserModalDOM(){
+    //     const name = 
+    // }
 
     return { name, picture, idhtml, cityh, countryh, taglineh, priceh, getuserHeaderDOM }
 

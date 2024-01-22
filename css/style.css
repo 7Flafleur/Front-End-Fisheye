@@ -53,8 +53,8 @@ img {
   border-radius: 30%;}
 
 a:focus {
-  outline: 3px dotted #d3573c;
-  border-radius: 30%;
+  /* outline: 3px dotted #d3573c;
+  border-radius: 30%; */
   cursor: pointer;
   transform: perspective(2000px) translate3d(0px, 0px, 50px) ;
 }

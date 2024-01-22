@@ -38,17 +38,22 @@ function photographerTemplate(data) {
         const h3 = document.createElement('h3');
         let text = cityh + "," + countryh
         h3.innerHTML = text;
+        h3.textContent = cityh + "," + countryh;
+
+        console.log(text)
 
         const blockquote = document.createElement('blockquote');
         blockquote.textContent=taglineh;
 
-        const pricetag = document.createElement('div');
+        const pricetag = document.createElement('aside');
         pricetag.textContent = priceh +"€/jour";
 
         usercard.appendChild(href);
 
         href.appendChild(img);
         href.appendChild(h2);
+        href.appendChild(h3);
+        
 
         href.insertAdjacentElement('afterend',article);
 
@@ -57,7 +62,7 @@ function photographerTemplate(data) {
         article.appendChild(blockquote);
         article.appendChild(pricetag);
 
-        h3.innerHTML=taglineh;
+       
         
         
 

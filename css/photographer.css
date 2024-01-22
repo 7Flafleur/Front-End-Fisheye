@@ -1,5 +1,13 @@
 #contact_modal {
   display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(255, 228, 196, 0.2);
 }
 
 body {
@@ -11,6 +19,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+ 
 }
 
 .photograph-header {
@@ -76,7 +86,7 @@ body {
   margin-right: 100px;
   margin-left: 100px;
   position: relative;
-  z-index: 20;
+  
 }
 
 .medialink {
@@ -158,14 +168,14 @@ video {
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 35px;
   position: sticky;
-  top: 20px;
+  top: 100px;
   margin: auto;
   z-index: 30;
 }
@@ -180,9 +190,9 @@ video {
 }
 
 .modal header h2 {
-  font-size: 64px;
+  font-size: 48px;
   font-weight: normal;
-  text-align: center;
+  text-align: left;
 }
 
 form {
