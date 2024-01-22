@@ -76,11 +76,11 @@ console.log(imgatt)
 
     }
 
-    // function getUserModalDOM(){
-    //     const name = 
-    // }
+    function addName(){
+return name
+    }
 
-    return { name, picture, id, city, country, tagline, price, getuserHeaderDOM }
+    return { name, picture, id, city, country, tagline, price, getuserHeaderDOM,addName }
 
 }
 
@@ -92,10 +92,15 @@ function displayHeader(dataobject) {
 
 }
 
+function insertNameForm(dataobject){
+    const formheading=document.querySelector("#formheading");
+    const personmodel=HeaderTemplate(dataobject);
+    const name=personmodel.addName();
+    formheading.innerHTML="Contactez-moi <br>"+name
+}
 
 
 
 
 
 
-//        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>

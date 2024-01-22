@@ -183,6 +183,7 @@ video {
 .modal header {
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 .modal header img {
