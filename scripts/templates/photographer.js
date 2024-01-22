@@ -120,7 +120,8 @@ function photographerTemplate(data) {
      }
 
 
-    return { name, picture,id,city,country,tagline,price, getUserCardDOM,getuserHeaderDOM }
+
+    return { name, picture,id,city,country,tagline,price, getUserCardDOM,getuserHeaderDOM, }
 
 
 

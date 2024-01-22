@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,32 +10,38 @@
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+      <a href="index.html" title="Site-Logo"><img src="assets/images/logo.png" class="logo" alt="Fisheye-Logo"/></a>
     </header>
     <main id="main">
       <div class="photograph-header">
       </div>
       <section class="media_section" role="media-section"></section>
-      <div id="pricetag" role="price"> LIKES----300€/jour </div>
+       <aside id="pricetag" role="price"> </aside> 
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="form">
 			<div class="modal">
 				<header>
           <h2 id="formheading">Contactez-moi</h2>
         
         
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="x" onclick="closeModal()" />
         </header>
 				<form>
 					<div>
-						<label for="Prénom">Prénom</label>
-						<input type="text" name="Prénom"/>
-            <label for="Nom">Nom</label>
-						<input type="text" name="om"/>
-            <label for="email">Email</label>
-            <input type="email" name="email">
-            <label for="message">Votre message</label>
-            <input id="textarea" type="textarea" name="message">
+						<label for="Prénom">Prénom
+              <input type="text" id="Prénom" name="Prénom"/></label>
+						
+            <label for="Nom">Nom
+              <input type="text" id="Nom" name="Nom"/></label>
+						
+            <label for="email">Email
+              <input type="email" id="email" name="email"/></label>
+            
+        
+            <label for="message">Votre message
+              <input id="message" type="textarea" name="message">
+            </label>
+            
 
 					</div>
           <button class="contact_button">Envoyer</button>

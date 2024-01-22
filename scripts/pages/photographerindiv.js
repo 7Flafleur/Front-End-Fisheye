@@ -50,7 +50,7 @@ async function getMedia() {
       indivmedia.push(object)
     }
   })
-  console.log("Indiv",indivmedia)
+  // console.log("Indiv",indivmedia)
   return indivmedia;
 }
 
@@ -64,6 +64,7 @@ async function displayMedia(indivmedia) {
     const mediaModel = MediaTemplate(item);  //returns video or image mediamodel
     const mediaCardDOM = mediaModel.getMediaCardDOM();  // function creates mediacard that has either video or img tag, according to object type
     mediaSection.appendChild(mediaCardDOM);
+
   });
 }
 
@@ -81,6 +82,7 @@ async function init() {
   // displayHeader(headermedia);
   displayMedia(indivmedia);
   insertNameForm(person);
+  addPriceTag(person);
 }
 
 // MAIN CODE Call the init function within an async context 

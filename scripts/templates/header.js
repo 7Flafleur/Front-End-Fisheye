@@ -5,10 +5,9 @@ function findperson(dataparameter, criteria) {
         if (person.id == criteria) {
             console.log("Match found!");
             return person; // Return the index of the matched person
-        } else {
-            console.log("No match found!");
-        }
+        } 
     }
+    console.log("No match found!");
     return -1; // Return -1 if no match is found
 }
 
@@ -60,7 +59,7 @@ function HeaderTemplate(dataparameter) {
         const img = document.createElement('img');
         img.setAttribute("src", picture)
         let imgatt = "image de " + name
-console.log(imgatt)
+// console.log(imgatt)
 
         img.setAttribute("alt", imgatt)
 
@@ -97,6 +96,14 @@ function insertNameForm(dataobject){
     const personmodel=HeaderTemplate(dataobject);
     const name=personmodel.addName();
     formheading.innerHTML="Contactez-moi <br>"+name
+}
+
+function addPriceTag(dataobject){
+    const price=document.querySelector("#pricetag");
+    const personmodel=HeaderTemplate(dataobject);
+    const pricevalue=personmodel.price;
+    price.innerHTML=pricevalue+"€/jour";
+    price.textContent="Likes "+pricevalue+"€/jour";
 }
 
 
