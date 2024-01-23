@@ -165,11 +165,11 @@ video {
   z-index: 30;
 }
 
+
 .modal {
   border-radius: 5px;
   background-color: #db8876;
   width: 30%;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -178,6 +178,11 @@ video {
   top: 100px;
   margin: auto;
   z-index: 30;
+}
+
+#hi{
+  display: none;
+
 }
 
 .modal header {
@@ -227,4 +232,13 @@ form input {
  
   height: 200px;
 
+}
+
+#bye{
+
+  display: flex;
+  font-size: 48px;
+  font-weight: normal;
+  text-align: left;
+  height: 60vh;
 }
