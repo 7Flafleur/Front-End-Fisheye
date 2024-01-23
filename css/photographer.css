@@ -209,8 +209,10 @@ form {
 }
 
 form label {
+  border: olivedrab solid 1px;
   color: #312e2e;
   font-size: 36px;
+  display: inline;
 }
 
 form div {
@@ -228,7 +230,30 @@ form input {
   border-radius: 5px;
 }
 
-#textarea {
+.errormsg{
+display: none;
+display:flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+
+
+}
+
+.errormsg[data-error]::after{
+  
+  content: attr(data-error);
+  display: inline;
+  color: yellow;
+  font-size: 25px;
+opacity: 0;
+}
+
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+
+#message {
  
   height: 200px;
 
@@ -236,7 +261,7 @@ form input {
 
 #bye{
 
-  display: flex;
+  display: none;
   font-size: 48px;
   font-weight: normal;
   text-align: left;

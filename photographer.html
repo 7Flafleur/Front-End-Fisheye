@@ -27,25 +27,40 @@
         
           <img src="assets/icons/close.svg" alt="x" onclick="closeModal()" />
         </header>
-				<form>
+				<form id="contactForm" name="contactForm" novalidate>
 					<div>
-						<label for="Prénom">Prénom
-              <input type="text" id="Prénom" name="Prénom"/></label>
+            
 						
-            <label for="Nom">Nom
-              <input type="text" id="Nom" name="Nom"/></label>
-						
-            <label for="email">Email
-              <input type="email" id="email" name="email"/></label>
+              <div class="errormsg" id="firstnameerror" data-error="Au moins deux charactères!">
+                <label for="Prénom">Prénom
+                             </label> 
+                
+              </div>
+                           <input type="text" id="Prénom" name="Prénom"/>  
+        
+
+            <div class="errormsg" id="lastnameerror" data-error="Au moins deux charactères!">
+              <label for="Nom">Nom
+                </label>
+                
+            </div>
+            <input type="text" id="Nom" name="Nom"/>
+
+            <div class="errormsg" id="emailerror" data-error="Email non valide!">
+              <label for="Email">Email
+               
+            </div>
+             
+             <input type="email" id="Email" name="email"/>
             
         
             <label for="message">Votre message
-              <input id="message" type="textarea" name="message">
-            </label>
+            </label>              <input id="message" type="textarea" name="message">
+
             
 
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" role="send" >Envoyer</button>
 				</form>
 			</div>
 
@@ -58,7 +73,7 @@
         
           <img src="assets/icons/close.svg" alt="x" onclick="closeModal()" />
         </header>
-        Merci pour votre message!
+        <div class="merci">Merci pour votre message!</div>
         
       </div>
 
