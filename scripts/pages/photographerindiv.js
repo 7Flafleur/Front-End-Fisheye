@@ -31,7 +31,7 @@ async function fetchMediaData() {
   //await promise, return array
   async function getPhotographers() {
     let photographers = await fetchData();
-    console.log(photographers)
+    // console.log(photographers)
     return photographers;
   }
 

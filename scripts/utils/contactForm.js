@@ -26,9 +26,22 @@ function sendForm(){
     const contactform = document.getElementById("contactForm");
 
 
+// //"classic way to log form data"
+
+
+//     const formc = document.getElementById("contactForm");
+
+//     for (let i = 0; i < formc.elements.length; i++) {
+//         console.log(formc.elements[i].name, formc.elements[i].value);
+//     }
+
+
+
 
     //FormData object to iterate over entries
     const formData = new FormData(contactform);
+
+
 
     // Loop over entries and log them to the console
 
@@ -36,6 +49,8 @@ function sendForm(){
         console.log(`${key}: ${value}`);
         
       }
+
+
 
     contactform.reset();
 
