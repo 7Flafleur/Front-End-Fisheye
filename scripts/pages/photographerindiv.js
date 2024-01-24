@@ -83,7 +83,7 @@ async function init() {
   displayMedia(indivmedia);
   insertNameForm(person);
   addPriceTag(person);
-  const mediaItems=document.querySelectorAll(".media_section figure");
+
   const lightbox=document.createElement("div");
 lightbox.id="lightbox";
 // set aria role 
@@ -91,7 +91,7 @@ lightbox.setAttribute("role","dialog");
 
 document.body.appendChild(lightbox);
 
-
+  const mediaItems=document.querySelectorAll(".media_section figure");
   mediaItems.forEach((item)=>{
   lightboxFactory(item);
   })
@@ -138,12 +138,15 @@ function imgLightbox(picture){// loop through all images in mediasection, add ev
   
   //lightbox for movies
   function videoLightbox(movie){
-    movie.addEventListener("click",()=>{
+    movie.addEventListener("click",(event)=>{
+      event.preventDefault();
       //on video click, add active class to lightbox
       lightbox.classList.add("active");
       //create video element, set src to clicked video
       const video=document.createElement("video");
-      video.src=movie.src;
+      let source = movie.querySelector('source');
+      let src = source ? source.getAttribute('src') : movie.src;
+      video.src=src;
       video.controls=true;
       //if lightbox has child, remove it,so no double videos
       while(lightbox.firstChild){
@@ -215,3 +218,5 @@ function imgLightbox(picture){// loop through all images in mediasection, add ev
 (async () => {
   await init();
 })();
+
+

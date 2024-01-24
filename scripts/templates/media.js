@@ -72,7 +72,7 @@ function MediaTemplate(data) {
 
         const movie = document.createElement('video');
         movie.setAttribute("src", videoh);
-        movie.controls=true;
+        movie.controls=false;
     
         mediacard.appendChild(movie)
 
