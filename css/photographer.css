@@ -296,3 +296,53 @@ opacity: 0;
   justify-content: center;
   align-items: center;
 }
+
+#carousel_container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.carousel {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel__item > img,video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .carousel__item[data-active] {
+    opacity: 1;
+    z-index: 1;
+    
+  }
+
+  .carousel-button {
+    position: absolute;
+    z-index: 2;
+    background: none;
+    border: none;
+    font-size: 4rem;
+    top: 50%;
+    
+    
+    cursor: pointer;
+    
+    padding: 0 .5rem;
+    
+  }
+
+  #button_left {
+    left: 1rem;
+  }
+  
+#button_right{
+  right: 1rem;
+}
+

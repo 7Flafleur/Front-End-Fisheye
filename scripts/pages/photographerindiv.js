@@ -33,7 +33,8 @@ async function fetchMediaData() {
     let photographers = await fetchData();
     // console.log(photographers)
     return photographers;
-  }
+
+  } //end getPhotographers function
 
 //await promise, return array
 async function getMedia() {
@@ -52,7 +53,8 @@ async function getMedia() {
   })
   // console.log("Indiv",indivmedia)
   return indivmedia;
-}
+
+}//end getMedia function
 
 
 // take array, target MEDIA html section
@@ -66,7 +68,8 @@ async function displayMedia(indivmedia) {
     mediaSection.appendChild(mediaCardDOM);
 
   });
-}
+
+} //end displayMedia function
 
 
 
@@ -84,22 +87,13 @@ async function init() {
   insertNameForm(person);
   addPriceTag(person);
 
-  const lightbox=document.createElement("div");
-lightbox.id="lightbox";
-// set aria role 
-lightbox.setAttribute("role","dialog");
+  const mediaItems=document.querySelectorAll(".mediacard");
+  console.log("Nodelist:",mediaItems);
 
-document.body.appendChild(lightbox);
+  // const mediaSection=document.querySelector(".media_section");
 
-  const mediaItems=document.querySelectorAll(".media_section figure");
-  mediaItems.forEach((item)=>{
-  lightboxFactory(item);
-  })
-
-
-} 
-
-//create lightbox element
+  // const carousel=createCarousel(mediaItems);
+  // mediaSection.appendChild(carousel);
 
 
 
@@ -108,32 +102,30 @@ document.body.appendChild(lightbox);
 
 
 
+//   //add lightbox
 
 
-// const lightbox=document.createElement("div");
+//   const lightbox=document.createElement("div");
 // lightbox.id="lightbox";
 // // set aria role 
 // lightbox.setAttribute("role","dialog");
 
 // document.body.appendChild(lightbox);
 
-// // loop through all images in mediasection, add event listener to each
-// const pictures=document.querySelectorAll(".media_section img");
-// pictures.forEach((picture)=>{
-//   picture.addEventListener("click",e=>{
-//     //on image click, add active class to lightbox
-//     lightbox.classList.add("active");
-//     //create img element, set src to clicked image
-//     const img=document.createElement("img");
-//     img.src=picture.src;
-//     //if lightbox has child, remove it,so no double images
-//     while(lightbox.firstChild){
-//       lightbox.removeChild(lightbox.firstChild);
-//     }
-//     //append img to display to lightbox
-//     lightbox.appendChild(img);
+//   const mediaItems=document.querySelectorAll(".media_section figure");
+//   mediaItems.forEach((item)=>{
+//   lightboxFactory(item);
 //   })
-// })
+
+
+} //end init function
+
+
+
+
+
+
+
 
 
 
