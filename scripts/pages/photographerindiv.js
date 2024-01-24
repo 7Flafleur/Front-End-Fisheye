@@ -83,12 +83,54 @@ async function init() {
   displayMedia(indivmedia);
   insertNameForm(person);
   addPriceTag(person);
-  createLightbox();
+  lightboxFactory();
 }
 
 //create lightbox element
 
-function createLightbox() {
+
+
+function lightboxFactory() {
+
+  //helper constructor functions for lightbox
+
+//lightbox for images
+function imgLightbox(picture){// loop through all images in mediasection, add event listener to each
+    picture.addEventListener("click",()=>{
+      //on image click, add active class to lightbox
+      lightbox.classList.add("active");
+      //create img element, set src to clicked image
+      const img=document.createElement("img");
+      img.src=picture.src;
+      //if lightbox has child, remove it,so no double images
+      while(lightbox.firstChild){
+        lightbox.removeChild(lightbox.firstChild);
+      }
+      //append img to display to lightbox
+      lightbox.appendChild(img);
+    })
+  }
+  
+  //lightbox for movies
+  function videoLightbox(movie){
+    movie.addEventListener("click",()=>{
+      //on video click, add active class to lightbox
+      lightbox.classList.add("active");
+      //create video element, set src to clicked video
+      const video=document.createElement("video");
+      video.src=movie.src;
+      //if lightbox has child, remove it,so no double videos
+      while(lightbox.firstChild){
+        lightbox.removeChild(lightbox.firstChild);
+      }
+      //append video to display to lightbox
+      lightbox.appendChild(video);
+    })
+  }
+  
+
+
+
 
   const lightbox=document.createElement("div");
 lightbox.id="lightbox";
@@ -97,24 +139,26 @@ lightbox.setAttribute("role","dialog");
 
 document.body.appendChild(lightbox);
 
-// loop through all images in mediasection, add event listener to each
-const pictures=document.querySelectorAll(".media_section img");
-pictures.forEach((picture)=>{
-  picture.addEventListener("click",e=>{
-    //on image click, add active class to lightbox
-    lightbox.classList.add("active");
-    //create img element, set src to clicked image
-    const img=document.createElement("img");
-    img.src=picture.src;
-    //if lightbox has child, remove it,so no double images
-    while(lightbox.firstChild){
-      lightbox.removeChild(lightbox.firstChild);
-    }
-    //append img to display to lightbox
-    lightbox.appendChild(img);
-  })
+//loop through all medi elements
+const media = document.querySelectorAll(".media_section figure");
+media.forEach((item) => {
+  if (item.querySelector("img") !== null){
+    imgLightbox(item);
+  } else {videoLightbox(item);
+}
+
+
+
 })
 
+
+
+lightbox.addEventListener("click",e=>{
+  //if click is not on lightbox, return
+  if(e.target!==e.currentTarget) return;
+  //at click on lightbox outside img, remove active class => hide lightbox;
+  lightbox.classList.remove("active");
+})
 
 }
 
