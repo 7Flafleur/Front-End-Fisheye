@@ -83,14 +83,39 @@ async function init() {
   displayMedia(indivmedia);
   insertNameForm(person);
   addPriceTag(person);
-  lightboxFactory();
-}
+  const mediaItems=document.querySelectorAll(".media_section figure");
+  const lightbox=document.createElement("div");
+lightbox.id="lightbox";
+// set aria role 
+lightbox.setAttribute("role","dialog");
+
+document.body.appendChild(lightbox);
+
+
+  mediaItems.forEach((item)=>{
+  lightboxFactory(item);
+  })
+
+
+} 
 
 //create lightbox element
 
 
 
-function lightboxFactory() {
+function lightboxFactory(item) {
+
+  //create lightbox el
+
+
+  // check if item is img or video, call helper function
+
+  if(item.querySelector('img')){
+    imgLightbox(item.querySelector('img'));
+  }
+  else if(item.querySelector('video')){
+    videoLightbox(item.querySelector('video'));
+  }
 
   //helper constructor functions for lightbox
 
@@ -119,6 +144,7 @@ function imgLightbox(picture){// loop through all images in mediasection, add ev
       //create video element, set src to clicked video
       const video=document.createElement("video");
       video.src=movie.src;
+      video.controls=true;
       //if lightbox has child, remove it,so no double videos
       while(lightbox.firstChild){
         lightbox.removeChild(lightbox.firstChild);
@@ -126,41 +152,32 @@ function imgLightbox(picture){// loop through all images in mediasection, add ev
       //append video to display to lightbox
       lightbox.appendChild(video);
     })
+
+
+    lightbox.addEventListener("click",e=>{
+      //if click is not on lightbox, return
+      if(e.target!==e.currentTarget) return;
+      //at click on lightbox outside img, remove active class => hide lightbox;
+      lightbox.classList.remove("active");
+    })
+
+
   }
   
 
 
 
 
-  const lightbox=document.createElement("div");
-lightbox.id="lightbox";
-// set aria role 
-lightbox.setAttribute("role","dialog");
 
-document.body.appendChild(lightbox);
 
-//loop through all medi elements
-const media = document.querySelectorAll(".media_section figure");
-media.forEach((item) => {
-  if (item.querySelector("img") !== null){
-    imgLightbox(item);
-  } else {videoLightbox(item);
+
 }
 
 
 
-})
 
 
 
-lightbox.addEventListener("click",e=>{
-  //if click is not on lightbox, return
-  if(e.target!==e.currentTarget) return;
-  //at click on lightbox outside img, remove active class => hide lightbox;
-  lightbox.classList.remove("active");
-})
-
-}
 
 
 // const lightbox=document.createElement("div");
