@@ -290,6 +290,9 @@ form input {
 /*CAROUSEL*/
 
 .slider-wrapper {
+
+  display: none;
+
   margin: 1rem;
 
   border: #901c1c solid 1px;
@@ -436,11 +439,13 @@ form input {
 .carousel__item > img,
 video {
   display: block;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   object-fit: cover;
   object-position: center;
 }
+
+
 
 .carousel__item[data-active] {
   opacity: 1;

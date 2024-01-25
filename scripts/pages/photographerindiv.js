@@ -88,37 +88,37 @@ async function init() {
   addPriceTag(person);
 
   const mediaItems=document.querySelectorAll(".mediacard");
-  console.log("Nodelist:",mediaItems);
-
-  // const mediaSection=document.querySelector(".media_section");
-
-  // const carousel=createCarousel(mediaItems);
-  // mediaSection.appendChild(carousel);
+  // console.log("Nodelist:",mediaItems);
 
 
 
 
 
 
+  //add lightbox
 
 
-//   //add lightbox
+  const lightbox=document.createElement("div");
+lightbox.id="lightbox";
+// set aria role 
+lightbox.setAttribute("role","dialog");
+
+document.body.appendChild(lightbox);
+
+mediaItems.forEach((item)=>{
+  item.addEventListener("click", integrateCarousel(item))
+}
+  )
 
 
-//   const lightbox=document.createElement("div");
-// lightbox.id="lightbox";
-// // set aria role 
-// lightbox.setAttribute("role","dialog");
-
-// document.body.appendChild(lightbox);
-
-//   const mediaItems=document.querySelectorAll(".media_section figure");
-//   mediaItems.forEach((item)=>{
-//   lightboxFactory(item);
-//   })
+  // mediaItems.forEach((item)=>{
+  // lightboxFactory(item);
+  // })
 
 
-} //end init function
+} 
+
+//end init function
 
 
 

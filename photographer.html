@@ -21,6 +21,34 @@
       </div>
       <section class="media_section" role="media-section"></section>
 
+      <section class="lightbox">
+        <section class="slider-wrapper">
+
+          <button class="slide-arrow" id="slide-arrow-prev">
+    
+            <i class="fa-solid fa-chevron-left" style="color: #901c1c;"></i>
+    
+          </button>
+    
+    
+    
+          <button class="slide-arrow" id="slide-arrow-next">
+    
+            <i class="fa-solid fa-chevron-right" style="color: #901c1c;"></i>
+    
+          </button>
+    
+    
+    
+          <ul class="slides-container" id="slides-container">
+    
+    
+    
+          </ul>
+    
+        </section>
+      </section>
+
        <aside id="pricetag" role="price"> </aside> 
     </main>
     <div id="contact_modal" role="dialog">
@@ -71,7 +99,7 @@
 
 
 
-      <div class="modal" id="bye" role="dialog">
+      <div class="modal" id="bye" role="dialog" aria-describedby="modal with contact form">
         <header>
           <img src="assets/images/logo.png" class="logo" alt="Fisheye-Logo"/>
         
@@ -92,6 +120,7 @@
     <script src="scripts/templates/header.js"></script>
     <script src="scripts/pages/photographerindiv.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
     <script src="scripts/utils/carousel.js"></script>
   </body>
 </html>

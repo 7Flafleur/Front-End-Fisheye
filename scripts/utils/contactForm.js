@@ -11,6 +11,7 @@ function displayModal() {
     //display contact form
     const form = document.getElementById("hi");
     form.style.display = "flex"; 
+    form.focus();
 
 }
 
@@ -18,7 +19,7 @@ function displayModal() {
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
-    bye.style.display = "none";
+   
 }
 
 //on click on envoyer, close the modal,display the confirmation message,log the form data
