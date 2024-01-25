@@ -100,7 +100,7 @@ async function init() {
 mediaItems.forEach((item)=>{
   item.addEventListener("click", ()=>{
     console.log("clicked");
-    integrateCarousel(item);
+    integrateCarousel(mediaItems);
   });
 });
 
