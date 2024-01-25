@@ -304,6 +304,10 @@ form input {
 
   display: flex;
 
+  align-items: center;
+
+  
+
   list-style: none;
 
   margin: 0;
@@ -332,11 +336,19 @@ form input {
 
 
 .slide {
-  width: 100%;
+  width: 80%;
 
-  height: 100%;
+  height: 80%;
 
   flex: 1 0 100%;
+}
+
+.slide img {
+
+  height: 900px;
+  width: 1050px;
+  object-fit: cover;
+
 }
 
 
