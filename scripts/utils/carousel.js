@@ -1,4 +1,4 @@
-const mediaLinks=Array.from(document.querySelectorAll(".mediacard"));
+const mediaLinks=Array.from(document.querySelectorAll(".medialink"));
 console.log("medialinks: ",mediaLinks);
 
 
@@ -22,6 +22,19 @@ function createCarousel(mediaLinks){
     mediaLinks.forEach((link)=>{
         const li= document.createElement('li')
         li.classList.add("slide")
+        if (link.querySelector("img")){
+            const img= document.createElement('img')
+            img.setAttribute("src",link.querySelector("img").src)
+            li.appendChild(img)
+        }
+        else if (link.querySelector("video")){
+            const video= document.createElement('video')
+            video.setAttribute("src",link.querySelector("video").src)
+            li.appendChild(video)
+        }
+        else {
+            console.log("no valid media type")
+        }
     })
     
 
