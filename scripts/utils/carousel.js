@@ -19,6 +19,8 @@ mediaLinks.forEach((link)=>{
 
 function createCarousel(mediaLinks){
 
+    const ul= document.querySelector('#slides-container');
+
     mediaLinks.forEach((link)=>{
         const li= document.createElement('li')
         li.classList.add("slide")
@@ -26,16 +28,24 @@ function createCarousel(mediaLinks){
             const img= document.createElement('img')
             img.setAttribute("src",link.querySelector("img").src)
             li.appendChild(img)
+            ul.appendChild(li)
+            console.log("img added ");
         }
         else if (link.querySelector("video")){
             const video= document.createElement('video')
             video.setAttribute("src",link.querySelector("video").src)
             li.appendChild(video)
+            ul.appendChild(li)
+            console.log("video added ");
+
         }
         else {
             console.log("no valid media type")
         }
     })
     
+    
+   
+
 
 }
