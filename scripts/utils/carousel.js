@@ -110,7 +110,12 @@ const slide = document.querySelector(".slide");
 
 const prevButton = document.getElementById("slide-arrow-prev");
 
+slidesContainer.appendChild(prevButton);
+
+
 const nextButton = document.getElementById("slide-arrow-next");
+
+slidesContainer.appendChild(nextButton);
 
 nextButton.addEventListener("click", () => {
 
@@ -130,6 +135,8 @@ prevButton.addEventListener("click", () => {
 
 const lightBox=document.querySelector(".lightbox");
 
+lightBox.focus();
+
 lightBox.appendChild(slidesContainer);
 lightBox.classList.add("active");
 
@@ -139,6 +146,7 @@ lightBox.classList.add("active");
         if(e.target!==e.currentTarget) return;
         //at click on lightbox outside img, remove active class => hide lightbox;
         lightBox.classList.remove("active");
+        mediaSection.style.display="flex";
       })
   
 const mediaSection= document.querySelector(".media_section");

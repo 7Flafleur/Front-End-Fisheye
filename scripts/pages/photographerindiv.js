@@ -95,30 +95,16 @@ async function init() {
 
 
 
-  //add lightbox
 
-
-  const lightbox=document.createElement("div");
-lightbox.id="lightbox";
-// set aria role 
-lightbox.setAttribute("role","dialog");
-
-document.body.appendChild(lightbox);
 
 mediaItems.forEach((item)=>{
-  item.addEventListener("click", integrateCarousel(item))
-}
-  )
+  item.addEventListener("click", ()=>{
+    console.log("clicked");
+    integrateCarousel(item);
+  });
+});
 
-
-  // mediaItems.forEach((item)=>{
-  // lightboxFactory(item);
-  // })
-
-
-} 
-
-//end init function
+}//end init function
 
 
 
