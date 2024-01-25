@@ -221,6 +221,7 @@ form div {
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
+  margin-top: 10px;
 }
 
 form input {
@@ -228,10 +229,12 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+  margin:
 }
 
 .errormsg{
 display:flex;
+border: solid 1px red;
 flex-direction: row;
 align-items: center;
 justify-content: space-between;
@@ -245,10 +248,11 @@ justify-content: space-between;
   display: inline;
   color: yellow;
   font-size: 25px;
+  text-align: right;
 opacity: 0;
 }
 
-.formData[data-error-visible="true"]::after {
+.errormsg[data-error-visible="true"]::after {
   opacity: 1;
 }
 
