@@ -20,7 +20,6 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
- 
 }
 
 .photograph-header {
@@ -86,7 +85,6 @@ body {
   margin-right: 100px;
   margin-left: 100px;
   position: relative;
-  
 }
 
 .medialink {
@@ -103,10 +101,8 @@ body {
 
 .medialink:hover {
   cursor: pointer;
-  transform: perspective(2000px) translate3d(0px, 0px, 50px) ;
- 
+  transform: perspective(2000px) translate3d(0px, 0px, 50px);
 }
-
 
 /* Absolute positioning for child elements */
 .medialink > * {
@@ -165,7 +161,6 @@ video {
   z-index: 30;
 }
 
-
 .modal {
   border-radius: 5px;
   background-color: #db8876;
@@ -180,9 +175,8 @@ video {
   z-index: 30;
 }
 
-#hi{
+#hi {
   display: none;
-
 }
 
 .modal header {
@@ -230,23 +224,20 @@ form input {
   border-radius: 5px;
 }
 
-.errormsg{
-display: none;
-display:flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-
-
+.errormsg {
+  display: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.errormsg[data-error]::after{
-  
+.errormsg[data-error]::after {
   content: attr(data-error);
   display: inline;
   color: yellow;
   font-size: 25px;
-opacity: 0;
+  opacity: 0;
 }
 
 .formData[data-error-visible="true"]::after {
@@ -254,13 +245,10 @@ opacity: 0;
 }
 
 #message {
- 
   height: 200px;
-
 }
 
-#bye{
-
+#bye {
   display: none;
   font-size: 48px;
   font-weight: normal;
@@ -268,7 +256,9 @@ opacity: 0;
   height: 60vh;
 }
 
-#lightbox{
+/*LIGHTBOX*/
+
+#lightbox {
   display: none;
   position: fixed;
   z-index: 100;
@@ -280,22 +270,142 @@ opacity: 0;
 }
 
 #lightbox img {
-  height:900px;
+  height: 900px;
   width: 1050px;
   object-fit: cover;
 }
 
 #lightbox video {
-  height:900px;
+  height: 900px;
   width: 1050px;
   object-fit: cover;
 }
 
-#lightbox.active{
+#lightbox.active {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/*CAROUSEL*/
+
+.slider-wrapper {
+  margin: 1rem;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.slides-container {
+  height: calc(100vh - 2rem);
+
+  width: 100%;
+
+  display: flex;
+
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+
+  overflow: scroll;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: none; /* Firefox */
+
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+
+}
+
+/* WebKit */
+
+.slides-container::-webkit-scrollbar { 
+
+  width: 0;
+
+  height: 0;
+
+}
+
+
+.slide {
+  width: 100%;
+
+  height: 100%;
+
+  flex: 1 0 100%;
+}
+
+
+.slide-arrow {
+
+  position: absolute;
+
+  display: flex;
+
+  top: 0;
+
+  bottom: 0;
+
+  margin: auto;
+
+  height: 4rem;
+
+  background-color: white;
+
+  border: none;
+
+  width: 2rem;
+
+  font-size: 3rem;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  opacity: 0.5;
+
+  transition: opacity 100ms;
+
+}
+
+.slide-arrow:hover,
+
+.slide-arrow:focus {
+
+  opacity: 1;
+
+}
+
+#slide-arrow-prev {
+
+  left: 0;
+
+  padding-left: 0.25rem;
+
+  border-radius: 0 2rem 2rem 0;
+
+}
+
+#slide-arrow-next {
+
+  right: 0;
+
+  padding-left: 0.75rem;
+
+  border-radius: 2rem 0 0 2rem;
+
+}
+
+
+
+
+
+
+/* CAROUSEL2*/
 
 #carousel_container {
   width: 100vw;
@@ -309,40 +419,37 @@ opacity: 0;
   list-style: none;
 }
 
-.carousel__item > img,video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .carousel__item[data-active] {
-    opacity: 1;
-    z-index: 1;
-    
-  }
-
-  .carousel-button {
-    position: absolute;
-    z-index: 2;
-    background: none;
-    border: none;
-    font-size: 4rem;
-    top: 50%;
-    
-    
-    cursor: pointer;
-    
-    padding: 0 .5rem;
-    
-  }
-
-  #button_left {
-    left: 1rem;
-  }
-  
-#button_right{
-  right: 1rem;
+.carousel__item > img,
+video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
+.carousel__item[data-active] {
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 4rem;
+  top: 50%;
+
+  cursor: pointer;
+
+  padding: 0 0.5rem;
+}
+
+#button_left {
+  left: 1rem;
+}
+
+#button_right {
+  right: 1rem;
+}
