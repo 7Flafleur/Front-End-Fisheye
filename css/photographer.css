@@ -292,6 +292,8 @@ form input {
 .slider-wrapper {
   margin: 1rem;
 
+  border: #901c1c solid 1px;
+
   position: relative;
 
   overflow: hidden;

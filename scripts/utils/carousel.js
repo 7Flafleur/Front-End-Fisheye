@@ -5,19 +5,23 @@ console.log("medialinks: ",mediaLinks);
 mediaLinks.forEach((link)=>{
     addEventListener("click",()=>{
         console.log("clicked");
+        createCarousel(mediaLinks);
     })
     
 });
 
-mediaLinks.forEach((link)=>{
-    console.log("mediacard:",link);
-    const src= link.dataset.source;
-    console.log("source:",link.dataset.source);
-    createCarousel(mediaLinks)
-});
+// mediaLinks.forEach((link)=>{
+//     console.log("mediacard:",link);
+//     const src= link.dataset.source;
+//     console.log("source:",link.dataset.source);
+//     createCarousel(mediaLinks)
+// });
 
 
 function createCarousel(mediaLinks){
+
+    const mediaSection= document.querySelector(".media_section");
+    mediaSection.style.display="none";
 
     const ul= document.querySelector('#slides-container');
 
