@@ -63,39 +63,60 @@ function sendForm(){
         bye.style.display = "flex";
 }
 
+// REGEX
 
-// function firstnamenonvalid(){
-//   if (first.value.length<2){
-//     firstnameerror.setAttribute("data-error-visible","true")
-//     return true;
-//   }
-//   else{
-//     firstnameerror.setAttribute("data-error-visible","false")
-//     return false;
-//   }
-// };
+const regexmel = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
-// function lastnamenonvalid(){
-//   if (last.value.length<2){
-// lastnameerror.setAttribute("data-error-visible","true")
-// return true;
-//   }
-//   else{
-//     lastnameerror.setAttribute("data-error-visible","false")
-//     return false;
-//   }
-// };
+// VARIABLES FOR FUNCTIONS
 
-// function melnonvalid(){
-//   if(!regexmel.test(mail.value)){
-// emailerror.setAttribute("data-error-visible","true");
-// return true;
-//   }
-//   else{
-//     emailerror.setAttribute("data-error-visible","false")
-//     return false;
-//   }
-// };
+const first = document.getElementById("first");
+const last = document.getElementById("last");
+const mail = document.getElementById("mail");
+
+
+
+function firstnamenonvalid(){
+  if (first.value.length<2){
+    firstnameerror.setAttribute("data-error-visible","true")
+    return true;
+  }
+  else{
+    firstnameerror.setAttribute("data-error-visible","false")
+    return false;
+  }
+};
+
+function lastnamenonvalid(){
+  if (last.value.length<2){
+lastnameerror.setAttribute("data-error-visible","true")
+return true;
+  }
+  else{
+    lastnameerror.setAttribute("data-error-visible","false")
+    return false;
+  }
+};
+
+function melnonvalid(){
+  if(!regexmel.test(mail.value)){
+emailerror.setAttribute("data-error-visible","true");
+return true;
+  }
+  else{
+    emailerror.setAttribute("data-error-visible","false")
+    return false;
+  }
+};
+
+
+function isformcomplete(){
+  if ( firstnamenonvalid() || lastnamenonvalid() || melnonvalid()  ){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
 
 
 // MAIN CODE
@@ -103,16 +124,17 @@ function sendForm(){
 contactform.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  sendForm()
+  // sendForm()
 
-//   firstnamenonvalid();
-//   lastnamenonvalid();
-//   melnonvalid();
-//   if (!(firstnamenonvalid()||lastnamenonvalid()||melnonvalid())){
-//   sendForm();}
-// }else
-// {(console.log("erreur"))
-// }
+  firstnamenonvalid();
+  lastnamenonvalid();
+  melnonvalid();
+ 
+  if (isformcomplete()){
+    sendForm();
+}else
+{(console.log("erreur"))
+}
 }
 );
 
