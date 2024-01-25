@@ -19,6 +19,10 @@ function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
     bye.style.display = "none";
+
+    const contactform = document.getElementById("contactForm");
+    contactform.reset();
+    
 }
 
 //on click on envoyer, close the modal,display the confirmation message,log the form data
@@ -69,15 +73,20 @@ const regexmel = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
 // VARIABLES FOR FUNCTIONS
 
-const first = document.getElementById("first");
-const last = document.getElementById("last");
-const mail = document.getElementById("mail");
+const first = document.getElementById("Prénom");
+const last = document.getElementById("Nom");
+const mail = document.getElementById("Email");
+
+const firstnameerror = document.getElementById("firstnameerror");
+const lastnameerror = document.getElementById("lastnameerror");
+const emailerror = document.getElementById("emailerror");
 
 
 
 function firstnamenonvalid(){
   if (first.value.length<2){
     firstnameerror.setAttribute("data-error-visible","true")
+    console.log("erreur prénom")
     return true;
   }
   else{
@@ -89,6 +98,7 @@ function firstnamenonvalid(){
 function lastnamenonvalid(){
   if (last.value.length<2){
 lastnameerror.setAttribute("data-error-visible","true")
+console.log("erreur nom")
 return true;
   }
   else{
@@ -100,6 +110,7 @@ return true;
 function melnonvalid(){
   if(!regexmel.test(mail.value)){
 emailerror.setAttribute("data-error-visible","true");
+console.log("erreur mail")
 return true;
   }
   else{
