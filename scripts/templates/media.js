@@ -50,6 +50,11 @@ function MediaTemplate(data) {
 
         captioncontainer.appendChild(likes)
 
+        medialink.dataset.source = pic;
+
+medialink.dataset.titleh = titleh;
+medialink.dataset.likesh = likesh;
+
 
 
         return medialink;
@@ -96,6 +101,10 @@ function MediaTemplate(data) {
         likes.appendChild(icon)
 
         captioncontainer.appendChild(likes)
+
+        medialink.dataset.source = videoh;
+        medialink.dataset.titleh = titleh;
+        medialink.dataset.likesh = likesh;
 
 
 

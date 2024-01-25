@@ -11,7 +11,7 @@ mediaLinks.forEach((link)=>{
 
 mediaLinks.forEach((link)=>{
     console.log("mediacard:",link);
-    const src
+    const src= link.dataset.source;
     console.log("source:",link.dataset.source);
     createCarousel(mediaLinks)
 });
