@@ -1,19 +1,111 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6a8014695a.js" crossorigin="anonymous"></script>
-    <title>Fisheye - Carousel </title>
-  </head>
-  <body>
-    <main>
-        <div class="media_section">
-            <a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><video src="./assets/media/Sport_Tricks_in_the_air.mp4"></video><figcaption><div class="captioncontainer">Tricks in te air<span class="likes">150<i class="fa-solid fa-heart fa-lg" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Sport_Next_Hold.jpg" alt="Climber"><figcaption><div class="captioncontainer">Climber<span class="likes">101  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/sport_water_tunnel.jpg" alt="Surfer"><figcaption><div class="captioncontainer">Surfer<span class="likes">103  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Sport_Sky_Cross.jpg" alt="Skier"><figcaption><div class="captioncontainer">Skier<span class="likes">77  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Sport_Race_End.jpg" alt="Race End"><figcaption><div class="captioncontainer">Race End<span class="likes">88  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Sport_Jump.jpg" alt="Jump!"><figcaption><div class="captioncontainer">Jump!<span class="likes">95  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Architecture_White_Light.jpg" alt="White Light"><figcaption><div class="captioncontainer">White Light<span class="likes">52  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Architecture_Water_on_Modern.jpg" alt="Water on Modern Building"><figcaption><div class="captioncontainer">Water on Modern Building<span class="likes">55  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Architecture_Horseshoe.jpg" alt="Horseshoe"><figcaption><div class="captioncontainer">Horseshoe<span class="likes">85  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Architecture_Cross_Bar.jpg" alt="Cross Bar"><figcaption><div class="captioncontainer">Cross Bar<span class="likes">66  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a><a class="focusable medialink" tabindex="0" href="#"><figure class="mediacard"><img src="./assets/media/Architecture_Connected_Curves.jpg" alt="Connected Curves"><figcaption><div class="captioncontainer">Connected Curves<span class="likes">79  <i class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div></figcaption></figure></a>
 
-    </main>
-    <script src="scripts/utils/carousel.js"></script>
-  </body>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6a8014695a.js" crossorigin="anonymous"></script>
+  <title>Fisheye - Carousel </title>
+</head>
+
+<body>
+  <main>
+    <div class="media_section">
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><video src="./assets/media/Sport_Tricks_in_the_air.mp4"></video>
+          <figcaption>
+            <div class="captioncontainer">Tricks in te air<span class="likes">150<i class="fa-solid fa-heart fa-lg"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Sport_Next_Hold.jpg" alt="Climber">
+          <figcaption>
+            <div class="captioncontainer">Climber<span class="likes">101 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/sport_water_tunnel.jpg" alt="Surfer">
+          <figcaption>
+            <div class="captioncontainer">Surfer<span class="likes">103 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Sport_Sky_Cross.jpg" alt="Skier">
+          <figcaption>
+            <div class="captioncontainer">Skier<span class="likes">77 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Sport_Race_End.jpg" alt="Race End">
+          <figcaption>
+            <div class="captioncontainer">Race End<span class="likes">88 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Sport_Jump.jpg" alt="Jump!">
+          <figcaption>
+            <div class="captioncontainer">Jump!<span class="likes">95 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Architecture_White_Light.jpg" alt="White Light">
+          <figcaption>
+            <div class="captioncontainer">White Light<span class="likes">52 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Architecture_Water_on_Modern.jpg"
+            alt="Water on Modern Building">
+          <figcaption>
+            <div class="captioncontainer">Water on Modern Building<span class="likes">55 <i
+                  class="fa-solid fa-heart fa-" style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Architecture_Horseshoe.jpg" alt="Horseshoe">
+          <figcaption>
+            <div class="captioncontainer">Horseshoe<span class="likes">85 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Architecture_Cross_Bar.jpg" alt="Cross Bar">
+          <figcaption>
+            <div class="captioncontainer">Cross Bar<span class="likes">66 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+      <a class="focusable medialink" tabindex="0" href="#">
+        <figure class="mediacard"><img src="./assets/media/Architecture_Connected_Curves.jpg" alt="Connected Curves">
+          <figcaption>
+            <div class="captioncontainer">Connected Curves<span class="likes">79 <i class="fa-solid fa-heart fa-"
+                  style="color: #901c1c;" aria-hidden="true"></i></span></div>
+          </figcaption>
+        </figure>
+      </a>
+
+  </main>
+  <script src="scripts/utils/carousel.js"></script>
+</body>
+
 </html>
