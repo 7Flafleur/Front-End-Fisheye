@@ -84,20 +84,25 @@ async function init() {
   insertNameForm(person);
   addPriceTag(person);
 
-  const lightbox=document.createElement("div");
-lightbox.id="lightbox";
-// set aria role 
-lightbox.setAttribute("role","dialog");
-
-document.body.appendChild(lightbox);
-
-  const mediaItems=document.querySelectorAll(".media_section figure");
-  mediaItems.forEach((item)=>{
-  lightboxFactory(item);
-  })
+  const mediaItems=document.querySelectorAll(".mediacard");
+  // console.log("Nodelist:",mediaItems);
 
 
-} 
+
+
+
+
+
+
+mediaItems.forEach((item)=>{
+  item.addEventListener("click", ()=>{
+    console.log("clicked");
+    integrateCarousel(mediaItems);
+  });
+});
+
+
+} //end init function
 
 //create lightbox element
 

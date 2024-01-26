@@ -20,7 +20,6 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
- 
 }
 
 .photograph-header {
@@ -86,7 +85,6 @@ body {
   margin-right: 100px;
   margin-left: 100px;
   position: relative;
-  
 }
 
 .medialink {
@@ -103,10 +101,8 @@ body {
 
 .medialink:hover {
   cursor: pointer;
-  transform: perspective(2000px) translate3d(0px, 0px, 50px) ;
- 
+  transform: perspective(2000px) translate3d(0px, 0px, 50px);
 }
-
 
 /* Absolute positioning for child elements */
 .medialink > * {
@@ -165,7 +161,6 @@ video {
   z-index: 30;
 }
 
-
 .modal {
   border-radius: 5px;
   background-color: #db8876;
@@ -180,9 +175,8 @@ video {
   z-index: 30;
 }
 
-#hi{
+#hi {
   display: none;
-
 }
 
 .modal header {
@@ -221,7 +215,6 @@ form div {
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
-  margin-top: 10px;
 }
 
 form input {
@@ -229,41 +222,33 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
-  margin:
 }
 
-.errormsg{
-display:flex;
-border: solid 1px red;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
-
-
+.errormsg {
+  display: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.errormsg[data-error]::after{
-  
+.errormsg[data-error]::after {
   content: attr(data-error);
   display: inline;
   color: yellow;
   font-size: 25px;
-  text-align: right;
-opacity: 0;
+  opacity: 0;
 }
 
-.errormsg[data-error-visible="true"]::after {
+.formData[data-error-visible="true"]::after {
   opacity: 1;
 }
 
 #message {
- 
   height: 200px;
-
 }
 
-#bye{
-
+#bye {
   display: none;
   font-size: 48px;
   font-weight: normal;
@@ -271,35 +256,39 @@ opacity: 0;
   height: 60vh;
 }
 
-#lightbox{
+/*LIGHTBOX*/
+
+.lightbox {
   display: none;
+  border: solid 8px blue;
   position: fixed;
   z-index: 100;
-  top: 0px;
-  height: 100%;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 87%;
+  width: 87%;
   overflow: auto;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* #lightbox img {
-  height:900px;
+/* .lightbox img {
+  height: 900px;
   width: 1050px;
   object-fit: cover;
 }
 
-#lightbox video {
-  height:900px;
+.lightbox video {
+  height: 900px;
   width: 1050px;
   object-fit: cover;
 } */
 
-#lightbox.active{
+.lightbox.active {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 /*CAROUSEL*/
 
@@ -433,3 +422,6 @@ opacity: 0;
 
 
 }
+
+
+/* Path: css/photographer.css */
