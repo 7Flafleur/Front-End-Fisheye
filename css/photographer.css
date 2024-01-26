@@ -148,7 +148,7 @@ video {
   
   display: flex;
   justify-content: space-evenly;
-  width:10%;
+ width: fit-content;
   height: auto;
   position: sticky;
  left: 80%;
@@ -158,7 +158,7 @@ video {
   color: #000;
   text-align: right;
   font-family: "DM Sans";
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

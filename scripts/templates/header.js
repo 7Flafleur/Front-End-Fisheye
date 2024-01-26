@@ -105,7 +105,7 @@ function addPriceTag(dataobject){
     const personmodel=HeaderTemplate(dataobject);
     const pricevalue=personmodel.price;
     nblikes.innerHTML=globallikes;
-    nblikes.textContent=globallikes;
+    nblikes.textContent="Likes  "+globallikes;
     price.innerHTML=pricevalue+"€/jour";
     price.textContent=pricevalue+"€/jour"; //globallikes+
     pricetag.append(nblikes,price);
