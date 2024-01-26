@@ -10,7 +10,7 @@ function MediaTemplate(data) {
     const titleh = `${title}`;
     const likesh = `${likes}`;
 
-    const dataset = {pic,videoh,titleh,likesh}
+  
 
 
 
@@ -151,5 +151,5 @@ function MediaTemplate(data) {
         }
     }
 
-    return { data, getMediaCardDOM }
+    return { title, image, video, likes , getMediaCardDOM }
 }

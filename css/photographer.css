@@ -16,9 +16,9 @@ body {
 
 .main {
   /* border: red solid; */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   position: relative;
 }
 
@@ -145,12 +145,16 @@ video {
 }
 
 #pricetag {
-  display: inline;
+  
+  display: flex;
+  justify-content: space-evenly;
+  width:10%;
+  height: auto;
   position: sticky;
-  left: 85%;
-  bottom: 0;
+ left: 80%;
+ bottom:10px;
   background-color: #db8876;
-  padding: 10px;
+  margin: 14px;
   color: #000;
   text-align: right;
   font-family: "DM Sans";
@@ -159,6 +163,16 @@ video {
   font-weight: 500;
   line-height: normal;
   z-index: 30;
+}
+
+#nblikes{
+  border:blue solid 1px;
+  padding: 14px;
+}
+
+#price{
+  border:blue solid 1px;
+  padding: 14px;
 }
 
 .modal {

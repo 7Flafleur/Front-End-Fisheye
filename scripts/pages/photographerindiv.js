@@ -2,6 +2,8 @@
 const currentURLsearch =new URLSearchParams(window.location.search);
 const urlid=(currentURLsearch.get("id"));
 
+let globallikes=0;
+
 
 
 

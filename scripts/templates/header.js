@@ -99,15 +99,19 @@ function insertNameForm(dataobject){
 }
 
 function addPriceTag(dataobject){
-    const price=document.querySelector("#pricetag");
+    const pricetag=document.querySelector("#pricetag");
+    const price=document.querySelector("#price");
+    const nblikes=document.querySelector("#nblikes");
     const personmodel=HeaderTemplate(dataobject);
     const pricevalue=personmodel.price;
+    nblikes.innerHTML=globallikes;
+    nblikes.textContent=globallikes;
     price.innerHTML=pricevalue+"€/jour";
-    price.textContent="Likes "+pricevalue+"€/jour";
+    price.textContent=pricevalue+"€/jour"; //globallikes+
+    pricetag.append(nblikes,price);
+
+
+
+
 }
-
-
-
-
-
 
