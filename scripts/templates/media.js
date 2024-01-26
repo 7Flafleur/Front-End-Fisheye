@@ -41,12 +41,48 @@ function MediaTemplate(data) {
         const icon = document.createElement('i');                                   //heart icon
         icon.classList.add('fa-solid', 'fa-heart', 'fa-');
         icon.setAttribute("style", "color: #901c1c;")
-        
+        icon.setAttribute("id",titleh )
+
         
         const likes = document.createElement('span')
         likes.setAttribute("class","likes")
         likes.innerHTML=likesh+"  ";
         likes.appendChild(icon)
+
+        let likeContainer=parseInt(likesh);
+
+        function incrementLike(){
+            likeContainer++;
+            likes.innerHTML=likeContainer+"  ";
+            likes.appendChild(icon);
+            console.log("liked")
+        }
+
+        function noMoreLike(){
+            icon.removeEventListener('click', incrementLike)
+            console.log("removed");
+        }
+
+        function handleLikes(){
+            icon.addEventListener('click', incrementLike);
+            icon.removeEventListener('click', incrementLike)
+            console.log("removed");
+            
+        }
+
+        icon.addEventListener('click', incrementLike
+          )
+          icon.addEventListener('click', noMoreLike);
+
+        
+
+       
+
+
+       
+
+
+
 
         captioncontainer.appendChild(likes)
 
@@ -55,7 +91,7 @@ function MediaTemplate(data) {
         return medialink;
 
 
-    }
+    } //end getPhotoCardDOM
 
 
     //constructor function for Mediacards with video
@@ -100,7 +136,8 @@ function MediaTemplate(data) {
 
 
         return medialink;
-    }
+    } //   end getMovieCardDOM
+
 
     //factory function that returns either one or the other type of object
     function getMediaCardDOM() {

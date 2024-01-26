@@ -95,7 +95,8 @@ async function init() {
 
 
 mediaItems.forEach((item)=>{
-  item.addEventListener("click", ()=>{
+  const media = item.children[0];
+  media.addEventListener("click", ()=>{
     console.log("clicked");
     integrateCarousel(mediaItems);
   });
