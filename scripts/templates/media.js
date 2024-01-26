@@ -73,6 +73,8 @@ function MediaTemplate(data) {
         icon.addEventListener('click', incrementLike
           )
           icon.addEventListener('click', noMoreLike);
+            
+        //    icon.addEventListener('click', handleLikes);
 
         
 
@@ -85,6 +87,8 @@ function MediaTemplate(data) {
 
 
         captioncontainer.appendChild(likes)
+
+        mediacard.setAttribute("data-likes",likesh)
 
 
 
@@ -131,7 +135,44 @@ function MediaTemplate(data) {
         likes.innerHTML=likesh
         likes.appendChild(icon)
 
+        let likeContainer=parseInt(likesh);
+
+        function incrementLike(){
+            likeContainer++;
+            
+            console.log("Global",globallikes);
+            likes.innerHTML=likeContainer+"  ";
+            likes.appendChild(icon);
+            console.log("liked")
+        }
+
+        function noMoreLike(){
+            icon.removeEventListener('click', incrementLike)
+            console.log("removed");
+        }
+
+        function handleLikes(){
+            icon.addEventListener('click', incrementLike);
+            icon.removeEventListener('click', incrementLike)
+            console.log("removed");
+            
+        }
+
+        icon.addEventListener('click', incrementLike
+          );
+          icon.addEventListener('click', ()=>{
+            globallikes++;
+            addPriceTag(person,globallikes);
+          });
+          icon.addEventListener('click', noMoreLike);
+
+
+
+
+
         captioncontainer.appendChild(likes)
+
+        mediacard.setAttribute("data-likes",likesh)
 
 
 

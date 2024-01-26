@@ -2,7 +2,7 @@
 const currentURLsearch =new URLSearchParams(window.location.search);
 const urlid=(currentURLsearch.get("id"));
 
-let globallikes=0;
+
 
 
 
@@ -70,6 +70,13 @@ async function displayMedia(indivmedia) {
   });
 }
 
+// async function getLikes() {
+//   const indivmedia = await getMedia();
+//   let globallikes = 0;
+//   indivmedia.forEach((item) => {
+//     globallikes += item.likes;
+//   })
+//   return globallikes;
 
 
 
@@ -84,16 +91,26 @@ async function init() {
   // displayHeader(headermedia);
   displayMedia(indivmedia);
   insertNameForm(person);
-  addPriceTag(person);
+  
+  const mediaItems=Array.from(document.querySelectorAll(".mediacard"));
 
-  const mediaItems=document.querySelectorAll(".mediacard");
+  let globallikes = 0;
+
+  console.log("Mediaitems is ",typeof(mediaItems))
+
+
+
+for (i in mediaItems){
+  globallikes+=parseInt(mediaItems[i].dataset.likes);
+}
+
+
+addPriceTag(person,globallikes);
+
+console.log("Global",globallikes);
+
+
   // console.log("Nodelist:",mediaItems);
-
-
-
-
-
-
 
 
 mediaItems.forEach((item)=>{
@@ -103,6 +120,33 @@ mediaItems.forEach((item)=>{
     integrateCarousel(mediaItems);
   });
 });
+
+mediaItems.forEach((item)=>{
+  const media = item.children[0];
+  media.addEventListener("keydown", (e)=>{
+    if(e.key === "Enter"){
+      console.log("clicked");
+      integrateCarousel(mediaItems);
+    }
+  });
+});
+
+mediaItems.forEach((item) => {
+  const icon = item.querySelector(".fa-heart");
+
+  const clickHandler = (event) => {
+    event.preventDefault();
+    globallikes++;
+    console.log("Global", globallikes);
+    addPriceTag(person, globallikes);
+    icon.removeEventListener("click", clickHandler);
+  };
+
+  icon.addEventListener("click", clickHandler);
+});
+
+
+
 
 
 } //end init function

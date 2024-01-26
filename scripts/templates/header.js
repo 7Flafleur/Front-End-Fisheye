@@ -98,14 +98,14 @@ function insertNameForm(dataobject){
     formheading.innerHTML="Contactez-moi <br>"+name
 }
 
-function addPriceTag(dataobject){
+function addPriceTag(dataobject,globallikes){
     const pricetag=document.querySelector("#pricetag");
     const price=document.querySelector("#price");
     const nblikes=document.querySelector("#nblikes");
     const personmodel=HeaderTemplate(dataobject);
     const pricevalue=personmodel.price;
-    nblikes.innerHTML=globallikes;
-    nblikes.textContent="Likes  "+globallikes;
+    nblikes.innerHTML="likes "+globallikes;
+    nblikes.textContent="Likes  "+" "+globallikes;
     price.innerHTML=pricevalue+"€/jour";
     price.textContent=pricevalue+"€/jour"; //globallikes+
     pricetag.append(nblikes,price);
