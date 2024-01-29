@@ -74,7 +74,7 @@ body {
 }
 
 .media_section {
-  /* border: dashed #901c1c; */
+   /* border: dashed #901c1c;  */
   display: flex;
   flex-wrap: wrap;
   gap: 7%;
@@ -82,13 +82,44 @@ body {
   justify-content: center;
 
   margin-top: 80px;
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 88px;
+  margin-left: 88px;
+  padding:0;
   position: relative;
 }
 
+#trierpar {
+   border: tan solid 1px; 
+  display: inline;
+  position: relative;
+  left: 100px;
+  top: 20px;
+  font-size: 30px;
+  font-weight: 400;
+
+
+}
+
+.dropdown-content{
+  border: orangered solid 2px;
+  display: inline-flex;
+  flex-direction: column;
+   border: solid 1px; 
+   text-decoration: none;
+  position: relative;
+  left: 120px;
+  top: 10px; 
+   background: #901c1c;
+  color: white;
+  font-size: 20px;
+
+  
+
+}
+
+
 .medialink {
-  /* border: #312e2e dotted; */
+   /* border: #312e2e dotted;  */
   text-decoration: none;
   width: 28%;
   padding-bottom: 28%; /* Set padding to create a square aspect ratio */
