@@ -74,7 +74,7 @@ body {
 }
 
 .media_section {
-   /* border: dashed #901c1c;  */
+  /* border: dashed #901c1c;  */
   display: flex;
   flex-wrap: wrap;
   gap: 7%;
@@ -84,42 +84,71 @@ body {
   margin-top: 80px;
   margin-right: 88px;
   margin-left: 88px;
-  padding:0;
+  padding: 0;
   position: relative;
 }
 
 #trierpar {
-   border: tan solid 1px; 
+  /* border: tan solid 1px; */
   display: inline;
   position: relative;
   left: 100px;
-  top: 20px;
-  font-size: 30px;
-  font-weight: 400;
-
-
+  top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.dropdown-content{
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.dropdown-content {
   border: orangered solid 2px;
   display: inline-flex;
   flex-direction: column;
-   border: solid 1px; 
-   text-decoration: none;
+  border: solid 1px;
+  text-decoration: none;
   position: relative;
   left: 120px;
-  top: 10px; 
-   background: #901c1c;
+  top: 18px;
+  background: #901c1c;
   color: white;
   font-size: 20px;
-
+  padding: 18px;
   
+}
+
+.option{
+  padding: 10px;
+  
+}
+
+#pop, #date  {
+  border-bottom: #fafafa solid 1px;
+  padding: 10px;
+  cursor: pointer;
+ 
 
 }
 
+#date,#titre{
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+
+
 
 .medialink {
-   /* border: #312e2e dotted;  */
+  /* border: #312e2e dotted;  */
   text-decoration: none;
   width: 28%;
   padding-bottom: 28%; /* Set padding to create a square aspect ratio */
@@ -176,14 +205,13 @@ video {
 }
 
 #pricetag {
-  
   display: flex;
   justify-content: space-evenly;
- width: fit-content;
+  width: fit-content;
   height: auto;
   position: sticky;
- left: 80%;
- bottom:10px;
+  left: 80%;
+  bottom: 10px;
   background-color: #db8876;
   margin: 14px;
   color: #000;
@@ -196,14 +224,13 @@ video {
   z-index: 30;
 }
 
-#nblikes{
-  border:blue solid 1px;
+#nblikes {
+  border: blue solid 1px;
   padding: 14px;
-  
 }
 
-#price{
-  border:blue solid 1px;
+#price {
+  border: blue solid 1px;
   padding: 14px;
 }
 
@@ -339,28 +366,19 @@ form input {
 /*CAROUSEL*/
 
 .carousel {
-
   display: none;
-
-
 }
 
 .carousel.active {
-
   display: block;
 
   border: tomato dotted 4px;
- 
-  max-height: 100%;;
+
+  max-height: 100%;
   max-width: 100%;
-
-  
-
 }
 
 #carousel-list {
-
-
   border: solid 8px yellow;
 
   height: 900px;
@@ -377,14 +395,9 @@ form input {
   overflow: scroll;
 
   scroll-behavior: smooth;
-
 }
 
-
-
-
 .carouselItem {
-
   border: turquoise solid 4px;
   display: flex;
   height: 900px;
@@ -395,16 +408,12 @@ form input {
 }
 
 .carouselItem img {
-
- height: 100%;
- width:100%;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-
 }
 
-
 .carousel-button {
-
   position: absolute;
 
   display: flex;
@@ -436,38 +445,27 @@ form input {
   background-color: sandybrown;
 
   border: solid yellow 1px;
-
- 
-
 }
 
 .carousel-button:hover,
-
 .carousel-button:focus {
-
   opacity: 1;
-
 }
 
-#carousel-button-prev{
+#carousel-button-prev {
   left: 0;
 
   padding-left: 0.25rem;
 
   border-radius: 0 2rem 2rem 0;
-
-
 }
 
-#carousel-button-next{
+#carousel-button-next {
   right: 0;
 
   padding-left: 0.75rem;
 
   border-radius: 2rem 0 0 2rem;
-
-
 }
-
 
 /* Path: css/photographer.css */
