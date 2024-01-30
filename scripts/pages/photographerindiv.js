@@ -3,21 +3,18 @@ const currentURLsearch =new URLSearchParams(window.location.search);
 const urlid=(currentURLsearch.get("id"));
 
 
-
-
-
-
 console.log("URLId",urlid)
 
 
-////////////////
+////////////////HELPER FUNCTIONS/////////////////////
+
 //get the .json data from server, return promise
 async function fetchData() {
   let response = await fetch('./data/photographers.json');
   let data = await response.json();
   let photographers = data.photographers;
   return photographers;
-}
+}//end fetchData function
 
 
 //get media
@@ -26,16 +23,14 @@ async function fetchMediaData() {
   let data = await response.json();
   let media = data.media;
   return media;        ////////////array of JSON objects
-
-
-}
+}//end fetchMediaData function
 
   //await promise, return array
   async function getPhotographers() {
     let photographers = await fetchData();
     // console.log(photographers)
     return photographers;
-  }
+  }//end getPhotographers function
 
 //await promise, return array
 async function getMedia() {
@@ -54,7 +49,7 @@ async function getMedia() {
   })
   // console.log("Indiv",indivmedia)
   return indivmedia;
-}
+}//end getMedia function
 
 
 // take array, target MEDIA html section
@@ -68,18 +63,13 @@ async function displayMedia(indivmedia) {
     mediaSection.appendChild(mediaCardDOM);
 
   });
-}
-
-// async function getLikes() {
-//   const indivmedia = await getMedia();
-//   let globallikes = 0;
-//   indivmedia.forEach((item) => {
-//     globallikes += item.likes;
-//   })
-//   return globallikes;
+} //end displayMedia function
 
 
 
+////////////////////////////////////////////////////////////////
+
+//START INIT FUNCTION
 
 async function init() {
   // Get data from JSON file
@@ -109,8 +99,6 @@ addPriceTag(person,globallikes);
 
 console.log("Global",globallikes);
 
-
-  // console.log("Nodelist:",mediaItems);
 
 
 mediaItems.forEach((item)=>{
@@ -145,51 +133,30 @@ mediaItems.forEach((item) => {
   icon.addEventListener("click", clickHandler);
 });
 
+const pop=document.querySelector("#pop");
+const date=document.querySelector("#date");
+const titre=document.querySelector("#titre");
+
+pop.addEventListener("click",()=>{
+  console.log("pop");
+  mediaItems.sort(compareByPop);
+  console.log(mediaItems);
+});
+
+date.addEventListener("click",()=>{
+  console.log("date");
+  mediaItems.sort(compareByDate);
+});
+
+titre.addEventListener("click",()=>{
+  console.log("titre");
+  mediaItems.sort(compareByTitle);
+});
 
 
 
 
 } //end init function
-
-//create lightbox element
-
-
-
-
-
-
-
-
-
-
-// const lightbox=document.createElement("div");
-// lightbox.id="lightbox";
-// // set aria role 
-// lightbox.setAttribute("role","dialog");
-
-// document.body.appendChild(lightbox);
-
-// // loop through all images in mediasection, add event listener to each
-// const pictures=document.querySelectorAll(".media_section img");
-// pictures.forEach((picture)=>{
-//   picture.addEventListener("click",e=>{
-//     //on image click, add active class to lightbox
-//     lightbox.classList.add("active");
-//     //create img element, set src to clicked image
-//     const img=document.createElement("img");
-//     img.src=picture.src;
-//     //if lightbox has child, remove it,so no double images
-//     while(lightbox.firstChild){
-//       lightbox.removeChild(lightbox.firstChild);
-//     }
-//     //append img to display to lightbox
-//     lightbox.appendChild(img);
-//   })
-// })
-
-
-
-
 
 
 

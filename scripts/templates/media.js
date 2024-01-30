@@ -1,19 +1,21 @@
+
+// START 
+
+
 function MediaTemplate(data) {
 
-    //create image model
+//DECONSTRUCTING JSON DATA to create variables from properties
 
 
-    const { title, image, video, likes } = data;
+    const { title, image, video, likes,date } = data;
 
     const pic = `./assets/media/${image}`
     const videoh = `./assets/media/${video}`;
     const titleh = `${title}`;
     const likesh = `${likes}`;
+    const dateh = `${date}`;
 
-  
-
-
-
+//CONSTRUCTOR function for Mediacards with images
     function getPhotoCardDOM() {
 
         const medialink = document.createElement('a');
@@ -63,42 +65,22 @@ function MediaTemplate(data) {
             console.log("removed");
         }
 
-        function handleLikes(){
-            icon.addEventListener('click', incrementLike);
-            icon.removeEventListener('click', incrementLike)
-            console.log("removed");
-            
-        }
 
         icon.addEventListener('click', incrementLike
           )
-          icon.addEventListener('click', noMoreLike);
+        icon.addEventListener('click', noMoreLike);
             
-        //    icon.addEventListener('click', handleLikes);
-
-        
-
-       
-
-
-       
-
-
-
-
         captioncontainer.appendChild(likes)
 
         mediacard.setAttribute("data-likes",likesh)
-
-
+        mediacard.setAttribute("data-date",dateh)
+        mediacard.setAttribute("data-title",titleh)
 
         return medialink;
-
-
     } //end getPhotoCardDOM
 
 
-    //constructor function for Mediacards with video
+    //CONSTRUCTOR function for Mediacards with video
     function getMovieCardDOM() {
 
         const medialink = document.createElement('a');
@@ -139,8 +121,6 @@ function MediaTemplate(data) {
 
         function incrementLike(){
             likeContainer++;
-            
-            console.log("Global",globallikes);
             likes.innerHTML=likeContainer+"  ";
             likes.appendChild(icon);
             console.log("liked")
@@ -151,36 +131,24 @@ function MediaTemplate(data) {
             console.log("removed");
         }
 
-        function handleLikes(){
-            icon.addEventListener('click', incrementLike);
-            icon.removeEventListener('click', incrementLike)
-            console.log("removed");
-            
-        }
-
         icon.addEventListener('click', incrementLike
-          );
-          icon.addEventListener('click', ()=>{
-            globallikes++;
-            addPriceTag(person,globallikes);
-          });
-          icon.addEventListener('click', noMoreLike);
-
-
-
-
+        )
+      icon.addEventListener('click', noMoreLike);
 
         captioncontainer.appendChild(likes)
 
         mediacard.setAttribute("data-likes",likesh)
 
-
+        console.log("date",dateh)
+        mediacard.setAttribute("data-date",dateh)
+        mediacard.setAttribute("data-title",titleh)
+        console.log(typeof(titleh))
 
         return medialink;
     } //   end getMovieCardDOM
 
 
-    //factory function that returns either one or the other type of object
+    //FACTORY function that returns either one or the other type of object
     function getMediaCardDOM() {
         // Determine whether to create an image media card or a video media card based on the available data
         if (data.image != undefined) {
@@ -192,5 +160,29 @@ function MediaTemplate(data) {
         }
     }
 
-    return { title, image, video, likes , getMediaCardDOM }
+    return { title, image, video, likes,dateh , getMediaCardDOM }
+} //end MediaTemplate function
+
+
+//SORTING FUNCTIONS
+
+function compareDatasetValue(value) {
+    //compare two values in an array 
+    return function(a, b) {
+        //values are object properties
+        if (a[value] > b[value]) {
+            return 1; //return value 1 indicates that sort needs to be done, switch indexes of elements
+        } else if (a[value] < b[value]) {
+            return -1; // do not sor
+        } else {
+            return 0; // do not sort
+        }
+    }
 }
+
+
+const compareByPop = compareDatasetValue("data-likes");
+const compareByDate = compareDatasetValue("data-date");
+const compareByTitle = compareDatasetValue("data-title");
+
+

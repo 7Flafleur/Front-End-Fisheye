@@ -99,6 +99,8 @@ body {
   cursor: pointer;
 }
 
+
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -133,6 +135,7 @@ body {
 
 #pop, #date  {
   border-bottom: #fafafa solid 1px;
+ 
   padding: 10px;
   cursor: pointer;
  
