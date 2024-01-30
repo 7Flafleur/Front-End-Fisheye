@@ -66,7 +66,15 @@ async function displayMedia(indivmedia) {
   });
 } //end displayMedia function
 
+function closeLightBox(){
+  const lightBox=document.querySelector(".lightbox")
+  const carousel=document.querySelector(".carousel")
+  const mediaSection = document.querySelector(".media_section")
+  lightBox.classList.remove("active");
+  carousel.classList.remove("active")
 
+  mediaSection.style.display = "flex";
+}
 
 ////////////////////////////////////////////////////////////////
 
@@ -160,6 +168,7 @@ titre.addEventListener("click",()=>{
   console.log(sorted)
 });
 
+document.getElementById('closeLB').addEventListener('click', closeLightBox);
 
 } //end init function
 

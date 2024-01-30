@@ -348,17 +348,7 @@ form input {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* .lightbox img {
-  height: 900px;
-  width: 1050px;
-  object-fit: cover;
-}
 
-.lightbox video {
-  height: 900px;
-  width: 1050px;
-  object-fit: cover;
-} */
 
 .lightbox.active {
   display: flex;
@@ -379,6 +369,7 @@ form input {
 
   max-height: 100%;
   max-width: 100%;
+ 
 }
 
 #carousel-list {
@@ -395,7 +386,7 @@ form input {
 
   padding: 0;
 
-  overflow: scroll;
+  overflow: hidden;
 
   scroll-behavior: smooth;
 }
@@ -403,9 +394,9 @@ form input {
 .carouselItem {
   border: turquoise solid 4px;
   display: flex;
-  height: 900px;
-  width: 1050px;
-
+  height: 100%;
+  width: 100%;
+overflow:hidden;
   flex: 1 0 100%;
   position: relative;
 }
@@ -416,10 +407,17 @@ form input {
   object-fit: cover;
 }
 
+.carouselItem video{
+  height:auto;
+  width:100%;
+  object-fit:cover;
+}
+
+
 .carousel-button {
   position: absolute;
 
-  display: flex;
+ 
 
   top: 0;
 
@@ -445,7 +443,7 @@ form input {
 
   transition: opacity 100ms;
 
-  background-color: sandybrown;
+ 
 
   border: solid yellow 1px;
 }
@@ -455,8 +453,12 @@ form input {
   opacity: 1;
 }
 
+#closeLB{
+  top:20px;
+}
+
 #carousel-button-prev {
-  left: 0;
+  left: 80px;
 
   padding-left: 0.25rem;
 
@@ -464,11 +466,20 @@ form input {
 }
 
 #carousel-button-next {
-  right: 0;
+  right: 80px;
 
   padding-left: 0.75rem;
 
   border-radius: 2rem 0 0 2rem;
 }
+
+#closeLB{
+  position:relative;
+ 
+
+  right: 50px;
+
+}
+
 
 /* Path: css/photographer.css */

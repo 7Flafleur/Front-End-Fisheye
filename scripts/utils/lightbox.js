@@ -52,23 +52,12 @@ function lightboxFactory(item) {
       })
   
   
-      lightbox.addEventListener("click",e=>{
-        //if click is not on lightbox, return
-        if(e.target!==e.currentTarget) return;
-        //at click on lightbox outside img, remove active class => hide lightbox;
-        lightbox.classList.remove("active");
-      })
-  
-  
+
     }
     
   
-  
-  
-  
-  
-  
-  
   }
+
+
   
   

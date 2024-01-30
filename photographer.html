@@ -22,9 +22,10 @@
    
       
       
-      <div role="button" id="trierpar" class="visually-hidden" aria-haspopup="listbox" aria-controls="listbox-id" aria-expanded="true">
+      <div role="button" id="trierpar"  aria-haspopup="listbox" aria-controls="listbox-id" aria-expanded="true">
         Trier par
       </div>
+      <div id="default" class="dropdown-content" >Popularité</div>
       <div role="listbox" id="listbox-id" class="dropdown-content" aria-activedescendant="pop" aria-selected="true" aria-labelledby="trierpar">
         <div id="pop" class="option" role="option">Popularité</div>
         <div id="date" class="option" role="option">Date</div>
@@ -39,7 +40,12 @@
        <aside id="pricetag" role="price"> </aside> 
 
        <section class="lightbox" role="dialog">
+
         <section class="carousel">
+
+         <button class="carousel-button" id="closeLB">
+          <i class="fa-solid fa-xmark" style="color: #901c1c;">
+          </i></button>
 
           <button class="carousel-button" id="carousel-button-prev">
     
@@ -73,7 +79,7 @@
           <h2 id="formheading">Contactez-moi</h2>
         
         
-          <img src="assets/icons/close.svg" alt="x" onclick="closeModal()" />
+          <img src="assets/icons/close.svg"  alt="closedialog" onclick="closeModal()" />
         </header>
 				<form id="contactForm" name="contactForm" >
 					<div>
