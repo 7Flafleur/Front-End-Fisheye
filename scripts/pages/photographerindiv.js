@@ -55,6 +55,7 @@ async function getMedia() {
 // take array, target MEDIA html section
 async function displayMedia(indivmedia) {
   const mediaSection = document.querySelector(".media_section")
+  mediaSection.innerHTML="";
 
   //use template for each media in array, pass each media to function  according to its type
   indivmedia.forEach((item) => {
@@ -139,21 +140,25 @@ const titre=document.querySelector("#titre");
 
 pop.addEventListener("click",()=>{
   console.log("pop");
-  mediaItems.sort(compareByPop);
-  console.log(mediaItems);
+  const sorted =indivmedia.sort(compareByPop) 
+  displayMedia(sorted)
+  console.log(sorted)
+
 });
 
 date.addEventListener("click",()=>{
   console.log("date");
-  mediaItems.sort(compareByDate);
+  const sorted =indivmedia.sort(compareByDate) 
+  displayMedia(sorted)
+  console.log(sorted)
 });
 
 titre.addEventListener("click",()=>{
   console.log("titre");
-  mediaItems.sort(compareByTitle);
+  const sorted =indivmedia.sort(compareByTitle) 
+  displayMedia(sorted)
+  console.log(sorted)
 });
-
-
 
 
 } //end init function

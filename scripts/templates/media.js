@@ -181,8 +181,10 @@ function compareDatasetValue(value) {
 }
 
 
-const compareByPop = compareDatasetValue("data-likes");
-const compareByDate = compareDatasetValue("data-date");
-const compareByTitle = compareDatasetValue("data-title");
+const compareByPop = compareDatasetValue("likes");
+const compareByDate = compareDatasetValue("date");
+const compareByTitle = compareDatasetValue("title");
+
+
 
 
