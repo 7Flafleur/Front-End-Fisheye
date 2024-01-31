@@ -3,10 +3,18 @@
 function integrateCarousel(mediaItems) {
 
     const carousel = document.querySelector(".carousel");
+  // Check if there's already a ul with an id of carousel-list
+  const existingCarouselList = document.querySelector("#carousel-list");
+  if (existingCarouselList) {
+    // If it exists, remove it
+    console.log("carousel exists!")
+    existingCarouselList.remove();
+  }
     const ul = document.createElement('ul');
     ul.id = "carousel-list";
 
     carousel.appendChild(ul);
+
 
 
  mediaItems.forEach((link,index) => {
@@ -34,35 +42,33 @@ function integrateCarousel(mediaItems) {
         console.log("no valid media type")
     }
 
+
+
 });
 
+const prevButton = document.createElement("button");
+prevButton.id = "carousel-button-prev";
+prevButton.classList.add("carousel-button")
+const iconleft=document.createElement("i")
+iconleft.classList.add("fa-solid")
+iconleft.classList.add("fa-chevron-left")
+iconleft.setAttribute("style","color: #901c1c" )
+prevButton.appendChild(iconleft)
+// prevButton.textContent = "Previous";
+carousel.appendChild(prevButton);
 
-    const carouselItem = document.querySelector(".carouselItem");
+const nextButton = document.createElement("button");
+nextButton.id = "carousel-button-next";
+nextButton.classList.add("carousel-button")
+const iconright=document.createElement("i")
+iconright.classList.add("fa-solid")
+iconright.classList.add("fa-chevron-right")
+iconright.setAttribute("style","color: #901c1c" )
+nextButton.appendChild(iconright)
+// nextButton.textContent = "Next";
+carousel.appendChild(nextButton);
 
-    const prevButton = document.getElementById("carousel-button-prev");
-
-    ul.appendChild(prevButton);
-
-
-    const nextButton = document.getElementById("carousel-button-next");
-
-    ul.appendChild(nextButton);
-
-    nextButton.addEventListener("click", () => {
-
-        const carouselItemWidth = carouselItem.clientWidth;
-
-        ul.scrollLeft += carouselItemWidth;
-
-    });
-
-    prevButton.addEventListener("click", () => {
-
-        const carouselItemWidth = carouselItem.clientWidth;
-
-        ul.scrollLeft -= carouselItemWidth;
-
-    });
+ 
 
     const lightBox = document.querySelector(".lightbox");
 

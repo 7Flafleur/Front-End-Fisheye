@@ -433,9 +433,6 @@ overflow:hidden;
 
   cursor: pointer;
 
-  opacity: 0.5;
-
-  transition: opacity 100ms;
 
  
 
@@ -463,7 +460,7 @@ overflow:hidden;
   bottom: 0;
 
 
-  left: -35px;
+  left: -80px;
 
   padding-left: 0.25rem;
 
@@ -480,7 +477,7 @@ overflow:hidden;
 
   bottom: 0;
 
-  right: -35px;
+  right: -80px;
 
   padding-left: 0.75rem;
 

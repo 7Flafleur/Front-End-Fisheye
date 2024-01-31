@@ -110,15 +110,16 @@ addPriceTag(person,globallikes);
 
 
 
-mediaItems.forEach((item,index)=>{
-  const media = item.children[0];
-media.dataset.index=index;
-  media.addEventListener("click", ()=>{
-    console.log("media ",media.dataset.index,"clicked");
-    
-    integrateCarousel(mediaItems);
-  });
-});
+// mediaItems.forEach((item,index)=>{
+//   const media = item.children[0];
+// media.dataset.index=index;
+//   media.addEventListener("click", ()=>{
+//     console.log("media ",media.dataset.index,"clicked");
+//     integrateCarousel(mediaItems);
+//   });
+// });
+
+
 
 // mediaItems.forEach((item)=>{
 //   const media = item.children[0];
@@ -129,6 +130,16 @@ media.dataset.index=index;
 //     }
 //   });
 // });
+
+mediaItems.forEach((item, index) => {
+  const media = item.children[0];
+  media.dataset.index = index;
+  media.addEventListener("click", () => {
+    console.log("media ", media.dataset.index, "clicked");
+    // Generate a carousel
+    integrateCarousel(mediaItems);
+  });
+});
 
 mediaItems.forEach((item) => {
   const icon = item.querySelector(".fa-heart");
