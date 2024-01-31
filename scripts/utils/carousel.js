@@ -74,7 +74,10 @@ nextButton.appendChild(iconright)
 // nextButton.textContent = "Next";
 carousel.appendChild(nextButton);
 }
- 
+
+
+
+
 
     const lightBox = document.querySelector(".lightbox");
 

@@ -76,6 +76,10 @@ function closeLightBox(){
   mediaSection.style.display = "flex";
 }
 
+function reorganizeArray(list){
+
+}
+
 ////////////////////////////////////////////////////////////////
 
 //START INIT FUNCTION
@@ -106,38 +110,24 @@ for (i in mediaItems){
 
 addPriceTag(person,globallikes);
 
-// console.log("Global",globallikes);
-
-
-
-// mediaItems.forEach((item,index)=>{
-//   const media = item.children[0];
-// media.dataset.index=index;
-//   media.addEventListener("click", ()=>{
-//     console.log("media ",media.dataset.index,"clicked");
-//     integrateCarousel(mediaItems);
-//   });
-// });
-
-
-
-// mediaItems.forEach((item)=>{
-//   const media = item.children[0];
-//   media.addEventListener("keydown", (e)=>{
-//     if(e.key === "Enter"){
-//       console.log("clicked");
-//       integrateCarousel(mediaItems);
-//     }
-//   });
-// });
 
 mediaItems.forEach((item, index) => {
   const media = item.children[0];
   media.dataset.index = index;
   media.addEventListener("click", () => {
     console.log("media ", media.dataset.index, "clicked");
+
+    let clickedIndex = parseInt(media.dataset.index);
+
+    let firstHalf = mediaItems.slice(0, clickedIndex);
+    let secondHalf = mediaItems.slice(clickedIndex);
+
+
+    let reorganizedArray = secondHalf.concat(firstHalf);
+
     // Generate a carousel
-    integrateCarousel(mediaItems);
+    integrateCarousel(reorganizedArray);
+    console.log("showing",li.dataset.index)
   });
 });
 
