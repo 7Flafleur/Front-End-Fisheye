@@ -9,22 +9,25 @@ function integrateCarousel(mediaItems) {
     carousel.appendChild(ul);
 
 
- mediaItems.forEach((link) => {
+ mediaItems.forEach((link,index) => {
     const li = document.createElement('li')
     li.classList.add("carouselItem")
+    li.dataset.index = index;
     if (link.querySelector("img")) {
         const img = document.createElement('img')
         img.setAttribute("src", link.querySelector("img").src)
+        img.dataset.index=index;
         li.appendChild(img)
         ul.appendChild(li)
-        console.log("img added ");
+        // console.log("img added ");
     }
     else if (link.querySelector("video")) {
         const video = document.createElement('video')
         video.setAttribute("src", link.querySelector("video").src)
+        video.dataset.index=index
         li.appendChild(video)
         ul.appendChild(li)
-        console.log("video added ");
+        // console.log("video added ");
 
     }
     else {

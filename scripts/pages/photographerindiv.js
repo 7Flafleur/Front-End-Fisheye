@@ -3,7 +3,7 @@ const currentURLsearch =new URLSearchParams(window.location.search);
 const urlid=(currentURLsearch.get("id"));
 
 
-console.log("URLId",urlid)
+// console.log("URLId",urlid)
 
 
 ////////////////HELPER FUNCTIONS/////////////////////
@@ -95,7 +95,7 @@ async function init() {
 
   let globallikes = 0;
 
-  console.log("Mediaitems is ",typeof(mediaItems))
+  // console.log("Mediaitems is ",typeof(mediaItems))
 
 
 
@@ -106,27 +106,29 @@ for (i in mediaItems){
 
 addPriceTag(person,globallikes);
 
-console.log("Global",globallikes);
+// console.log("Global",globallikes);
 
 
 
-mediaItems.forEach((item)=>{
+mediaItems.forEach((item,index)=>{
   const media = item.children[0];
+media.dataset.index=index;
   media.addEventListener("click", ()=>{
-    console.log("clicked");
+    console.log("media ",media.dataset.index,"clicked");
+    
     integrateCarousel(mediaItems);
   });
 });
 
-mediaItems.forEach((item)=>{
-  const media = item.children[0];
-  media.addEventListener("keydown", (e)=>{
-    if(e.key === "Enter"){
-      console.log("clicked");
-      integrateCarousel(mediaItems);
-    }
-  });
-});
+// mediaItems.forEach((item)=>{
+//   const media = item.children[0];
+//   media.addEventListener("keydown", (e)=>{
+//     if(e.key === "Enter"){
+//       console.log("clicked");
+//       integrateCarousel(mediaItems);
+//     }
+//   });
+// });
 
 mediaItems.forEach((item) => {
   const icon = item.querySelector(".fa-heart");

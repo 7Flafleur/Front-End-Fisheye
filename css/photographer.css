@@ -336,14 +336,14 @@ form input {
 
 .lightbox {
   display: none;
-  border: solid 8px blue;
+  border: dotted 1px blue;
   position: fixed;
   z-index: 100;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 87%;
-  width: 87%;
+  height: 97%;
+  width: 95%;
   overflow: auto;
   background-color: rgba(255, 255, 255, 0.8);
 }
@@ -369,6 +369,7 @@ form input {
 
   max-height: 100%;
   max-width: 100%;
+  position:relative;
  
 }
 
@@ -415,13 +416,6 @@ overflow:hidden;
 
 
 .carousel-button {
-  position: absolute;
-
- 
-
-  top: 0;
-
-  bottom: 0;
 
   margin: auto;
 
@@ -454,11 +448,22 @@ overflow:hidden;
 }
 
 #closeLB{
-  top:20px;
+  position: absolute;
+  top: 0;
+  right: 20px;
 }
 
 #carousel-button-prev {
-  left: 80px;
+  position: absolute;
+
+ 
+
+  top: 0;
+
+  bottom: 0;
+
+
+  left: -35px;
 
   padding-left: 0.25rem;
 
@@ -466,20 +471,22 @@ overflow:hidden;
 }
 
 #carousel-button-next {
-  right: 80px;
+
+  position: absolute;
+
+ 
+
+  top: 0;
+
+  bottom: 0;
+
+  right: -35px;
 
   padding-left: 0.75rem;
 
   border-radius: 2rem 0 0 2rem;
 }
 
-#closeLB{
-  position:relative;
- 
-
-  right: 50px;
-
-}
 
 
 /* Path: css/photographer.css */
