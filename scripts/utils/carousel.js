@@ -46,7 +46,10 @@ function integrateCarousel(mediaItems) {
 
 });
 
-const prevButton = document.createElement("button");
+let prevButton =document.getElementById("carousel-button-prev")
+
+if(!prevButton)
+{const prevButton = document.createElement("button");
 prevButton.id = "carousel-button-prev";
 prevButton.classList.add("carousel-button")
 const iconleft=document.createElement("i")
@@ -55,9 +58,12 @@ iconleft.classList.add("fa-chevron-left")
 iconleft.setAttribute("style","color: #901c1c" )
 prevButton.appendChild(iconleft)
 // prevButton.textContent = "Previous";
-carousel.appendChild(prevButton);
+carousel.appendChild(prevButton);}
 
-const nextButton = document.createElement("button");
+let nextButton=document.getElementById("carousel-button-next")
+
+if(!nextButton)
+{const nextButton = document.createElement("button");
 nextButton.id = "carousel-button-next";
 nextButton.classList.add("carousel-button")
 const iconright=document.createElement("i")
@@ -67,7 +73,7 @@ iconright.setAttribute("style","color: #901c1c" )
 nextButton.appendChild(iconright)
 // nextButton.textContent = "Next";
 carousel.appendChild(nextButton);
-
+}
  
 
     const lightBox = document.querySelector(".lightbox");

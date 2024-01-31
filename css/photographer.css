@@ -176,7 +176,7 @@ body {
 
 .media_section img,
 video {
-  border-radius: 3%;
+   border-radius: 1%; 
   width: 100%;
   height: 85%;
   object-fit: cover;
@@ -336,7 +336,7 @@ form input {
 
 .lightbox {
   display: none;
-  border: dotted 1px blue;
+  
   position: fixed;
   z-index: 100;
   top: 50%;
@@ -345,7 +345,7 @@ form input {
   height: 97%;
   width: 95%;
   overflow: auto;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 
@@ -365,7 +365,7 @@ form input {
 .carousel.active {
   display: block;
 
-  border: tomato dotted 4px;
+  
 
   max-height: 100%;
   max-width: 100%;
@@ -374,7 +374,7 @@ form input {
 }
 
 #carousel-list {
-  border: solid 8px yellow;
+  
 
   height: 900px;
   width: 1050px;
@@ -393,7 +393,7 @@ form input {
 }
 
 .carouselItem {
-  border: turquoise solid 4px;
+ 
   display: flex;
   height: 100%;
   width: 100%;
@@ -402,7 +402,8 @@ overflow:hidden;
   position: relative;
 }
 
-.carouselItem img {
+.carouselItem > img {
+  box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -435,8 +436,8 @@ overflow:hidden;
 
 
  
-
-  border: solid yellow 1px;
+/* 
+  border: solid yellow 1px; */
 }
 
 .carousel-button:hover,
