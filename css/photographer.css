@@ -228,12 +228,12 @@ video {
 }
 
 #nblikes {
-  border: blue solid 1px;
+  /* border: blue solid 1px; */
   padding: 14px;
 }
 
 #price {
-  border: blue solid 1px;
+
   padding: 14px;
 }
 

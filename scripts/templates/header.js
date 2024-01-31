@@ -104,10 +104,14 @@ function addPriceTag(dataobject,globallikes){
     const nblikes=document.querySelector("#nblikes");
     const personmodel=HeaderTemplate(dataobject);
     const pricevalue=personmodel.price;
-    nblikes.innerHTML="likes "+globallikes;
-    nblikes.textContent="Likes  "+" "+globallikes;
-    price.innerHTML=pricevalue+"€/jour";
-    price.textContent=pricevalue+"€/jour"; //globallikes+
+    const icon = document.createElement('i');                                   //heart icon
+    icon.classList.add('fa-solid', 'fa-heart', 'fa-');
+    icon.setAttribute("style", "color: #000")
+    nblikes.innerHTML=globallikes;
+    nblikes.textContent=globallikes+"  ";
+    nblikes.appendChild(icon);
+    price.innerHTML=pricevalue+"€ / jour";
+    price.textContent=pricevalue+"€ / jour"; //globallikes+
     pricetag.append(nblikes,price);
 
 
