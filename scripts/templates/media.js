@@ -141,10 +141,10 @@ function MediaTemplate(data) {
 
         mediacard.setAttribute("data-likes",likesh)
 
-        console.log("date",dateh)
+        
         mediacard.setAttribute("data-date",dateh)
         mediacard.setAttribute("data-title",titleh)
-        console.log(typeof(titleh))
+       
 
         return medialink;
     } //   end getMovieCardDOM

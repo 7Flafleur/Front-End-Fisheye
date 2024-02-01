@@ -60,14 +60,8 @@ console.log("Global media Items",mediaItems)
       console.log("media ", media.dataset.index, "clicked");
       media.dataset.active = "true";
 
+      let reorganizedArray = getSortedArray(media, mediaItems);
 
-      let clickedIndex = parseInt(media.dataset.index);
-
-      let firstHalf = mediaItems.slice(0, clickedIndex);
-      let secondHalf = mediaItems.slice(clickedIndex);
-
-      //new array of mediaitems with clicked slide as first
-      let reorganizedArray = secondHalf.concat(firstHalf);
 
 
 
