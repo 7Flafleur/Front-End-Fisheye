@@ -6,6 +6,10 @@
 const currentURLsearch = new URLSearchParams(window.location.search);
 const urlid = (currentURLsearch.get("id"));
 
+const pop = document.querySelector("#pop");
+const date = document.querySelector("#date");
+const titre = document.querySelector("#titre");
+
 
 // console.log("URLId",urlid)
 
@@ -27,7 +31,7 @@ async function init() {
 
     // Initialize mediaItems after displayMedia is called
     mediaItems = Array.from(document.querySelectorAll(".mediacard"));
-console.log("Global media Items",mediaItems)
+  console.log("Global media Items",mediaItems)
   insertNameForm(person);
 
   
@@ -50,48 +54,43 @@ console.log("Global media Items",mediaItems)
 
   //EVENT LISTENERS///
 
+
+
+
+  // ...
   
-    mediaItems.forEach((item, index) => {
-      setActiveData(item, index);
+  mediaItems.forEach((item, index) => {
+    const media = item.children[0]; // img or video inside mediaitem container
+    media.dataset.index = index;
+    media.addEventListener("click", handleMediaClick);
+  });
 
-    const media = item.children[0];         //img or video inside mediaitem container
-    //
-    media.addEventListener("click", () => {
-      console.log("media ", media.dataset.index, "clicked");
-      media.dataset.active = "true";
+  
+  //   mediaItems.forEach((item, index) => {
+  //     setActiveData(item, index);
 
-      let reorganizedArray = getSortedArray(media, mediaItems);
+  //   const media = item.children[0];         //img or video inside mediaitem container
+  //   //
+  //   media.addEventListener("click", () => {
+  //     console.log("media ", media.dataset.index, "clicked");
+  //     media.dataset.active = "true";
 
+  //     let reorganizedArray = getSortedArray(media, mediaItems);
 
-
-
-      // Generate a carousel
-      integrateCarousel(reorganizedArray);
-      console.log("showing mediaitem n°", media.dataset.index)
-
-
-      let nextButton = document.querySelector("#carousel-button-next")
-
-
-      let prevButton = document.querySelector("#carousel-button-prev")
-
-      // nextButton.addEventListener("click", () => {
-      //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-      //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-      //   console.log("media active: ", activeMedia.dataset.active);
-      //   console.log("index: ", activeMedia.dataset.index);
-      // });
-
-      // prevButton.addEventListener("click", () => {
-      //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-      //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-      //   console.log(" media active: ", activeMedia.dataset.active);
-      //   console.log("index: ", activeMedia.dataset.index);
-      // });
+  //     integrateCarousel(reorganizedArray);
+  //     console.log("showing mediaitem n°", media.dataset.index)
 
 
-    });
-  }); // end of ForEach mediaItem
+  //     let nextButton = document.querySelector("#carousel-button-next")
+
+
+  //     let prevButton = document.querySelector("#carousel-button-prev")
+
+
+
+
+  //   });
+  // }); // end of ForEach mediaItem
 
 
 
@@ -110,11 +109,7 @@ console.log("Global media Items",mediaItems)
   });
 
  
-  /////////SORTING FUNCTIONS//////////
 
-  const pop = document.querySelector("#pop");
-  const date = document.querySelector("#date");
-  const titre = document.querySelector("#titre");
 
   pop.addEventListener("click", () => {
     console.log("pop");
