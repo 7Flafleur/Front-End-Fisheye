@@ -192,18 +192,39 @@ function attachEventListeners() {
   });
 }
 
-let currentIndex = 0;
 
+  let currentIndex = 0;
 function moveCarousel(direction) {
+
   const carouselContainer = document.querySelector('#carousel-list');
   const carouselItems = Array.from(carouselContainer.children);
   const itemWidth = carouselItems[0].getBoundingClientRect().width;
 
-  if (direction === 'next' && currentIndex < carouselItems.length - 1) {
-    currentIndex++;
-  } else if (direction === 'prev' && currentIndex > 0) {
-    currentIndex--;
+  switch (direction) {
+    case 'next':
+      if (currentIndex < carouselItems.length - 1) {
+        currentIndex++;
+        console.log("current index",currentIndex)
+      }
+      else if(currentIndex == carouselItems.length - 1){
+        console.log("end of list")
+        currentIndex=0;
+      }
+      break;
+    case 'prev':
+      if (currentIndex > 0) {
+        currentIndex--;
+        console.log("current index",currentIndex)
+      }
+      else if(currentIndex==0){
+        console.log("end of list")
+        currentIndex=carouselItems.length - 1
+      }
+      break;
+    default:
+      console.log('Invalid direction');
   }
 
-  carouselContainer.scrollLeft = currentIndex * itemWidth;
+  carouselContainer.scrollLeft = currentIndex * itemWidth;  //
+  console.log("moved by",currentIndex * itemWidth)
 }
