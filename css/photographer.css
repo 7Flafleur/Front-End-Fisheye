@@ -401,6 +401,8 @@ position:relative;
 .carouselItem {
  border: blue 2px dashed;
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
 overflow:hidden;
@@ -409,15 +411,17 @@ overflow:hidden;
 }
 
 .carouselItem > img {
+  border: yellow 4px solid;
   box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  height: 100%;
-  width: 100%;
+  height: 98%;
+  width: 98%;
   object-fit: cover;
 }
 
 .carouselItem video{
-  height:auto;
-  width:100%;
+  border: yellow 4px solid;
+  height:98%;
+  width:98%;
   object-fit:cover;
 }
 

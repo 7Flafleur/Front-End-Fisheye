@@ -105,6 +105,8 @@ async function init() {
 
 for (i in mediaItems){
   globallikes+=parseInt(mediaItems[i].dataset.likes);
+  mediaItems[i].setAttribute("data-active","")
+  
 }
 
 
@@ -112,22 +114,28 @@ addPriceTag(person,globallikes);
 
 
 mediaItems.forEach((item, index) => {
-  const media = item.children[0];
-  media.dataset.index = index;
+  const media = item.children[0];         //img or video inside mediaitem container
+  media.dataset.index = index;                    // img or video index is the same as itemcontainer index
+        //
   media.addEventListener("click", () => {
     console.log("media ", media.dataset.index, "clicked");
+    media.dataset.active=true;
+    
 
     let clickedIndex = parseInt(media.dataset.index);
 
     let firstHalf = mediaItems.slice(0, clickedIndex);
     let secondHalf = mediaItems.slice(clickedIndex);
 
-
+//new array of mediaitems with clicked slide as first
     let reorganizedArray = secondHalf.concat(firstHalf);
+    
+ 
 
     // Generate a carousel
     integrateCarousel(reorganizedArray);
-    console.log("showing",li.dataset.index)
+    console.log("showing mediaitem n°",media.dataset.index)
+   console.log("active: ",media.dataset.active)
   });
 });
 
