@@ -50,14 +50,11 @@ console.log("Global media Items",mediaItems)
 
   //EVENT LISTENERS///
 
+  
+    mediaItems.forEach((item, index) => {
+      setActiveData(item, index);
 
-
-
-
-  mediaItems.forEach((item, index) => {
-    item.dataset.active = "true";
     const media = item.children[0];         //img or video inside mediaitem container
-    media.dataset.index = index;                    // img or video index is the same as itemcontainer index
     //
     media.addEventListener("click", () => {
       console.log("media ", media.dataset.index, "clicked");
@@ -168,76 +165,5 @@ console.log("Global media Items",mediaItems)
 (async () => {
   await init();
 })();
-
-
-////////////////HELPER FUNCTIONS/////////////////////
-
-//get the .json data from server, return promise
-async function fetchData() {
-  let response = await fetch('./data/photographers.json');
-  let data = await response.json();
-  let photographers = data.photographers;
-  return photographers;
-}//end fetchData function
-
-
-//get media
-async function fetchMediaData() {
-  let response = await fetch('./data/photographers.json');
-  let data = await response.json();
-  let media = data.media;
-  return media;        ////////////array of JSON objects
-}//end fetchMediaData function
-
-//await promise, return array
-async function getPhotographers() {
-  let photographers = await fetchData();
-  // console.log(photographers)
-  return photographers;
-}//end getPhotographers function
-
-//await promise, return array
-async function getMedia() {
-  let media = await fetchMediaData();         ///
-  // console.log("media:",media)
-
-  //array for photographer
-  let indivmedia = new Array();
-
-  //fill empty array for individual photographer
-  media.forEach((object) => {
-
-    if (object.photographerId == urlid) {
-      indivmedia.push(object)
-    }
-  })
-  // console.log("Indiv",indivmedia)
-  return indivmedia;
-}//end getMedia function
-
-
-// take array, target MEDIA html section
-async function displayMedia(indivmedia) {
-  const mediaSection = document.querySelector(".media_section")
-  mediaSection.innerHTML = "";
-
-  //use template for each media in array, pass each media to function  according to its type
-  indivmedia.forEach((item) => {
-    const mediaModel = MediaTemplate(item);  //returns video or image mediamodel
-    const mediaCardDOM = mediaModel.getMediaCardDOM();  // function creates mediacard that has either video or img tag, according to object type
-    mediaSection.appendChild(mediaCardDOM);
-
-  });
-} //end displayMedia function
-
-function closeLightBox() {
-  const lightBox = document.querySelector(".lightbox")
-  const carousel = document.querySelector(".carousel")
-  const mediaSection = document.querySelector(".media_section")
-  lightBox.classList.remove("active");
-  carousel.classList.remove("active")
-
-  mediaSection.style.display = "flex";
-}
 
 
