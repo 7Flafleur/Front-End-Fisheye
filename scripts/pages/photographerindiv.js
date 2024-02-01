@@ -80,6 +80,9 @@ async function init() {
       integrateCarousel(reorganizedArray);
       console.log("showing mediaitem n°", media.dataset.index)
 
+      document.querySelector('#carousel-button-next').addEventListener('click', () => moveCarousel('next'));
+document.querySelector('#carousel-button-prev').addEventListener('click', () => moveCarousel('prev'));
+
 
 
 

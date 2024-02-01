@@ -192,4 +192,18 @@ function attachEventListeners() {
   });
 }
 
-// Call this function after sorting and re-displaying the media items
+let currentIndex = 0;
+
+function moveCarousel(direction) {
+  const carouselContainer = document.querySelector('#carousel-list');
+  const carouselItems = Array.from(carouselContainer.children);
+  const itemWidth = carouselItems[0].getBoundingClientRect().width;
+
+  if (direction === 'next' && currentIndex < carouselItems.length - 1) {
+    currentIndex++;
+  } else if (direction === 'prev' && currentIndex > 0) {
+    currentIndex--;
+  }
+
+  carouselContainer.scrollLeft = currentIndex * itemWidth;
+}
