@@ -125,3 +125,26 @@ async function fetchData() {
     
     return reorganizedArray;
   }
+
+  //SORTING FUNCTIONS
+
+function compareDatasetValue(value) {
+    //compare two values in an array 
+    return function(a, b) {
+        //values are object properties
+        if (a[value] > b[value]) {
+            return 1; //return value 1 indicates that sort needs to be done, switch indexes of elements
+        } else if (a[value] < b[value]) {
+            return -1; // do not sor
+        } else {
+            return 0; // do not sort
+        }
+    }
+}
+
+
+const compareByPop = compareDatasetValue("likes");
+const compareByDate = compareDatasetValue("date");
+const compareByTitle = compareDatasetValue("title");
+
+
