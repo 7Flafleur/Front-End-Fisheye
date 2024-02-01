@@ -148,3 +148,48 @@ const compareByDate = compareDatasetValue("date");
 const compareByTitle = compareDatasetValue("title");
 
 
+
+
+
+
+
+
+
+function attachEventListeners() {
+  mediaItems.forEach((item, index) => {
+    const media = item.children[0]; // img or video inside mediaitem container
+    media.dataset.index = index;
+    media.addEventListener("click", handleMediaClick);
+  });
+
+  mediaItems.forEach((item, index) => {
+    setActiveData(item, index);
+
+    const media = item.children[0]; // img or video inside mediaitem container
+    media.addEventListener("click", () => {
+      console.log("media ", media.dataset.index, "clicked");
+      media.dataset.active = "true";
+
+      let reorganizedArray = getSortedArray(media, mediaItems);
+
+      integrateCarousel(reorganizedArray);
+      console.log("showing mediaitem n°", media.dataset.index);
+    });
+  });
+
+  mediaItems.forEach((item) => {
+    const icon = item.querySelector(".fa-heart");
+
+    const clickHandler = (event) => {
+      event.preventDefault();
+      globallikes++;
+      console.log("Global", globallikes);
+      addPriceTag(person, globallikes);
+      icon.removeEventListener("click", clickHandler);
+    };
+
+    icon.addEventListener("click", clickHandler);
+  });
+}
+
+// Call this function after sorting and re-displaying the media items

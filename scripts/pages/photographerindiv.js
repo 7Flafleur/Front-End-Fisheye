@@ -113,6 +113,7 @@ async function init() {
     console.log("sorted ob: ", sorted)
     mediaItems = Array.from(document.querySelectorAll(".mediacard"));
     console.log("New media Items sorted by pop: ",mediaItems)
+    attachEventListeners();
 
   });
 
@@ -123,6 +124,7 @@ async function init() {
     console.log("sorted objects: ", sorted)
     mediaItems = Array.from(document.querySelectorAll(".mediacard"));
     console.log("New media Items sorted by date: ",mediaItems)
+    attachEventListeners();
   });
 
   titre.addEventListener("click", () => {
@@ -132,6 +134,7 @@ async function init() {
     console.log("sorted objects: ", sorted)
     mediaItems = Array.from(document.querySelectorAll(".mediacard"));
     console.log("New media Items sorted by title: ",mediaItems)
+    attachEventListeners();
   });
 
   document.getElementById('closeLB').addEventListener('click', closeLightBox);
