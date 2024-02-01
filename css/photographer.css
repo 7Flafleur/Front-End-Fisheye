@@ -363,23 +363,29 @@ form input {
 }
 
 .carousel.active {
-  display: block;
+  display: flex;
+  border: pink 8px dotted;
+  align-items: center;
 
   
 
-  max-height: 100%;
-  max-width: 100%;
-  position:relative;
+  height: 87%;
+  width: 72%;
+  position:fixed;
  
 }
 
 #carousel-list {
   
 
-  height: 900px;
-  width: 1050px;
+  height: 50%;
+  width:50%;
+
 
   display: flex;
+
+
+
 
   list-style: none;
 
@@ -387,13 +393,13 @@ form input {
 
   padding: 0;
 
-  overflow: hidden;
+  /* overflow: hidden; */
 
   scroll-behavior: smooth;
 }
 
 .carouselItem {
- 
+ border: blue 2px dashed;
   display: flex;
   height: 100%;
   width: 100%;
@@ -404,8 +410,8 @@ overflow:hidden;
 
 .carouselItem > img {
   box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 50%;
   object-fit: cover;
 }
 
