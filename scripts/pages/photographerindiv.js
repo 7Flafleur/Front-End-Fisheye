@@ -76,9 +76,9 @@ function closeLightBox(){
   mediaSection.style.display = "flex";
 }
 
-function reorganizeArray(list){
 
-}
+
+
 
 ////////////////////////////////////////////////////////////////
 
@@ -113,13 +113,16 @@ for (i in mediaItems){
 addPriceTag(person,globallikes);
 
 
+//set event Listener on every media item 
+
 mediaItems.forEach((item, index) => {
+  item.dataset.active="true";
   const media = item.children[0];         //img or video inside mediaitem container
   media.dataset.index = index;                    // img or video index is the same as itemcontainer index
         //
   media.addEventListener("click", () => {
     console.log("media ", media.dataset.index, "clicked");
-    media.dataset.active=true;
+    media.dataset.active="true";
     
 
     let clickedIndex = parseInt(media.dataset.index);
@@ -135,9 +138,32 @@ mediaItems.forEach((item, index) => {
     // Generate a carousel
     integrateCarousel(reorganizedArray);
     console.log("showing mediaitem n°",media.dataset.index)
-   console.log("active: ",media.dataset.active)
-  });
+   
+
+   let nextButton=document.querySelector("#carousel-button-next")
+
+
+let prevButton=document.querySelector("#carousel-button-prev")
+
+nextButton.addEventListener("click", () => {
+  const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
+  const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+  console.log("media active: ", activeMedia.dataset.active);
+  console.log("index: ", activeMedia.dataset.index);
 });
+
+prevButton.addEventListener("click", () => {
+  const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
+  const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+  console.log(" media active: ", activeMedia.dataset.active);
+  console.log("index: ", activeMedia.dataset.index);
+});
+
+
+  });
+}); // end of ForEach mediaItem
+
+
 
 mediaItems.forEach((item) => {
   const icon = item.querySelector(".fa-heart");
