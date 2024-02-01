@@ -66,31 +66,26 @@ async function init() {
   });
 
   
-  //   mediaItems.forEach((item, index) => {
-  //     setActiveData(item, index);
+    mediaItems.forEach((item, index) => {
+      setActiveData(item, index);
 
-  //   const media = item.children[0];         //img or video inside mediaitem container
-  //   //
-  //   media.addEventListener("click", () => {
-  //     console.log("media ", media.dataset.index, "clicked");
-  //     media.dataset.active = "true";
+    const media = item.children[0];         //img or video inside mediaitem container
+    //
+    media.addEventListener("click", () => {
+      console.log("media ", media.dataset.index, "clicked");
+      media.dataset.active = "true";
 
-  //     let reorganizedArray = getSortedArray(media, mediaItems);
+      let reorganizedArray = getSortedArray(media, mediaItems);
 
-  //     integrateCarousel(reorganizedArray);
-  //     console.log("showing mediaitem n°", media.dataset.index)
-
-
-  //     let nextButton = document.querySelector("#carousel-button-next")
-
-
-  //     let prevButton = document.querySelector("#carousel-button-prev")
+      integrateCarousel(reorganizedArray);
+      console.log("showing mediaitem n°", media.dataset.index)
 
 
 
 
-  //   });
-  // }); // end of ForEach mediaItem
+
+    });
+  }); // end of ForEach mediaItem
 
 
 
