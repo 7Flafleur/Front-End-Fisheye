@@ -94,6 +94,7 @@ carousel.appendChild(nextButton);
 
     mediaSection.style.display = "none";
 
+    
 
 
   

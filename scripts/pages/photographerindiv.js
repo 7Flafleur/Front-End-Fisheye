@@ -1,9 +1,173 @@
+//////////GLOBAL VARIABLES THAT NEED TO BE ACCESSED BY EVERY FUNCTION////////////
+
+ mediaItems=[];
+
 //get photographer Id from URL
-const currentURLsearch =new URLSearchParams(window.location.search);
-const urlid=(currentURLsearch.get("id"));
+const currentURLsearch = new URLSearchParams(window.location.search);
+const urlid = (currentURLsearch.get("id"));
 
 
 // console.log("URLId",urlid)
+
+////////////////////////////////////////////////////////////////
+
+//START INIT FUNCTION
+
+async function init() {
+
+  
+
+  // Get data from JSON file
+  const photographers = await getPhotographers();
+  const person = findperson(photographers, urlid);
+  displayHeader(person);
+  const indivmedia = await getMedia();
+  displayMedia(indivmedia);
+
+
+    // Initialize mediaItems after displayMedia is called
+    mediaItems = Array.from(document.querySelectorAll(".mediacard"));
+console.log("Global media Items",mediaItems)
+  insertNameForm(person);
+
+  
+
+  let globallikes = 0;
+
+  // console.log("Mediaitems is ",typeof(mediaItems))
+
+
+
+  for (i in mediaItems) {
+    globallikes += parseInt(mediaItems[i].dataset.likes);
+    mediaItems[i].setAttribute("data-active", "")
+
+  }
+
+
+  addPriceTag(person, globallikes);
+
+
+  //EVENT LISTENERS///
+
+
+
+
+
+  mediaItems.forEach((item, index) => {
+    item.dataset.active = "true";
+    const media = item.children[0];         //img or video inside mediaitem container
+    media.dataset.index = index;                    // img or video index is the same as itemcontainer index
+    //
+    media.addEventListener("click", () => {
+      console.log("media ", media.dataset.index, "clicked");
+      media.dataset.active = "true";
+
+
+      let clickedIndex = parseInt(media.dataset.index);
+
+      let firstHalf = mediaItems.slice(0, clickedIndex);
+      let secondHalf = mediaItems.slice(clickedIndex);
+
+      //new array of mediaitems with clicked slide as first
+      let reorganizedArray = secondHalf.concat(firstHalf);
+
+
+
+      // Generate a carousel
+      integrateCarousel(reorganizedArray);
+      console.log("showing mediaitem n°", media.dataset.index)
+
+
+      let nextButton = document.querySelector("#carousel-button-next")
+
+
+      let prevButton = document.querySelector("#carousel-button-prev")
+
+      // nextButton.addEventListener("click", () => {
+      //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
+      //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+      //   console.log("media active: ", activeMedia.dataset.active);
+      //   console.log("index: ", activeMedia.dataset.index);
+      // });
+
+      // prevButton.addEventListener("click", () => {
+      //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
+      //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+      //   console.log(" media active: ", activeMedia.dataset.active);
+      //   console.log("index: ", activeMedia.dataset.index);
+      // });
+
+
+    });
+  }); // end of ForEach mediaItem
+
+
+
+  mediaItems.forEach((item) => {
+    const icon = item.querySelector(".fa-heart");
+
+    const clickHandler = (event) => {
+      event.preventDefault();
+      globallikes++;
+      console.log("Global", globallikes);
+      addPriceTag(person, globallikes);
+      icon.removeEventListener("click", clickHandler);
+    };
+
+    icon.addEventListener("click", clickHandler);
+  });
+
+ 
+  /////////SORTING FUNCTIONS//////////
+
+  const pop = document.querySelector("#pop");
+  const date = document.querySelector("#date");
+  const titre = document.querySelector("#titre");
+
+  pop.addEventListener("click", () => {
+    console.log("pop");
+    const sorted = indivmedia.sort(compareByPop)
+    displayMedia(sorted)
+    console.log("sorted ob: ", sorted)
+    mediaItems = Array.from(document.querySelectorAll(".mediacard"));
+    console.log("New media Items sorted by pop: ",mediaItems)
+
+  });
+
+  date.addEventListener("click", () => {
+    console.log("date");
+    const sorted = indivmedia.sort(compareByDate)
+    displayMedia(sorted)
+    console.log("sorted objects: ", sorted)
+    mediaItems = Array.from(document.querySelectorAll(".mediacard"));
+    console.log("New media Items sorted by date: ",mediaItems)
+  });
+
+  titre.addEventListener("click", () => {
+    console.log("titre");
+    const sorted = indivmedia.sort(compareByTitle)
+    displayMedia(sorted)
+    console.log("sorted objects: ", sorted)
+    mediaItems = Array.from(document.querySelectorAll(".mediacard"));
+    console.log("New media Items sorted by title: ",mediaItems)
+  });
+
+  document.getElementById('closeLB').addEventListener('click', closeLightBox);
+
+} //end init function
+
+
+
+
+
+
+
+
+// MAIN CODE Call the init function within an async context 
+(async () => {
+  await init();
+})();
 
 
 ////////////////HELPER FUNCTIONS/////////////////////
@@ -25,25 +189,25 @@ async function fetchMediaData() {
   return media;        ////////////array of JSON objects
 }//end fetchMediaData function
 
-  //await promise, return array
-  async function getPhotographers() {
-    let photographers = await fetchData();
-    // console.log(photographers)
-    return photographers;
-  }//end getPhotographers function
+//await promise, return array
+async function getPhotographers() {
+  let photographers = await fetchData();
+  // console.log(photographers)
+  return photographers;
+}//end getPhotographers function
 
 //await promise, return array
 async function getMedia() {
   let media = await fetchMediaData();         ///
   // console.log("media:",media)
-  
+
   //array for photographer
   let indivmedia = new Array();
 
   //fill empty array for individual photographer
-  media.forEach((object)=>{ 
-    
-    if(object.photographerId==urlid){
+  media.forEach((object) => {
+
+    if (object.photographerId == urlid) {
       indivmedia.push(object)
     }
   })
@@ -55,7 +219,7 @@ async function getMedia() {
 // take array, target MEDIA html section
 async function displayMedia(indivmedia) {
   const mediaSection = document.querySelector(".media_section")
-  mediaSection.innerHTML="";
+  mediaSection.innerHTML = "";
 
   //use template for each media in array, pass each media to function  according to its type
   indivmedia.forEach((item) => {
@@ -66,154 +230,14 @@ async function displayMedia(indivmedia) {
   });
 } //end displayMedia function
 
-function closeLightBox(){
-  const lightBox=document.querySelector(".lightbox")
-  const carousel=document.querySelector(".carousel")
+function closeLightBox() {
+  const lightBox = document.querySelector(".lightbox")
+  const carousel = document.querySelector(".carousel")
   const mediaSection = document.querySelector(".media_section")
   lightBox.classList.remove("active");
   carousel.classList.remove("active")
 
   mediaSection.style.display = "flex";
 }
-
-
-
-
-
-////////////////////////////////////////////////////////////////
-
-//START INIT FUNCTION
-
-async function init() {
-  // Get data from JSON file
-  const photographers = await getPhotographers();
-  const person = findperson(photographers, urlid);
-  displayHeader(person);
-  const indivmedia = await getMedia();
-  // const headermedia = await getPhotoHeader();
-  // displayHeader(headermedia);
-  displayMedia(indivmedia);
-  insertNameForm(person);
-  
-  const mediaItems=Array.from(document.querySelectorAll(".mediacard"));
-
-  let globallikes = 0;
-
-  // console.log("Mediaitems is ",typeof(mediaItems))
-
-
-
-for (i in mediaItems){
-  globallikes+=parseInt(mediaItems[i].dataset.likes);
-  mediaItems[i].setAttribute("data-active","")
-  
-}
-
-
-addPriceTag(person,globallikes);
-
-
-//set event Listener on every media item 
-
-mediaItems.forEach((item, index) => {
-  item.dataset.active="true";
-  const media = item.children[0];         //img or video inside mediaitem container
-  media.dataset.index = index;                    // img or video index is the same as itemcontainer index
-        //
-  media.addEventListener("click", () => {
-    console.log("media ", media.dataset.index, "clicked");
-    media.dataset.active="true";
-    
-
-    let clickedIndex = parseInt(media.dataset.index);
-
-    let firstHalf = mediaItems.slice(0, clickedIndex);
-    let secondHalf = mediaItems.slice(clickedIndex);
-
-//new array of mediaitems with clicked slide as first
-    let reorganizedArray = secondHalf.concat(firstHalf);
-    
- 
-
-    // Generate a carousel
-    integrateCarousel(reorganizedArray);
-    console.log("showing mediaitem n°",media.dataset.index)
-   
-
-   let nextButton=document.querySelector("#carousel-button-next")
-
-
-let prevButton=document.querySelector("#carousel-button-prev")
-
-nextButton.addEventListener("click", () => {
-  const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-  const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-  console.log("media active: ", activeMedia.dataset.active);
-  console.log("index: ", activeMedia.dataset.index);
-});
-
-prevButton.addEventListener("click", () => {
-  const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-  const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-  console.log(" media active: ", activeMedia.dataset.active);
-  console.log("index: ", activeMedia.dataset.index);
-});
-
-
-  });
-}); // end of ForEach mediaItem
-
-
-
-mediaItems.forEach((item) => {
-  const icon = item.querySelector(".fa-heart");
-
-  const clickHandler = (event) => {
-    event.preventDefault();
-    globallikes++;
-    console.log("Global", globallikes);
-    addPriceTag(person, globallikes);
-    icon.removeEventListener("click", clickHandler);
-  };
-
-  icon.addEventListener("click", clickHandler);
-});
-
-const pop=document.querySelector("#pop");
-const date=document.querySelector("#date");
-const titre=document.querySelector("#titre");
-
-pop.addEventListener("click",()=>{
-  console.log("pop");
-  const sorted =indivmedia.sort(compareByPop) 
-  displayMedia(sorted)
-  console.log(sorted)
-
-});
-
-date.addEventListener("click",()=>{
-  console.log("date");
-  const sorted =indivmedia.sort(compareByDate) 
-  displayMedia(sorted)
-  console.log(sorted)
-});
-
-titre.addEventListener("click",()=>{
-  console.log("titre");
-  const sorted =indivmedia.sort(compareByTitle) 
-  displayMedia(sorted)
-  console.log(sorted)
-});
-
-document.getElementById('closeLB').addEventListener('click', closeLightBox);
-
-} //end init function
-
-
-
-// MAIN CODE Call the init function within an async context 
-(async () => {
-  await init();
-})();
 
 
