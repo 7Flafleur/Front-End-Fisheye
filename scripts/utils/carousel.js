@@ -32,6 +32,7 @@ function integrateCarousel(mediaItems) {
     else if (link.querySelector("video")) {
         const video = document.createElement('video')
         video.setAttribute("src", link.querySelector("video").src)
+        video.setAttribute("controls", true)
         video.dataset.index=index;
         li.appendChild(video)
         ul.appendChild(li)
