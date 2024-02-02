@@ -160,26 +160,46 @@ const compareByTitle = compareDatasetValue("title");
 
 
 function attachEventListeners() {
-  mediaItems.forEach((item, index) => {
+  mediaItems.forEach((item, index,currentarray) => {
     const media = item.children[0]; // img or video inside mediaitem container
     media.dataset.index = index;
     media.addEventListener("click", handleMediaClick);
   });
 
+  // mediaItems.forEach((item, index) => {
+  //   setActiveData(item, index);
+
+  //   const media = item.children[0]; // img or video inside mediaitem container
+  //   media.addEventListener("click", () => {
+  //     console.log("media ", Number(media.dataset.index)+1, " in mediasection clicked");
+  //     media.dataset.active = "true";
+
+  //     let reorganizedArray = getSortedArray(media, mediaItems);
+
+  //     integrateCarousel(reorganizedArray);
+  //     console.log("showing mediaitem n°", media.dataset.index);
+  //   });
+  // });
+
   mediaItems.forEach((item, index) => {
     setActiveData(item, index);
 
-    const media = item.children[0]; // img or video inside mediaitem container
-    media.addEventListener("click", () => {
-      console.log("media ", Number(media.dataset.index)+1, " in mediasection clicked");
-      media.dataset.active = "true";
+  let media = item.children[0];         //img or video inside mediaitem container
+  //
+  media.addEventListener("click", () => {
+    media.dataset.active = "true";
+    console.log("media ", Number(media.dataset.index)+1, "in mediasection clicked, media n°",Number(media.dataset.index)+1,"active= ",media.dataset.active);
 
-      let reorganizedArray = getSortedArray(media, mediaItems);
+    document.querySelector('#carousel-button-next').addEventListener('click', () => moveCarousel('next'));
+document.querySelector('#carousel-button-prev').addEventListener('click', () => moveCarousel('prev'));
 
-      integrateCarousel(reorganizedArray);
-      console.log("showing mediaitem n°", media.dataset.index);
-    });
+
+
+
+
   });
+});
+
 
   mediaItems.forEach((item) => {
     const icon = item.querySelector(".fa-heart");

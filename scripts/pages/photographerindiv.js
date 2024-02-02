@@ -69,29 +69,7 @@ async function init() {
   });
 
   
-    mediaItems.forEach((item, index) => {
-      setActiveData(item, index);
-
-    const media = item.children[0];         //img or video inside mediaitem container
-    //
-    media.addEventListener("click", () => {
-      console.log("media ", Number(media.dataset.index)+1, "in mediasection clicked");
-      media.dataset.active = "true";
-      console.log("media ", Number(media.dataset.index)+1, "active")
-      let reorganizedArray = getSortedArray(media, mediaItems);
-
-      integrateCarousel(reorganizedArray);
-      console.log("showing mediaitem n°", Number(media.dataset.index)+1,"in reorganized Array")
-
-      document.querySelector('#carousel-button-next').addEventListener('click', () => moveCarousel('next'));
-document.querySelector('#carousel-button-prev').addEventListener('click', () => moveCarousel('prev'));
-
-
-
-
-
-    });
-  }); // end of ForEach mediaItem
+ // end of ForEach mediaItem
 
 
 
