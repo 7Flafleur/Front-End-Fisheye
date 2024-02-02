@@ -1,6 +1,6 @@
 
 
-function integrateCarousel(mediaItems) {
+function integrateCarousel(mediaItemsDOM) {
 
     const carousel = document.querySelector(".carousel");
   // Check if there's already a ul with an id of carousel-list
@@ -17,7 +17,7 @@ function integrateCarousel(mediaItems) {
 
 currentIndex=0
 
- mediaItems.forEach((link,index) => {
+ mediaItemsDOM.forEach((link,index) => {
     const li = document.createElement('li')
     li.classList.add("carouselItem")
     li.dataset.index = index;

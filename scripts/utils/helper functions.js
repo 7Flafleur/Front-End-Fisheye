@@ -33,27 +33,27 @@ async function fetchData() {
     // console.log("media:",media)
   
     //array for photographer
-    let indivmedia = new Array();
+    let indivJSONmediaObjects = new Array();
   
     //fill empty array for individual photographer
     media.forEach((object) => {
   
       if (object.photographerId == urlid) {
-        indivmedia.push(object)
+        indivJSONmediaObjects.push(object)
       }
     })
-    // console.log("Indiv",indivmedia)
-    return indivmedia;
+    // console.log("Indiv",indivJSONmediaObjects)
+    return indivJSONmediaObjects;
   }//end getMedia function
   
   
   // take array, target MEDIA html section
-  async function displayMedia(indivmedia) {
+  async function displayMedia(indivJSONmediaObjects) {
     const mediaSection = document.querySelector(".media_section")
     mediaSection.innerHTML = "";
   
     //use template for each media in array, pass each media to function  according to its type
-    indivmedia.forEach((item) => {
+    indivJSONmediaObjects.forEach((item) => {
       const mediaModel = MediaTemplate(item);  //returns video or image mediamodel
       const mediaCardDOM = mediaModel.getMediaCardDOM();  // function creates mediacard that has either video or img tag, according to object type
       mediaSection.appendChild(mediaCardDOM);
@@ -79,10 +79,10 @@ async function fetchData() {
   
     let clickedIndex = parseInt(this.dataset.index);
   
-    let firstHalf = mediaItems.slice(0, clickedIndex);
-    let secondHalf = mediaItems.slice(clickedIndex);
+    let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
+    let secondHalf = mediaItemsDOM.slice(clickedIndex);
   
-    //new array of mediaitems with clicked slide as first
+    //new array of mediaItemsDOMwith clicked slide as first
     let reorganizedArray = secondHalf.concat(firstHalf);
   
     // Generate a carousel
@@ -121,10 +121,10 @@ async function fetchData() {
   function getSortedArray(media, mediaItems) {
     let clickedIndex = parseInt(media.dataset.index);
   
-    let firstHalf = mediaItems.slice(0, clickedIndex);
-    let secondHalf = mediaItems.slice(clickedIndex);
+    let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
+    let secondHalf = mediaItemsDOM.slice(clickedIndex);
   
-    //new array of mediaitems with clicked slide as first
+    //new array of mediaItemsDOMwith clicked slide as first
     let reorganizedArray = secondHalf.concat(firstHalf);
     
     return reorganizedArray;
@@ -160,13 +160,13 @@ const compareByTitle = compareDatasetValue("title");
 
 
 function attachEventListeners() {
-  mediaItems.forEach((item, index,currentarray) => {
+  mediaItemsDOM.forEach((item, index,currentarray) => {
     const media = item.children[0]; // img or video inside mediaitem container
     media.dataset.index = index;
     media.addEventListener("click", handleMediaClick);
   });
 
-  // mediaItems.forEach((item, index) => {
+  // mediaItemsDOM.forEach((item, index) => {
   //   setActiveData(item, index);
 
   //   const media = item.children[0]; // img or video inside mediaitem container
@@ -181,7 +181,7 @@ function attachEventListeners() {
   //   });
   // });
 
-  mediaItems.forEach((item, index) => {
+  mediaItemsDOM.forEach((item, index) => {
     setActiveData(item, index);
 
   let media = item.children[0];         //img or video inside mediaitem container
@@ -201,7 +201,7 @@ document.querySelector('#carousel-button-prev').addEventListener('click', () => 
 });
 
 
-  mediaItems.forEach((item) => {
+  mediaItemsDOM.forEach((item) => {
     const icon = item.querySelector(".fa-heart");
 
     const clickHandler = (event) => {

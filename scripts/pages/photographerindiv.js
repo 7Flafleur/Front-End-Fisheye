@@ -2,7 +2,7 @@
 
  let mediaItems=[];
 
- let indivmedia=[]
+ let indivJSONmediaObjects=[]
 
 
 //get photographer Id from URL
@@ -28,26 +28,26 @@ async function init() {
   const photographers = await getPhotographers();
   const person = findperson(photographers, urlid);
   displayHeader(person);
-  indivmedia = await getMedia();
-  displayMedia(indivmedia);
+  indivJSONmediaObjects = await getMedia();
+  displayMedia(indivJSONmediaObjects);
 
 
-    // Initialize mediaItems after displayMedia is called
-    mediaItems = Array.from(document.querySelectorAll(".mediacard"));
-  console.log("Global media DOM elements start",mediaItems)
+    // Initialize mediaItemsDOM after displayMedia is called
+    mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
+  console.log("Global media DOM elements start",mediaItemsDOM)
   insertNameForm(person);
 
   
 
   let globallikes = 0;
 
-  // console.log("Mediaitems is ",typeof(mediaItems))
+  // console.log("mediaItemsDOM is ",typeof(mediaItemsDOM))
 
 
 
-  for (i in mediaItems) {
-    globallikes += parseInt(mediaItems[i].dataset.likes);
-    mediaItems[i].setAttribute("data-active", "")
+  for (i in mediaItemsDOM) {
+    globallikes += parseInt(mediaItemsDOM[i].dataset.likes);
+    mediaItemsDOM[i].setAttribute("data-active", "")
 
   }
 
@@ -62,7 +62,7 @@ async function init() {
 
   // ...
   
-  mediaItems.forEach((item, index) => {
+  mediaItemsDOM.forEach((item, index) => {
     const media = item.children[0]; // img or video inside mediaitem container
     media.dataset.index = index;
     media.addEventListener("click", handleMediaClick);
@@ -73,7 +73,7 @@ async function init() {
 
 
 
-  mediaItems.forEach((item) => {
+  mediaItemsDOM.forEach((item) => {
     const icon = item.querySelector(".fa-heart");
 
     const clickHandler = (event) => {
@@ -92,32 +92,32 @@ async function init() {
 
   pop.addEventListener("click", () => {
     console.log("pop");
-    const sorted = indivmedia.sort(compareByPop)
+    const sorted = indivJSONmediaObjects.sort(compareByPop)
     displayMedia(sorted)
     console.log("sorted ob: ", sorted)
-    mediaItems = Array.from(document.querySelectorAll(".mediacard"));
-    console.log("New media Items sorted by pop: ",mediaItems)
+    mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
+    console.log("New media Items sorted by pop: ",mediaItemsDOM)
     attachEventListeners();
 
   });
 
   date.addEventListener("click", () => {
     console.log("date");
-    const sorted = indivmedia.sort(compareByDate)
+    const sorted = indivJSONmediaObjects.sort(compareByDate)
     displayMedia(sorted)
     console.log("sorted objects: ", sorted)
-    mediaItems = Array.from(document.querySelectorAll(".mediacard"));
-    console.log("New media Items sorted by date: ",mediaItems)
+    mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
+    console.log("New media Items sorted by date: ",mediaItemsDOM)
     attachEventListeners();
   });
 
   titre.addEventListener("click", () => {
     console.log("titre");
-    const sorted = indivmedia.sort(compareByTitle)
+    const sorted = indivJSONmediaObjects.sort(compareByTitle)
     displayMedia(sorted)
     console.log("sorted objects: ", sorted)
-    mediaItems = Array.from(document.querySelectorAll(".mediacard"));
-    console.log("New media Items sorted by title: ",mediaItems)
+    mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
+    console.log("New media Items sorted by title: ",mediaItemsDOM)
     attachEventListeners();
   });
 
