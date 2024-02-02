@@ -15,7 +15,7 @@ function integrateCarousel(mediaItems) {
 
     carousel.appendChild(ul);
 
-
+currentIndex=0
 
  mediaItems.forEach((link,index) => {
     const li = document.createElement('li')

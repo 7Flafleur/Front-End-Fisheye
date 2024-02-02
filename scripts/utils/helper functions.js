@@ -1,6 +1,8 @@
 
 ////////////////HELPER FUNCTIONS/////////////////////
 
+
+
 //get the .json data from server, return promise
 async function fetchData() {
     let response = await fetch('./data/photographers.json');
@@ -60,6 +62,7 @@ async function fetchData() {
   } //end displayMedia function
   
   function closeLightBox() {
+    currentIndex=0;
     const lightBox = document.querySelector(".lightbox")
     const carousel = document.querySelector(".carousel")
     const mediaSection = document.querySelector(".media_section")
@@ -67,6 +70,7 @@ async function fetchData() {
     carousel.classList.remove("active")
   
     mediaSection.style.display = "flex";
+    
   }
   
   function handleMediaClick() {
@@ -83,7 +87,7 @@ async function fetchData() {
   
     // Generate a carousel
     integrateCarousel(reorganizedArray);
-    console.log("showing mediaitem n°", this.dataset.index)
+    console.log("showing mediaitem n°", Number(this.dataset.index)+1,"in mediasection")
   
     let nextButton = document.querySelector("#carousel-button-next")
     let prevButton = document.querySelector("#carousel-button-prev")
@@ -103,7 +107,7 @@ async function fetchData() {
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
     console.log(" media active: ", activeMedia.dataset.active);
-    console.log("index: ", activeMedia.dataset.index);
+    console.log("clicked media index: ", activeMedia.dataset.index);
   }
   
 
@@ -167,7 +171,7 @@ function attachEventListeners() {
 
     const media = item.children[0]; // img or video inside mediaitem container
     media.addEventListener("click", () => {
-      console.log("media ", media.dataset.index, "clicked");
+      console.log("media ", Number(media.dataset.index)+1, " in mediasection clicked");
       media.dataset.active = "true";
 
       let reorganizedArray = getSortedArray(media, mediaItems);
@@ -193,18 +197,17 @@ function attachEventListeners() {
 }
 
 
-  let currentIndex = 0;
-function moveCarousel(direction) {
 
+function moveCarousel(direction) {
   const carouselContainer = document.querySelector('#carousel-list');
-  const carouselItems = Array.from(carouselContainer.children);
+  const carouselItems = Array.from(carouselContainer.children);  
   const itemWidth = carouselItems[0].getBoundingClientRect().width;
 
   switch (direction) {
     case 'next':
       if (currentIndex < carouselItems.length - 1) {
         currentIndex++;
-        console.log("current index",currentIndex)
+        console.log("< lenght current index",currentIndex)
       }
       else if(currentIndex == carouselItems.length - 1){
         console.log("end of list")
@@ -214,7 +217,7 @@ function moveCarousel(direction) {
     case 'prev':
       if (currentIndex > 0) {
         currentIndex--;
-        console.log("current index",currentIndex)
+        console.log("0 > current index",currentIndex)
       }
       else if(currentIndex==0){
         console.log("end of list")

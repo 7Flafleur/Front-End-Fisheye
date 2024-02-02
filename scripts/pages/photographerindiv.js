@@ -1,6 +1,9 @@
 //////////GLOBAL VARIABLES THAT NEED TO BE ACCESSED BY EVERY FUNCTION////////////
 
- mediaItems=[];
+ let mediaItems=[];
+
+ let indivmedia=[]
+
 
 //get photographer Id from URL
 const currentURLsearch = new URLSearchParams(window.location.search);
@@ -10,7 +13,7 @@ const pop = document.querySelector("#pop");
 const date = document.querySelector("#date");
 const titre = document.querySelector("#titre");
 
-
+let currentIndex = 0;
 // console.log("URLId",urlid)
 
 ////////////////////////////////////////////////////////////////
@@ -25,13 +28,13 @@ async function init() {
   const photographers = await getPhotographers();
   const person = findperson(photographers, urlid);
   displayHeader(person);
-  const indivmedia = await getMedia();
+  indivmedia = await getMedia();
   displayMedia(indivmedia);
 
 
     // Initialize mediaItems after displayMedia is called
     mediaItems = Array.from(document.querySelectorAll(".mediacard"));
-  console.log("Global media Items",mediaItems)
+  console.log("Global media DOM elements start",mediaItems)
   insertNameForm(person);
 
   
@@ -72,13 +75,13 @@ async function init() {
     const media = item.children[0];         //img or video inside mediaitem container
     //
     media.addEventListener("click", () => {
-      console.log("media ", media.dataset.index, "clicked");
+      console.log("media ", Number(media.dataset.index)+1, "in mediasection clicked");
       media.dataset.active = "true";
-
+      console.log("media ", Number(media.dataset.index)+1, "active")
       let reorganizedArray = getSortedArray(media, mediaItems);
 
       integrateCarousel(reorganizedArray);
-      console.log("showing mediaitem n°", media.dataset.index)
+      console.log("showing mediaitem n°", Number(media.dataset.index)+1,"in reorganized Array")
 
       document.querySelector('#carousel-button-next').addEventListener('click', () => moveCarousel('next'));
 document.querySelector('#carousel-button-prev').addEventListener('click', () => moveCarousel('prev'));
