@@ -316,7 +316,7 @@ form input {
   opacity: 0;
 }
 
-.formData[data-error-visible="true"]::after {
+.errormsg[data-error-visible=true]::after {
   opacity: 1;
 }
 
