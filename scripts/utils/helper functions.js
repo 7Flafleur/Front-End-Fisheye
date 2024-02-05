@@ -72,18 +72,36 @@ async function fetchData() {
     mediaSection.style.display = "flex";
     
   }
+
+  function clickedMediaFirst(event) {
+    let clickedElement = event.target;
+    let clickedIndex = parseInt(clickedElement.dataset.index);
+    let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
+    let secondHalf = mediaItemsDOM.slice(clickedIndex);
+    // new array of mediaItemsDOM with clicked slide as first
+    let reorganizedArray = secondHalf.concat(firstHalf);
+    return reorganizedArray;
+  }
+
+// as Eventhandler only
+  // function clickedMediaFirst(){
+  //   let clickedIndex = parseInt(this.dataset.index);
+  //       let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
+  //   let secondHalf = mediaItemsDOM.slice(clickedIndex);
+  //     //  new array of mediaItemsDOMwith clicked slide as first
+  //   let reorganizedArray = secondHalf.concat(firstHalf);
+  //   return reorganizedArray;
+  // }
   
   function handleMediaClick() {
     console.log("media ", this.dataset.index, "clicked");
     this.dataset.active = "true";
   
-    // let clickedIndex = parseInt(this.dataset.index);
+    // 
   
-    // let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
-    // let secondHalf = mediaItemsDOM.slice(clickedIndex);
+
   
-    // //new array of mediaItemsDOMwith clicked slide as first
-    // let reorganizedArray = secondHalf.concat(firstHalf);
+
   
     // Generate a carousel
     integrateCarousel(mediaItemsDOM);

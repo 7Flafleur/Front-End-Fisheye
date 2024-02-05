@@ -75,8 +75,8 @@ async function init() {
       currentIndex = index;
       mediacontainer.dataset.active = "true";
       media.setAttribute("data-active", "true");
-      console.log("Active status after click on media: ", media.dataset.active);
-      console.log("Active mediacard status:", mediacontainer.dataset.active);
+      console.log("Active mediacard index:",mediacontainer.dataset.index," status:", mediacontainer.dataset.active);
+      console.log("Current Index: ",currentIndex)
     });
   });
   
