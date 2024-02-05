@@ -81,6 +81,11 @@ async function init() {
   });
   
 
+
+
+
+
+
  // end of ForEach mediaItem
 
 
@@ -106,10 +111,25 @@ async function init() {
     console.log("pop");
     const sorted = indivJSONmediaObjects.sort(compareByPop)
     displayMedia(sorted)
-    console.log("sorted ob: ", sorted)
+    console.log("sorted indivmediaobjects: ", sorted)
     mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
     console.log("New media Items sorted by pop: ",mediaItemsDOM)
-    attachEventListeners();
+    //attach same eventlisteners as onload
+    mediaItemsDOM.forEach((item, index) => { 
+      const mediacontainer = item;
+      const media = item.children[0]; // img or video inside mediaitem container
+      media.dataset.index = index;
+      mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
+      
+      media.addEventListener("click", () => {
+        currentIndex = index;
+        mediacontainer.dataset.active = "true";
+        media.setAttribute("data-active", "true");
+        console.log("Active mediacard index:",mediacontainer.dataset.index," status:", mediacontainer.dataset.active);
+        console.log("Current Index: ",currentIndex)
+      });
+    });
+    
 
   });
 
@@ -117,20 +137,52 @@ async function init() {
     console.log("date");
     const sorted = indivJSONmediaObjects.sort(compareByDate)
     displayMedia(sorted)
-    console.log("sorted objects: ", sorted)
+    console.log("sorted indivmediaobjects: ", sorted)
     mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
     console.log("New media Items sorted by date: ",mediaItemsDOM)
-    attachEventListeners();
+
+    mediaItemsDOM.forEach((item, index) => { 
+      const mediacontainer = item;
+      const media = item.children[0]; // img or video inside mediaitem container
+      media.dataset.index = index;
+      mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
+      
+      media.addEventListener("click", () => {
+        currentIndex = index;
+        mediacontainer.dataset.active = "true";
+        media.setAttribute("data-active", "true");
+        console.log("Active mediacard index:",mediacontainer.dataset.index," status:", mediacontainer.dataset.active);
+        console.log("Current Index: ",currentIndex)
+      });
+    });
+    
   });
 
   titre.addEventListener("click", () => {
     console.log("titre");
     const sorted = indivJSONmediaObjects.sort(compareByTitle)
     displayMedia(sorted)
-    console.log("sorted objects: ", sorted)
+    console.log("sorted indivmediaobjects: ", sorted)
     mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
     console.log("New media Items sorted by title: ",mediaItemsDOM)
-    attachEventListeners();
+
+    mediaItemsDOM.forEach((item, index) => { 
+      const mediacontainer = item;
+      const media = item.children[0]; // img or video inside mediaitem container
+      media.dataset.index = index;
+      mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
+      
+      media.addEventListener("click", () => {
+        currentIndex = index;
+        mediacontainer.dataset.active = "true";
+        media.setAttribute("data-active", "true");
+        console.log("Active mediacard index:",mediacontainer.dataset.index," status:", mediacontainer.dataset.active);
+        console.log("Current Index: ",currentIndex)
+      });
+    });
+
+    
+    
   });
 
   document.getElementById('closeLB').addEventListener('click', closeLightBox);
