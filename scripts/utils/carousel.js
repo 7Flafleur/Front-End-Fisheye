@@ -76,7 +76,8 @@ nextButton.appendChild(iconright)
 carousel.appendChild(nextButton);
 }
 
-
+nextButton.addEventListener("click", handleNextButtonClick);
+prevButton.addEventListener("click", handlePrevButtonClick);
 
 
 

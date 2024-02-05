@@ -120,6 +120,13 @@ console.log("CurrentIndex before: ",currentIndex)
         setActiveData(item, index, currentIndex);
         console.log("Active mediacard index:", item.dataset.index, " status:", item.dataset.active);
         console.log("Current Index: ", currentIndex);
+        let reorganizedArray = getCarouselList(mediaItemsDOM, media);
+
+        console.log("Reorganized array,", reorganizedArray);
+        let clickedMediaIndex = reorganizedArray.indexOf(item);
+        console.log("Index of clicked media in reorganized array:", clickedMediaIndex);
+        
+        integrateCarousel(reorganizedArray);
   
       });
     });
@@ -143,6 +150,14 @@ console.log("CurrentIndex before: ",currentIndex)
         setActiveData(item, index, currentIndex);
         console.log("Active mediacard index:", item.dataset.index, " status:", item.dataset.active);
         console.log("Current Index: ", currentIndex);
+
+        let reorganizedArray = getCarouselList(mediaItemsDOM, media);
+
+        console.log("Reorganized array,", reorganizedArray);
+        let clickedMediaIndex = reorganizedArray.indexOf(item);
+        console.log("Index of clicked media in reorganized array:", clickedMediaIndex);
+        
+        integrateCarousel(reorganizedArray);
   
       });
     });
@@ -165,6 +180,14 @@ console.log("CurrentIndex before: ",currentIndex)
         setActiveData(item, index, currentIndex);
         console.log("Active mediacard index:", item.dataset.index, " status:", item.dataset.active);
         console.log("Current Index: ", currentIndex);
+
+        let reorganizedArray = getCarouselList(mediaItemsDOM, media);
+
+        console.log("Reorganized array,", reorganizedArray);
+        let clickedMediaIndex = reorganizedArray.indexOf(item);
+        console.log("Index of clicked media in reorganized array:", clickedMediaIndex);
+        
+        integrateCarousel(reorganizedArray);
   
       });
     });
