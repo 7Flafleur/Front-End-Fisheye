@@ -118,7 +118,7 @@ async function fetchData() {
   }
 
 
-  function getSortedArray(media, mediaItems) {
+  function getCarouselList(mediaItemsDOM,media) {
     let clickedIndex = parseInt(media.dataset.index);
   
     let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
@@ -213,6 +213,7 @@ document.querySelector('#carousel-button-prev').addEventListener('click', () => 
     };
 
     icon.addEventListener("click", clickHandler);
+    //click on icon,not on mediaitem to like
   });
 }
 
