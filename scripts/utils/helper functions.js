@@ -77,16 +77,16 @@ async function fetchData() {
     console.log("media ", this.dataset.index, "clicked");
     this.dataset.active = "true";
   
-    let clickedIndex = parseInt(this.dataset.index);
+    // let clickedIndex = parseInt(this.dataset.index);
   
-    let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
-    let secondHalf = mediaItemsDOM.slice(clickedIndex);
+    // let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
+    // let secondHalf = mediaItemsDOM.slice(clickedIndex);
   
-    //new array of mediaItemsDOMwith clicked slide as first
-    let reorganizedArray = secondHalf.concat(firstHalf);
+    // //new array of mediaItemsDOMwith clicked slide as first
+    // let reorganizedArray = secondHalf.concat(firstHalf);
   
     // Generate a carousel
-    integrateCarousel(reorganizedArray);
+    integrateCarousel(mediaItemsDOM);
     console.log("showing mediaitem n°", Number(this.dataset.index)+1,"in mediasection")
   
     let nextButton = document.querySelector("#carousel-button-next")

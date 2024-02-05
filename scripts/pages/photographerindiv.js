@@ -1,28 +1,30 @@
 //////////GLOBAL VARIABLES THAT NEED TO BE ACCESSED BY EVERY FUNCTION////////////
 
- let mediaItems=[];
+ let mediaItemsDOM=[];         //list of html elemnts
 
- let indivJSONmediaObjects=[]
+ let indivJSONmediaObjects=[]     //list of objects
 
 
 //get photographer Id from URL
 const currentURLsearch = new URLSearchParams(window.location.search);
 const urlid = (currentURLsearch.get("id"));
+// console.log("URLId",urlid)
 
 const pop = document.querySelector("#pop");
 const date = document.querySelector("#date");
 const titre = document.querySelector("#titre");
 
-let currentIndex = 0;
-// console.log("URLId",urlid)
+let currentIndex = 0;       //Index for carousel function
+
+
+  let globallikes = 0; 
+
 
 ////////////////////////////////////////////////////////////////
 
 //START INIT FUNCTION
 
 async function init() {
-
-  
 
   // Get data from JSON file
   const photographers = await getPhotographers();
@@ -32,14 +34,13 @@ async function init() {
   displayMedia(indivJSONmediaObjects);
 
 
-    // Initialize mediaItemsDOM after displayMedia is called
-    mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
+  // Initialize mediaItemsDOM after displayMedia is called
+  mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
   console.log("Global media DOM elements start",mediaItemsDOM)
   insertNameForm(person);
 
   
 
-  let globallikes = 0;
 
   // console.log("mediaItemsDOM is ",typeof(mediaItemsDOM))
 
@@ -56,19 +57,30 @@ async function init() {
 
 
   //EVENT LISTENERS///
-
-
-
-
   // ...
   
-  mediaItemsDOM.forEach((item, index) => {
+  // mediaItemsDOM.forEach((item, index) => {
+  //   const media = item.children[0]; // img or video inside mediaitem container
+  //   media.dataset.index = index;
+  //   media.addEventListener("click", handleMediaClick);
+  // });
+
+  mediaItemsDOM.forEach((item, index,array) => { 
+    const mediacontainer = item;
     const media = item.children[0]; // img or video inside mediaitem container
     media.dataset.index = index;
-    media.addEventListener("click", handleMediaClick);
+    mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
+    
+    media.addEventListener("click", () => {
+      currentIndex = index;
+      mediacontainer.dataset.active = "true";
+      media.setAttribute("data-active", "true");
+      console.log("Active status after click on media: ", media.dataset.active);
+      console.log("Active mediacard status:", mediacontainer.dataset.active);
+    });
   });
-
   
+
  // end of ForEach mediaItem
 
 
@@ -122,6 +134,8 @@ async function init() {
   });
 
   document.getElementById('closeLB').addEventListener('click', closeLightBox);
+
+  //end of EVENTLISTENERS////////////
 
 } //end init function
 
