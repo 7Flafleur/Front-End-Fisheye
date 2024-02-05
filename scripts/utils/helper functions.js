@@ -148,6 +148,8 @@ async function fetchData() {
   // }
 
   function handleNextButtonClick() {
+    currentIndex=0;
+    
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
   
@@ -167,6 +169,7 @@ async function fetchData() {
   }
   
   function handlePrevButtonClick() {
+    currentIndex=0;
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
     console.log("clicked media index: ", activeMedia.dataset.index);

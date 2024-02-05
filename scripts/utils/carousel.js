@@ -49,35 +49,38 @@ function integrateCarousel(mediaArray) {
 
 let prevButton =document.getElementById("carousel-button-prev")
 
-if(!prevButton)
-{const prevButton = document.createElement("button");
-prevButton.id = "carousel-button-prev";
-prevButton.classList.add("carousel-button")
-const iconleft=document.createElement("i")
-iconleft.classList.add("fa-solid")
-iconleft.classList.add("fa-chevron-left")
-iconleft.setAttribute("style","color: #901c1c" )
-prevButton.appendChild(iconleft)
-// prevButton.textContent = "Previous";
-carousel.appendChild(prevButton);}
+// if(!prevButton)
+// {prevButton = document.createElement("button");
+// prevButton.id = "carousel-button-prev";
+// prevButton.classList.add("carousel-button")
+// const iconleft=document.createElement("i")
+// iconleft.classList.add("fa-solid")
+// iconleft.classList.add("fa-chevron-left")
+// iconleft.setAttribute("style","color: #901c1c" )
+// prevButton.appendChild(iconleft)
+// // prevButton.textContent = "Previous";
+// carousel.appendChild(prevButton);
+// }
+
+prevButton.addEventListener("click", handlePrevButtonClick);
 
 let nextButton=document.getElementById("carousel-button-next")
 
-if(!nextButton)
-{const nextButton = document.createElement("button");
-nextButton.id = "carousel-button-next";
-nextButton.classList.add("carousel-button")
-const iconright=document.createElement("i")
-iconright.classList.add("fa-solid")
-iconright.classList.add("fa-chevron-right")
-iconright.setAttribute("style","color: #901c1c" )
-nextButton.appendChild(iconright)
-// nextButton.textContent = "Next";
-carousel.appendChild(nextButton);
-}
+// if(!nextButton)
+// {nextButton = document.createElement("button");
+// nextButton.id = "carousel-button-next";
+// nextButton.classList.add("carousel-button")
+// const iconright=document.createElement("i")
+// iconright.classList.add("fa-solid")
+// iconright.classList.add("fa-chevron-right")
+// iconright.setAttribute("style","color: #901c1c" )
+// nextButton.appendChild(iconright)
+// // nextButton.textContent = "Next";
+// carousel.appendChild(nextButton);
+// }
 
 nextButton.addEventListener("click", handleNextButtonClick);
-prevButton.addEventListener("click", handlePrevButtonClick);
+
 
 
 
