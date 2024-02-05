@@ -93,39 +93,30 @@ async function fetchData() {
   //   return reorganizedArray;
   // }
   
-  function handleMediaClick() {
-    console.log("media ", this.dataset.index, "clicked");
-    this.dataset.active = "true";
-  
-    // 
   
 
   
-
-  
-    // Generate a carousel
-    integrateCarousel(mediaItemsDOM);
-    console.log("showing mediaitem n°", Number(this.dataset.index)+1,"in mediasection")
-  
-    let nextButton = document.querySelector("#carousel-button-next")
+ 
+   function createCarouselButtons(){
+   let nextButton = document.querySelector("#carousel-button-next")
     let prevButton = document.querySelector("#carousel-button-prev")
-  
     nextButton.addEventListener("click", handleNextButtonClick);
     prevButton.addEventListener("click", handlePrevButtonClick);
   }
   
+  
   function handleNextButtonClick() {
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-    console.log("media active: ", activeMedia.dataset.active);
     console.log("index: ", activeMedia.dataset.index);
+    console.log("Next media is",activeMedia.dataset.index+1)
   }
   
   function handlePrevButtonClick() {
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-    console.log(" media active: ", activeMedia.dataset.active);
     console.log("clicked media index: ", activeMedia.dataset.index);
+    console.log("Previous media is ", activeMedia.dataset.index-1)
   }
   
 
@@ -147,7 +138,7 @@ async function fetchData() {
   
     //new array of mediaItemsDOMwith clicked slide as first
     let reorganizedArray = secondHalf.concat(firstHalf);
-    
+    currentIndex=0;
     return reorganizedArray;
   }
 

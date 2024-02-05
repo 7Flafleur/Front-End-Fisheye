@@ -47,19 +47,38 @@ async function init() {
 //create HTML 
   addPriceTag(person, globallikes);
 
+console.log("CurrentIndex before: ",currentIndex)
+
+  //EVENT HANDLER FOR CAROUSEL AND LIGHTBOX
+
+
   mediaItemsDOM.forEach((item, index) => { 
     const media = item.children[0]; // img or video inside mediaitem container
     //EVENT LISTENERS for carousel function and testing logs
     media.addEventListener("click", () => {
+      mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
+
       currentIndex = index;
       setActiveData(item, index, currentIndex);
-      console.log("Active mediacard index:", item.dataset.index, " status:", item.dataset.active);
+      console.log("Active mediacard index in DOM list:", item.dataset.index, " status:", item.dataset.active);
       console.log("Current Index: ", currentIndex);
+      let reorganizedArray = getCarouselList(mediaItemsDOM, media);
+
+      console.log("Reorganized array,", reorganizedArray);
+      let clickedMediaIndex = reorganizedArray.indexOf(item);
+      console.log("Index of clicked media in reorganized array:", clickedMediaIndex);
+      
+      integrateCarousel(reorganizedArray);
+      
 
     });
-  });
+   
+
   
 
+  });
+  
+//////////////////////////////////////////////////////////
 
 
 

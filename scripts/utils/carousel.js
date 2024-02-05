@@ -1,13 +1,13 @@
 
 
-function integrateCarousel(mediaItemsDOM) {
+function integrateCarousel(mediaArray) {
 
     const carousel = document.querySelector(".carousel");
   // Check if there's already a ul with an id of carousel-list
   const existingCarouselList = document.querySelector("#carousel-list");
   if (existingCarouselList) {
     // If it exists, remove it
-    console.log("carousel exists!")
+    // console.log("carousel exists!")
     existingCarouselList.remove();
   }
     const ul = document.createElement('ul');
@@ -17,7 +17,7 @@ function integrateCarousel(mediaItemsDOM) {
 
 
 
- mediaItemsDOM.forEach((link,index) => {
+ mediaArray.forEach((link,index) => {
     const li = document.createElement('li')
     li.classList.add("carouselItem")
     li.dataset.index = index;
