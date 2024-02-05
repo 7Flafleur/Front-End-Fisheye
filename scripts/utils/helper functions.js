@@ -105,20 +105,84 @@ async function fetchData() {
   }
   
   
+  // function handleNextButtonClick() {
+  //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
+  //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+
+  //   console.log("index: ", activeMedia.dataset.index);
+  //   console.log("Next media is",activeMedia.dataset.index+1)
+
+  //   const carouselContainer = document.querySelector('#carousel-list');
+  //   const carouselItems = Array.from(carouselContainer.children);  
+  //   const itemWidth = carouselItems[0].getBoundingClientRect().width;
+  //   const newScrollPosition = itemWidth * (currentIndex + 1);
+  //   carouselContainer.scrollLeft = newScrollPosition;
+  //   currentIndex++;
+  //   if(currentIndex===carouselContainer.length-1){
+  //     alert("end of list,current index"+currentIndex)
+  //   }
+
+    
+    
+
+  // }
+  
+  // function handlePrevButtonClick() {
+  //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
+  //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+  //   console.log("clicked media index: ", activeMedia.dataset.index);
+  //   console.log("Previous media is ", activeMedia.dataset.index-1)
+
+  //   const carouselContainer = document.querySelector('#carousel-list');
+  //   const carouselItems = Array.from(carouselContainer.children);  
+  //   const itemWidth = carouselItems[0].getBoundingClientRect().width;
+  //   const newScrollPosition = itemWidth * (currentIndex + 1);
+  //   carouselContainer.scrollRight = newScrollPosition ;
+  //   currentIndex--;
+  //   if(currentIndex<0){
+  //     alert("beginning of list, current index"+currentIndex)
+
+  //   }
+
+    
+  // }
+
   function handleNextButtonClick() {
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+  
     console.log("index: ", activeMedia.dataset.index);
-    console.log("Next media is",activeMedia.dataset.index+1)
+    console.log("Next media is", parseInt(activeMedia.dataset.index) + 1)
+  
+    const carouselContainer = document.querySelector('#carousel-list');
+    const carouselItems = Array.from(carouselContainer.children);  
+    const itemWidth = carouselItems[0].getBoundingClientRect().width;
+    const newScrollPosition = itemWidth * currentIndex;
+    carouselContainer.scrollLeft = newScrollPosition;
+    currentIndex++;
+    if(currentIndex === carouselItems.length){
+      alert("end of list, current index: " + currentIndex)
+      currentIndex=0; //start at the beginning again
+    }
   }
   
   function handlePrevButtonClick() {
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
     console.log("clicked media index: ", activeMedia.dataset.index);
-    console.log("Previous media is ", activeMedia.dataset.index-1)
-  }
+    console.log("Previous media is ", parseInt(activeMedia.dataset.index) - 1)
   
+    const carouselContainer = document.querySelector('#carousel-list');
+    const carouselItems = Array.from(carouselContainer.children);  
+    const itemWidth = carouselItems[0].getBoundingClientRect().width;
+    currentIndex--;
+    if(currentIndex < 0){
+      alert("beginning of list, current index: " + currentIndex)
+      currentIndex = carouselItems.length-1; // Set currentIndex to last item
+    }
+    const newScrollPosition = itemWidth * currentIndex;
+    carouselContainer.scrollLeft = newScrollPosition;
+  }
 
   function setActiveData(item, index) {
     const mediacontainer = item;
