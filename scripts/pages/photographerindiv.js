@@ -38,45 +38,24 @@ async function init() {
   mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
   console.log("Global media DOM elements start",mediaItemsDOM)
   insertNameForm(person);
-
-  
-
-
-  // console.log("mediaItemsDOM is ",typeof(mediaItemsDOM))
-
-
-
+  //add up individual likes, set data-active attribute to empty
   for (i in mediaItemsDOM) {
     globallikes += parseInt(mediaItemsDOM[i].dataset.likes);
     mediaItemsDOM[i].setAttribute("data-active", "")
-
   }
 
-
+//create HTML 
   addPriceTag(person, globallikes);
 
-
-  //EVENT LISTENERS///
-  // ...
-  
-  // mediaItemsDOM.forEach((item, index) => {
-  //   const media = item.children[0]; // img or video inside mediaitem container
-  //   media.dataset.index = index;
-  //   media.addEventListener("click", handleMediaClick);
-  // });
-
-  mediaItemsDOM.forEach((item, index,array) => { 
-    const mediacontainer = item;
+  mediaItemsDOM.forEach((item, index) => { 
     const media = item.children[0]; // img or video inside mediaitem container
-    media.dataset.index = index;
-    mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
-    
+    //EVENT LISTENERS for carousel function and testing logs
     media.addEventListener("click", () => {
       currentIndex = index;
-      mediacontainer.dataset.active = "true";
-      media.setAttribute("data-active", "true");
-      console.log("Active mediacard index:",mediacontainer.dataset.index," status:", mediacontainer.dataset.active);
-      console.log("Current Index: ",currentIndex)
+      setActiveData(item, index, currentIndex);
+      console.log("Active mediacard index:", item.dataset.index, " status:", item.dataset.active);
+      console.log("Current Index: ", currentIndex);
+
     });
   });
   
@@ -86,13 +65,12 @@ async function init() {
 
 
 
- // end of ForEach mediaItem
 
 
 
+// EVENT HANDLER FOR LIKES
   mediaItemsDOM.forEach((item) => {
     const icon = item.querySelector(".fa-heart");
-
     const clickHandler = (event) => {
       event.preventDefault();
       globallikes++;
@@ -116,17 +94,14 @@ async function init() {
     console.log("New media Items sorted by pop: ",mediaItemsDOM)
     //attach same eventlisteners as onload
     mediaItemsDOM.forEach((item, index) => { 
-      const mediacontainer = item;
       const media = item.children[0]; // img or video inside mediaitem container
-      media.dataset.index = index;
-      mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
-      
+      //EVENT LISTENERS for carousel function and testing logs
       media.addEventListener("click", () => {
         currentIndex = index;
-        mediacontainer.dataset.active = "true";
-        media.setAttribute("data-active", "true");
-        console.log("Active mediacard index:",mediacontainer.dataset.index," status:", mediacontainer.dataset.active);
-        console.log("Current Index: ",currentIndex)
+        setActiveData(item, index, currentIndex);
+        console.log("Active mediacard index:", item.dataset.index, " status:", item.dataset.active);
+        console.log("Current Index: ", currentIndex);
+  
       });
     });
     
@@ -142,17 +117,14 @@ async function init() {
     console.log("New media Items sorted by date: ",mediaItemsDOM)
 
     mediaItemsDOM.forEach((item, index) => { 
-      const mediacontainer = item;
       const media = item.children[0]; // img or video inside mediaitem container
-      media.dataset.index = index;
-      mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
-      
+      //EVENT LISTENERS for carousel function and testing logs
       media.addEventListener("click", () => {
         currentIndex = index;
-        mediacontainer.dataset.active = "true";
-        media.setAttribute("data-active", "true");
-        console.log("Active mediacard index:",mediacontainer.dataset.index," status:", mediacontainer.dataset.active);
-        console.log("Current Index: ",currentIndex)
+        setActiveData(item, index, currentIndex);
+        console.log("Active mediacard index:", item.dataset.index, " status:", item.dataset.active);
+        console.log("Current Index: ", currentIndex);
+  
       });
     });
     
@@ -167,17 +139,14 @@ async function init() {
     console.log("New media Items sorted by title: ",mediaItemsDOM)
 
     mediaItemsDOM.forEach((item, index) => { 
-      const mediacontainer = item;
       const media = item.children[0]; // img or video inside mediaitem container
-      media.dataset.index = index;
-      mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
-      
+      //EVENT LISTENERS for carousel function and testing logs
       media.addEventListener("click", () => {
         currentIndex = index;
-        mediacontainer.dataset.active = "true";
-        media.setAttribute("data-active", "true");
-        console.log("Active mediacard index:",mediacontainer.dataset.index," status:", mediacontainer.dataset.active);
-        console.log("Current Index: ",currentIndex)
+        setActiveData(item, index, currentIndex);
+        console.log("Active mediacard index:", item.dataset.index, " status:", item.dataset.active);
+        console.log("Current Index: ", currentIndex);
+  
       });
     });
 

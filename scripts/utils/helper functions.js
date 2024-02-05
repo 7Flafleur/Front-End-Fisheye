@@ -130,9 +130,12 @@ async function fetchData() {
   
 
   function setActiveData(item, index) {
-    item.dataset.active = "true";
+    const mediacontainer = item;
+    mediacontainer.dataset.active = "true";
     const media = item.children[0]; // img or video inside mediaitem container
     media.dataset.index = index;
+    mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
+
   }
 
 
