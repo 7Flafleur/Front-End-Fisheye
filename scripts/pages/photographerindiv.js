@@ -14,10 +14,10 @@ const pop = document.querySelector("#pop");
 const date = document.querySelector("#date");
 const titre = document.querySelector("#titre");
 
-let currentIndex = 0;       //Index for carousel function
+ let currentIndex;       //Index for carousel function
 
 
-  let globallikes = 0; 
+let globallikes = 0; 
 
 
 ////////////////////////////////////////////////////////////////
@@ -58,8 +58,8 @@ console.log("CurrentIndex before: ",currentIndex)
     media.addEventListener("click", () => {
       mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
 
-      currentIndex = index;
-      setActiveData(item, index, currentIndex);
+      
+      // setActiveData(item, index, currentIndex);
       console.log("Active mediacard index in DOM list:", item.dataset.index, " status:", item.dataset.active);
       console.log("Current Index: ", currentIndex);
       let reorganizedArray = getCarouselList(mediaItemsDOM, media);

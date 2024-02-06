@@ -148,7 +148,7 @@ async function fetchData() {
   // }
 
   function handleNextButtonClick() {
-    currentIndex=0;
+    console.log("Nex button clicked")
     
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
@@ -163,13 +163,14 @@ async function fetchData() {
     carouselContainer.scrollLeft = newScrollPosition;
     currentIndex++;
     if(currentIndex === carouselItems.length){
-      alert("end of list, current index: " + currentIndex)
+      console.log("end of list, current index: ",currentIndex)
       currentIndex=0; //start at the beginning again
     }
   }
   
   function handlePrevButtonClick() {
-    currentIndex=0;
+    console.log("Previous button clicked")
+  
     const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
     const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
     console.log("clicked media index: ", activeMedia.dataset.index);
@@ -180,7 +181,7 @@ async function fetchData() {
     const itemWidth = carouselItems[0].getBoundingClientRect().width;
     currentIndex--;
     if(currentIndex < 0){
-      alert("beginning of list, current index: " + currentIndex)
+      console.log("beginning of list, current index: ",currentIndex)
       currentIndex = carouselItems.length-1; // Set currentIndex to last item
     }
     const newScrollPosition = itemWidth * currentIndex;
@@ -191,9 +192,14 @@ async function fetchData() {
     const mediacontainer = item;
     mediacontainer.dataset.active = "true";
     const media = item.children[0]; // img or video inside mediaitem container
+  
+    // If the data-index-before attribute doesn't exist, set it to the current index
+    if (!media.dataset.indexBefore) {
+      media.dataset.indexBefore = index;
+    }
+  
     media.dataset.index = index;
     mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
-
   }
 
 
@@ -206,6 +212,9 @@ async function fetchData() {
     //new array of mediaItemsDOMwith clicked slide as first
     let reorganizedArray = secondHalf.concat(firstHalf);
     currentIndex=0;
+    reorganizedArray.forEach((item ,index)=>{
+      item.dataset.index=index
+    })
     return reorganizedArray;
   }
 
