@@ -21,6 +21,10 @@ function integrateCarousel(mediaArray) {
     const li = document.createElement('li')
     li.classList.add("carouselItem")
     li.dataset.index = index;
+
+    li.dataset.active = index === 0 ? 'true' : 'false';
+
+
     if (link.querySelector("img")) {
         const img = document.createElement('img')
         img.setAttribute("src", link.querySelector("img").src)

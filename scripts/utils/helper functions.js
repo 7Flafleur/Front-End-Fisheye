@@ -111,13 +111,21 @@ async function fetchData() {
 
   function handleNextButtonClick() {
     console.log("Next button clicked")
+    let activeItem = document.querySelector(".carouselItem[data-active='true']");
+    console.log("active item:",activeItem)
+    let nextItem = activeItem.nextElementSibling;
+    console.log("next item:", nextItem);
+
 
   }
 
   
   function handlePrevButtonClick() {
     console.log("Previous button clicked")
-
+    let activeItem = document.querySelector(".carouselItem[data-active='true']");
+    console.log("active item:",activeItem)
+    let prevItem = activeItem.previousElementSibling;
+    console.log("previous item:", prevItem);
 
   }
 
@@ -127,12 +135,12 @@ async function fetchData() {
 
 
 
-  function setActiveData(item, index) {
-    const mediacontainer = item;
-    mediacontainer.dataset.active = "true";
-    // Set the mediacontainer's data-currentindex attribute to the current index
-    mediacontainer.dataset.currentindex = index;
-  }
+  // function setActiveData(item, index) {
+  //   const mediacontainer = item;
+  //   mediacontainer.dataset.active = "true";
+  //   // Set the mediacontainer's data-currentindex attribute to the current index
+  //   mediacontainer.dataset.currentindex = index;
+  // }
   
   function getCarouselList(mediaItemsDOM, mediacontainer) {
     let clickedIndex = mediaItemsDOM.indexOf(mediacontainer);
