@@ -52,6 +52,7 @@ mediaItemsDOM.forEach(item => {
 
 console.log("global likes",globallikes)
 
+//PREVENT SCROLLUP
 mediaItemsDOM.forEach(a => {
   a.addEventListener('click', function(event) {
     // Prevent default action
@@ -79,9 +80,15 @@ pop.addEventListener("click", async () => {
   mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
   console.log("sorted ob: ", sorted)
   console.log("New media Items sorted by pop: ",mediaItemsDOM)
-  mediaItemsDOM.forEach(item => {
-    globallikes += parseInt(item.dataset.likes);
-  });
+  //PREVENT SCROLLUP
+mediaItemsDOM.forEach(a => {
+  a.addEventListener('click', function(event) {
+    // Prevent default action
+    event.preventDefault();
+});
+});
+
+
 
 });
 
@@ -93,6 +100,14 @@ date.addEventListener("click", () => {
   mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
   console.log("sorted objects: ", sorted)
   console.log("New media Items sorted by date: ",mediaItemsDOM)
+  //PREVENT SCROLLUP
+mediaItemsDOM.forEach(a => {
+  a.addEventListener('click', function(event) {
+    // Prevent default action
+    event.preventDefault();
+});
+});
+
 });
 
 titre.addEventListener("click", () => {
@@ -103,6 +118,14 @@ titre.addEventListener("click", () => {
   mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
   console.log("sorted objects: ", sorted)
   console.log("New media Items sorted by title: ",mediaItemsDOM)
+  //PREVENT SCROLLUP
+mediaItemsDOM.forEach(a => {
+  a.addEventListener('click', function(event) {
+    // Prevent default action
+    event.preventDefault();
+});
+});
+
 });
 
 
