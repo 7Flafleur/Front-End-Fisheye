@@ -59,6 +59,9 @@ function MediaTemplate(data) {
             likes.innerHTML=likeContainer+"  ";
             likes.appendChild(icon);
             console.log("liked")
+            globallikes++;
+            console.log("More global likes: ", globallikes)
+            updateGlobalLikesDOM(globallikes)
         }
 
         function noMoreLike(){
@@ -122,10 +125,17 @@ function MediaTemplate(data) {
         let likeContainer=parseInt(likesh);
 
         function incrementLike(){
+            //increment likes on media
             likeContainer++;
             likes.innerHTML=likeContainer+"  ";
             likes.appendChild(icon);
             console.log("liked")
+                // Increment globallikes
+            globallikes++;
+            console.log("More global likes: ", globallikes)
+            updateGlobalLikesDOM(globallikes)
+            
+        
         }
 
         function noMoreLike(){
@@ -166,5 +176,9 @@ function MediaTemplate(data) {
 } //end MediaTemplate function
 
 
+function updateGlobalLikesDOM(globallikes) {
+    const nblikes = document.querySelector("#nblikes");
+    nblikes.textContent = globallikes + "  ";
+}
 
 

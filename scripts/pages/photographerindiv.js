@@ -15,7 +15,7 @@ const date = document.querySelector("#date");
 const titre = document.querySelector("#titre");
 
 let currentIndex;       //Index for carousel function
-let globallikes = 0;    //sum of LIKES on each mediacard
+globallikes = 0;    //sum of LIKES on each mediacard
 
 
 ////////////////////////////////////////////////////////////////
@@ -44,19 +44,21 @@ indivmedia=JSON.parse(JSON.stringify(indivJSONmediaObjects))
 displayMedia(indivmedia);
 mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
 
-//PREVENT SCROLL ON CLICK
-
-mediaItemsDOM.forEach(a => {
-a.addEventListener('click', function(event) {
-  // Prevent default action
-  event.preventDefault();}
-)
-});
 
 //ADD LIKES TO MEDIA, DISPLAY PRICETAG
 mediaItemsDOM.forEach(item => {
   globallikes += parseInt(item.dataset.likes);
 });
+
+console.log("global likes",globallikes)
+
+mediaItemsDOM.forEach(a => {
+  a.addEventListener('click', function(event) {
+    // Prevent default action
+    event.preventDefault();
+});
+});
+
 
 addPriceTag(person, globallikes);
 
@@ -73,9 +75,13 @@ pop.addEventListener("click", async () => {
   console.log("pop");
   const sorted = indivmedia.sort(compareByPop)
   displayMedia(sorted);
-mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
+    //UPDATE array of media items for later use
+  mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
   console.log("sorted ob: ", sorted)
   console.log("New media Items sorted by pop: ",mediaItemsDOM)
+  mediaItemsDOM.forEach(item => {
+    globallikes += parseInt(item.dataset.likes);
+  });
 
 });
 
@@ -83,6 +89,8 @@ date.addEventListener("click", () => {
   console.log("date");
   const sorted = indivmedia.sort(compareByDate)
   displayMedia(sorted)
+    //UPDATE array of media items for later use
+  mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
   console.log("sorted objects: ", sorted)
   console.log("New media Items sorted by date: ",mediaItemsDOM)
 });
@@ -91,6 +99,8 @@ titre.addEventListener("click", () => {
   console.log("titre");
   const sorted = indivmedia.sort(compareByTitle)
   displayMedia(sorted)
+  //UPDATE array of media items for later use
+  mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
   console.log("sorted objects: ", sorted)
   console.log("New media Items sorted by title: ",mediaItemsDOM)
 });
