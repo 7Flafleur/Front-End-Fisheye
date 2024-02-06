@@ -48,13 +48,11 @@ function integrateCarousel(mediaArray) {
 });
 
 let prevButton =document.getElementById("carousel-button-prev")
-
-
-
-
-
 let nextButton=document.getElementById("carousel-button-next")
 
+nextButton.addEventListener("click", handleNextButtonClick)
+
+prevButton.addEventListener("click", handlePrevButtonClick)
 
 //   // Add event listeners to the buttons
 //   nextButton.addEventListener('click', () => {

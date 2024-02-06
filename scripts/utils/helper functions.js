@@ -111,47 +111,21 @@ async function fetchData() {
 
   function handleNextButtonClick() {
     console.log("Next button clicked")
-  
-    const carouselContainer = document.querySelector('#carousel-list');
-    const carouselItems = Array.from(carouselContainer.children);  
-  
-    // Find the currently displayed media
-    const activeMediaCard = carouselItems.find(item => parseInt(item.dataset.currentindex) === 0);
-    const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-  
-    console.log("index before: ", activeMedia.dataset.indexBefore);
-    console.log("Next media is", parseInt(activeMediaCard.dataset.currentindex) + 1)
-  
-    const itemWidth = carouselItems[0].getBoundingClientRect().width;
-    const newScrollPosition = itemWidth * currentIndex;
-    carouselContainer.scrollLeft = newScrollPosition;
-    currentIndex++;
-    if(currentIndex === carouselItems.length){
-      console.log("end of list, current index: ",currentIndex)
-      currentIndex=0; //start at the beginning again
-    }
+
   }
 
   
   function handlePrevButtonClick() {
     console.log("Previous button clicked")
-  
-    const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-    const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-    console.log("clicked media index: ", activeMedia.dataset.index);
-    console.log("Previous media is ", parseInt(activeMedia.dataset.index) - 1)
-  
-    const carouselContainer = document.querySelector('#carousel-list');
-    const carouselItems = Array.from(carouselContainer.children);  
-    const itemWidth = carouselItems[0].getBoundingClientRect().width;
-    currentIndex--;
-    if(currentIndex < 0){
-      console.log("beginning of list, current index: ",currentIndex)
-      currentIndex = carouselItems.length-1; // Set currentIndex to last item
-    }
-    const newScrollPosition = itemWidth * currentIndex;
-    carouselContainer.scrollLeft = newScrollPosition;
+
+
   }
+
+
+
+
+
+
 
   function setActiveData(item, index) {
     const mediacontainer = item;
