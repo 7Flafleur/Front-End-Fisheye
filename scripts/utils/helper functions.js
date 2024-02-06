@@ -47,23 +47,29 @@ async function fetchData() {
   }//end getMedia function
   
   
-  // take array, target MEDIA html section
-  async function displayMedia(indivJSONmediaObjects) {
-    const mediaSection = document.querySelector(".media_section")
-    mediaSection.innerHTML = "";   //reset mediasection to empty before creating a new one
+  // take array, target MEDIA html section,return promise
+   function displayMedia(indivJSONmediaObjects) {
+    
+      const mediaSection = document.querySelector(".media_section")
+      mediaSection.innerHTML = "";
   
-    //use template for each media in array, pass each media to function  according to its type
-    indivJSONmediaObjects.forEach((item,index) => {
-      const mediaModel = MediaTemplate(item);  //returns video or image mediamodel
-      const mediaCardDOM = mediaModel.getMediaCardDOM();  // function creates mediacard that has either video or img tag, according to object type
+      indivJSONmediaObjects.forEach((item,index) => {
+        const mediaModel = MediaTemplate(item);
+        const mediaCardDOM = mediaModel.getMediaCardDOM();
       
-      const media = mediaCardDOM.children[0]; // img or video inside mediaitem container
-      media.dataset.indexBefore = index;   //index that tracks the original index in the mediasection compared to the index of its container that is going to change when lightbox is opened
-      console.log("Setting indexBefore", index)
-      mediaSection.appendChild(mediaCardDOM);
+        // Set data-index-before on the a element
+        mediaCardDOM.dataset.indexBefore = index;
+      
+        // Set data-new-index on the a element
+        // Initialize it to the same value as data-index-before
+        mediaCardDOM.dataset.newIndex = index;
+      
+        mediaSection.appendChild(mediaCardDOM);
+      });
   
-    });
-  } //end displayMedia function
+    
+  }
+  
   
 
 

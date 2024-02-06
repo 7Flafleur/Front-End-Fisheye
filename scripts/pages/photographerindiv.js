@@ -1,8 +1,8 @@
 //////////GLOBAL VARIABLES THAT NEED TO BE ACCESSED BY EVERY FUNCTION////////////
 
- let mediaItemsDOM=[];         //list of html elemnts
+ let mediaItemsDOM=[];         //list of mediacards (html elemnts)
 
- let indivJSONmediaObjects=[]     //list of objects
+ let indivJSONmediaObjects=[]     //list of objects, will only be assigned once as a deep copy of JSON DATA
 
 
 //get photographer Id from URL
@@ -15,7 +15,7 @@ const date = document.querySelector("#date");
 const titre = document.querySelector("#titre");
 
 let currentIndex;       //Index for carousel function
-let globallikes = 0; 
+let globallikes = 0;    //sum of LIKES on each mediacard
 
 
 ////////////////////////////////////////////////////////////////
@@ -26,45 +26,74 @@ async function init() {
 
 //////DATA RETRIEVAL
   /////////////////////////
-    // GET ARRAY OF PHOTOGRAPHERS FROM JSON DATA await promise, return array
-    async function getPhotographers() {
-      let photographers = await fetchData();
-      // console.log(photographers)
-      return photographers;
-    }//end getPhotographers function
-  
+  // Get data from JSON file
+  const photographers = await getPhotographers();
+  const person = findperson(photographers, urlid);
+  displayHeader(person);
 
-      //GET ARRAY OF MEDIA FOR CURRENT PHOTOGRAPHER
+  //ORIGINAL ARRAY OF OBJECTS FROM JSON FILE
+  const indivJSONmediaObjects = await getMedia();
+//DEEP COPY
+indivmedia=JSON.parse(JSON.stringify(indivJSONmediaObjects))
 
-  async function getMedia() {
-    let media = await fetchMediaData();         ///
-    // console.log("media:",media)
-  
-    //array for photographer
-    let indivJSONmediaObjects = new Array();
-  
-    //fill empty array for individual photographer
-    media.forEach((object) => {
-  
-      if (object.photographerId == urlid) {
-        indivJSONmediaObjects.push(object)
-      }
-    })
-    // console.log("Indiv",indivJSONmediaObjects)
-    return indivJSONmediaObjects;
-  }//end getMedia function
   
 ////////////////////////////////////////////
 
+//DISPLAY MEDIA FOR THE FIRST TIME
 
+displayMedia(indivmedia);
+mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
 
+//PREVENT SCROLL ON CLICK
 
+mediaItemsDOM.forEach(a => {
+a.addEventListener('click', function(event) {
+  // Prevent default action
+  event.preventDefault();}
+)
+});
 
+//ADD LIKES TO MEDIA, DISPLAY PRICETAG
+mediaItemsDOM.forEach(item => {
+  globallikes += parseInt(item.dataset.likes);
+});
 
+addPriceTag(person, globallikes);
 
+//DISPLAY ORIGINAL index tracked on media
 
+mediaItemsDOM.forEach((a,index) => {
+a.dataset.indexBefore=index;
+console.log("Index before: ",a.dataset.indexBefore);
+})
 
+//EVENT LISTENER FOR SORTING FUNCTIONS
 
+pop.addEventListener("click", async () => {
+  console.log("pop");
+  const sorted = indivmedia.sort(compareByPop)
+  displayMedia(sorted);
+mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
+  console.log("sorted ob: ", sorted)
+  console.log("New media Items sorted by pop: ",mediaItemsDOM)
+
+});
+
+date.addEventListener("click", () => {
+  console.log("date");
+  const sorted = indivmedia.sort(compareByDate)
+  displayMedia(sorted)
+  console.log("sorted objects: ", sorted)
+  console.log("New media Items sorted by date: ",mediaItemsDOM)
+});
+
+titre.addEventListener("click", () => {
+  console.log("titre");
+  const sorted = indivmedia.sort(compareByTitle)
+  displayMedia(sorted)
+  console.log("sorted objects: ", sorted)
+  console.log("New media Items sorted by title: ",mediaItemsDOM)
+});
 
 
 
