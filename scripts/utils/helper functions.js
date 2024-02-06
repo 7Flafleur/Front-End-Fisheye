@@ -286,18 +286,18 @@ document.querySelector('#carousel-button-prev').addEventListener('click', () => 
 
 
 
-function moveCarousel(direction) {
-  const carouselContainer = document.querySelector('#carousel-list');
-  const carouselItems = Array.from(carouselContainer.children);  
-  const itemWidth = carouselItems[0].getBoundingClientRect().width;
+function moveCarousel(direction,carouselList) {
+ 
+  const itemWidth = carouselList[0].getBoundingClientRect().width;
+  const length=carouselList.length
 
   switch (direction) {
     case 'next':
-      if (currentIndex < carouselItems.length - 1) {
+      if (currentIndex < length - 1) {
         currentIndex++;
         console.log("< lenght current index",currentIndex)
       }
-      else if(currentIndex == carouselItems.length - 1){
+      else if(currentIndex == length - 1){
         console.log("end of list")
         currentIndex=0;
       }
@@ -309,13 +309,13 @@ function moveCarousel(direction) {
       }
       else if(currentIndex==0){
         console.log("end of list")
-        currentIndex=carouselItems.length - 1
+        currentIndex=length - 1
       }
       break;
     default:
       console.log('Invalid direction');
   }
 
-  carouselContainer.scrollLeft = currentIndex * itemWidth;  //
+  carouselList.scrollLeft = currentIndex * itemWidth;  //
   console.log("moved by",currentIndex * itemWidth)
 }

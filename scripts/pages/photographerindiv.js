@@ -131,12 +131,15 @@ mediaItemsDOM.forEach((a) => {
 
 //EVENT LISTENERS FOR CAROUSEL FUNCTION
 
+carouselList=[]
+
 mediaItemsDOM.forEach((a)=>{
   a.addEventListener("click", (event)=>
  {let figure=event.currentTarget;
   console.log("targeted element", figure)
-  let carouselList=getCarouselList(mediaItemsDOM, figure)
+  carouselList=getCarouselList(mediaItemsDOM, figure)
   console.log("New array for carousel ", carouselList)
+  integrateCarousel(carouselList)
   }
   )
 }

@@ -82,11 +82,15 @@ let nextButton=document.getElementById("carousel-button-next")
 nextButton.addEventListener("click", handleNextButtonClick);
 
 
+const closeButton=document.getElementById("closeLB")
 
+closeButton.addEventListener("click", closeLightBox)
 
     const lightBox = document.querySelector(".lightbox");
 
     lightBox.focus();
+
+
 
     
     lightBox.classList.add("active");
