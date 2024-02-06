@@ -67,7 +67,7 @@ addPriceTag(person, globallikes);
 
 mediaItemsDOM.forEach((a,index) => {
 a.dataset.indexBefore=index;
-console.log("Index before: ",a.dataset.indexBefore);
+// console.log("Index before: ",a.dataset.indexBefore);
 })
 
 //EVENT LISTENER FOR SORTING FUNCTIONS
@@ -119,14 +119,30 @@ titre.addEventListener("click", () => {
   console.log("sorted objects: ", sorted)
   console.log("New media Items sorted by title: ",mediaItemsDOM)
   //PREVENT SCROLLUP
-mediaItemsDOM.forEach(a => {
+mediaItemsDOM.forEach((a) => {
   a.addEventListener('click', function(event) {
     // Prevent default action
     event.preventDefault();
 });
 });
-
 });
+
+
+
+//EVENT LISTENERS FOR CAROUSEL FUNCTION
+
+mediaItemsDOM.forEach((a)=>{
+  a.addEventListener("click", (event)=>
+ {let figure=event.currentTarget;
+  console.log("targeted element", figure)
+  }
+  )
+}
+)
+
+
+
+
 
 
 
