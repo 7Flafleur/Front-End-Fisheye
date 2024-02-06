@@ -135,6 +135,8 @@ mediaItemsDOM.forEach((a)=>{
   a.addEventListener("click", (event)=>
  {let figure=event.currentTarget;
   console.log("targeted element", figure)
+  let carouselList=getCarouselList(mediaItemsDOM, figure)
+  console.log("New array for carousel ", carouselList)
   }
   )
 }

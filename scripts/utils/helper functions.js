@@ -181,10 +181,10 @@ async function fetchData() {
   }
   
   function getCarouselList(mediaItemsDOM, mediacontainer) {
-    let clickedIndex = parseInt(mediacontainer.dataset.currentindex);
-  
+    let clickedIndex = parseInt(mediacontainer.dataset.indexBefore);
     let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
     let secondHalf = mediaItemsDOM.slice(clickedIndex);
+
   
     //new array of mediaItemsDOM with clicked slide as first
     let reorganizedArray = secondHalf.concat(firstHalf);
