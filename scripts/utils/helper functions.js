@@ -132,26 +132,6 @@ async function fetchData() {
     }
   }
 
-  // function handleNextButtonClick() {
-  //   console.log("Nex button clicked")
-    
-  //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-  //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-  
-  //   console.log("index: ", activeMedia.dataset.index);
-  //   console.log("Next media is", parseInt(activeMedia.dataset.index) + 1)
-  
-  //   const carouselContainer = document.querySelector('#carousel-list');
-  //   const carouselItems = Array.from(carouselContainer.children);  
-  //   const itemWidth = carouselItems[0].getBoundingClientRect().width;
-  //   const newScrollPosition = itemWidth * currentIndex;
-  //   carouselContainer.scrollLeft = newScrollPosition;
-  //   currentIndex++;
-  //   if(currentIndex === carouselItems.length){
-  //     console.log("end of list, current index: ",currentIndex)
-  //     currentIndex=0; //start at the beginning again
-  //   }
-  // }
   
   function handlePrevButtonClick() {
     console.log("Previous button clicked")
@@ -181,7 +161,7 @@ async function fetchData() {
   }
   
   function getCarouselList(mediaItemsDOM, mediacontainer) {
-    let clickedIndex = parseInt(mediacontainer.dataset.indexBefore);
+    let clickedIndex = mediaItemsDOM.indexOf(mediacontainer);
     let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
     let secondHalf = mediaItemsDOM.slice(clickedIndex);
 
@@ -226,96 +206,6 @@ const compareByTitle = compareDatasetValue("title");
 
 
 
-function attachEventListeners() {
-  mediaItemsDOM.forEach((item, index,currentarray) => {
-    const media = item.children[0]; // img or video inside mediaitem container
-    media.dataset.index = index;
-    media.addEventListener("click", handleMediaClick);
-  });
-
-  // mediaItemsDOM.forEach((item, index) => {
-  //   setActiveData(item, index);
-
-  //   const media = item.children[0]; // img or video inside mediaitem container
-  //   media.addEventListener("click", () => {
-  //     console.log("media ", Number(media.dataset.index)+1, " in mediasection clicked");
-  //     media.dataset.active = "true";
-
-  //     let reorganizedArray = getSortedArray(media, mediaItems);
-
-  //     integrateCarousel(reorganizedArray);
-  //     console.log("showing mediaitem n°", media.dataset.index);
-  //   });
-  // });
-
-  mediaItemsDOM.forEach((item, index) => {
-    setActiveData(item, index);
-
-  let media = item.children[0];         //img or video inside mediaitem container
-  //
-  media.addEventListener("click", () => {
-    media.dataset.active = "true";
-    console.log("media ", Number(media.dataset.index)+1, "in mediasection clicked, media n°",Number(media.dataset.index)+1,"active= ",media.dataset.active);
-
-    document.querySelector('#carousel-button-next').addEventListener('click', () => moveCarousel('next'));
-document.querySelector('#carousel-button-prev').addEventListener('click', () => moveCarousel('prev'));
 
 
-
-
-
-  });
-});
-
-
-  mediaItemsDOM.forEach((item) => {
-    const icon = item.querySelector(".fa-heart");
-
-    const clickHandler = (event) => {
-      event.preventDefault();
-      globallikes++;
-      console.log("Global", globallikes);
-      addPriceTag(person, globallikes);
-      icon.removeEventListener("click", clickHandler);
-    };
-
-    icon.addEventListener("click", clickHandler);
-    //click on icon,not on mediaitem to like
-  });
-}
-
-
-
-function moveCarousel(direction,carouselList) {
- 
-  const itemWidth = carouselList[0].getBoundingClientRect().width;
-  const length=carouselList.length
-
-  switch (direction) {
-    case 'next':
-      if (currentIndex < length - 1) {
-        currentIndex++;
-        console.log("< lenght current index",currentIndex)
-      }
-      else if(currentIndex == length - 1){
-        console.log("end of list")
-        currentIndex=0;
-      }
-      break;
-    case 'prev':
-      if (currentIndex > 0) {
-        currentIndex--;
-        console.log("0 > current index",currentIndex)
-      }
-      else if(currentIndex==0){
-        console.log("end of list")
-        currentIndex=length - 1
-      }
-      break;
-    default:
-      console.log('Invalid direction');
-  }
-
-  carouselList.scrollLeft = currentIndex * itemWidth;  //
-  console.log("moved by",currentIndex * itemWidth)
-}
+function movetoNext(){}

@@ -2,8 +2,7 @@
 
  let mediaItemsDOM=[];         //list of mediacards (html elemnts)
 
- let indivJSONmediaObjects=[]     //list of objects, will only be assigned once as a deep copy of JSON DATA
-
+ let carouselList=[];
 
 //get photographer Id from URL
 const currentURLsearch = new URLSearchParams(window.location.search);
@@ -60,6 +59,7 @@ mediaItemsDOM.forEach(a => {
 });
 });
 
+//ADD PRICETAG AT BOTTOM OF PAGE
 
 addPriceTag(person, globallikes);
 
@@ -81,14 +81,29 @@ pop.addEventListener("click", async () => {
   console.log("sorted ob: ", sorted)
   console.log("New media Items sorted by pop: ",mediaItemsDOM)
   //PREVENT SCROLLUP
-mediaItemsDOM.forEach(a => {
-  a.addEventListener('click', function(event) {
-    // Prevent default action
-    event.preventDefault();
-});
-});
-
-
+  mediaItemsDOM.forEach((a) => {
+    a.addEventListener('click', function(event) {
+      // Prevent default action
+      event.preventDefault();
+  
+          // Remove 'data-active' attribute from all media items
+          mediaItemsDOM.forEach((item) => {
+            item.removeAttribute('data-active');
+          });
+      
+          // Add 'data-active' attribute to the clicked item
+          
+      //EVENT LISTENER FOR CAROUSEL FUNCTION//
+      let figure=event.currentTarget;
+      figure.setAttribute('data-active', 'true');
+  
+    console.log("targeted element", figure)
+    carouselList=getCarouselList(mediaItemsDOM, figure)
+    console.log("New array for carousel ", carouselList)
+    integrateCarousel(carouselList)
+  
+  });
+  });
 
 });
 
@@ -101,13 +116,29 @@ date.addEventListener("click", () => {
   console.log("sorted objects: ", sorted)
   console.log("New media Items sorted by date: ",mediaItemsDOM)
   //PREVENT SCROLLUP
-mediaItemsDOM.forEach(a => {
-  a.addEventListener('click', function(event) {
-    // Prevent default action
-    event.preventDefault();
-});
-});
-
+  mediaItemsDOM.forEach((a) => {
+    a.addEventListener('click', function(event) {
+      // Prevent default action
+      event.preventDefault();
+  
+          // Remove 'data-active' attribute from all media items
+          mediaItemsDOM.forEach((item) => {
+            item.removeAttribute('data-active');
+          });
+      
+          // Add 'data-active' attribute to the clicked item
+          
+      //EVENT LISTENER FOR CAROUSEL FUNCTION//
+      let figure=event.currentTarget;
+      figure.setAttribute('data-active', 'true');
+  
+    console.log("targeted element", figure)
+    carouselList=getCarouselList(mediaItemsDOM, figure)
+    console.log("New array for carousel ", carouselList)
+    integrateCarousel(carouselList)
+  
+  });
+  });
 });
 
 titre.addEventListener("click", () => {
@@ -123,6 +154,23 @@ mediaItemsDOM.forEach((a) => {
   a.addEventListener('click', function(event) {
     // Prevent default action
     event.preventDefault();
+
+        // Remove 'data-active' attribute from all media items
+        mediaItemsDOM.forEach((item) => {
+          item.removeAttribute('data-active');
+        });
+    
+        // Add 'data-active' attribute to the clicked item
+        
+    //EVENT LISTENER FOR CAROUSEL FUNCTION//
+    let figure=event.currentTarget;
+    figure.setAttribute('data-active', 'true');
+
+  console.log("targeted element", figure)
+  carouselList=getCarouselList(mediaItemsDOM, figure)
+  console.log("New array for carousel ", carouselList)
+  integrateCarousel(carouselList)
+
 });
 });
 });
@@ -135,7 +183,16 @@ carouselList=[]
 
 mediaItemsDOM.forEach((a)=>{
   a.addEventListener("click", (event)=>
- {let figure=event.currentTarget;
+ {
+      // Remove 'data-active' attribute from all media items
+      mediaItemsDOM.forEach((item) => {
+        item.removeAttribute('data-active');
+      });
+  
+      // Add 'data-active' attribute to the clicked item
+      
+  let figure=event.currentTarget;
+  figure.setAttribute('data-active', 'true');
   console.log("targeted element", figure)
   carouselList=getCarouselList(mediaItemsDOM, figure)
   console.log("New array for carousel ", carouselList)
@@ -144,6 +201,8 @@ mediaItemsDOM.forEach((a)=>{
   )
 }
 )
+
+
 
 
 
