@@ -50,19 +50,25 @@ async function fetchData() {
   // take array, target MEDIA html section
   async function displayMedia(indivJSONmediaObjects) {
     const mediaSection = document.querySelector(".media_section")
-    mediaSection.innerHTML = "";
+    mediaSection.innerHTML = "";   //reset mediasection to empty before creating a new one
   
     //use template for each media in array, pass each media to function  according to its type
-    indivJSONmediaObjects.forEach((item) => {
+    indivJSONmediaObjects.forEach((item,index) => {
       const mediaModel = MediaTemplate(item);  //returns video or image mediamodel
       const mediaCardDOM = mediaModel.getMediaCardDOM();  // function creates mediacard that has either video or img tag, according to object type
+      
+      const media = mediaCardDOM.children[0]; // img or video inside mediaitem container
+      media.dataset.indexBefore = index;   //index that tracks the original index in the mediasection compared to the index of its container that is going to change when lightbox is opened
+      console.log("Setting indexBefore", index)
       mediaSection.appendChild(mediaCardDOM);
   
     });
   } //end displayMedia function
   
+
+
   function closeLightBox() {
-    currentIndex=0;
+    // currentIndex=0;
     const lightBox = document.querySelector(".lightbox")
     const carousel = document.querySelector(".carousel")
     const mediaSection = document.querySelector(".media_section")
@@ -73,15 +79,6 @@ async function fetchData() {
     
   }
 
-  function clickedMediaFirst(event) {
-    let clickedElement = event.target;
-    let clickedIndex = parseInt(clickedElement.dataset.index);
-    let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
-    let secondHalf = mediaItemsDOM.slice(clickedIndex);
-    // new array of mediaItemsDOM with clicked slide as first
-    let reorganizedArray = secondHalf.concat(firstHalf);
-    return reorganizedArray;
-  }
 
 // as Eventhandler only
   // function clickedMediaFirst(){
@@ -105,59 +102,20 @@ async function fetchData() {
   }
   
   
-  // function handleNextButtonClick() {
-  //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-  //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-
-  //   console.log("index: ", activeMedia.dataset.index);
-  //   console.log("Next media is",activeMedia.dataset.index+1)
-
-  //   const carouselContainer = document.querySelector('#carousel-list');
-  //   const carouselItems = Array.from(carouselContainer.children);  
-  //   const itemWidth = carouselItems[0].getBoundingClientRect().width;
-  //   const newScrollPosition = itemWidth * (currentIndex + 1);
-  //   carouselContainer.scrollLeft = newScrollPosition;
-  //   currentIndex++;
-  //   if(currentIndex===carouselContainer.length-1){
-  //     alert("end of list,current index"+currentIndex)
-  //   }
-
-    
-    
-
-  // }
-  
-  // function handlePrevButtonClick() {
-  //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-  //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-  //   console.log("clicked media index: ", activeMedia.dataset.index);
-  //   console.log("Previous media is ", activeMedia.dataset.index-1)
-
-  //   const carouselContainer = document.querySelector('#carousel-list');
-  //   const carouselItems = Array.from(carouselContainer.children);  
-  //   const itemWidth = carouselItems[0].getBoundingClientRect().width;
-  //   const newScrollPosition = itemWidth * (currentIndex + 1);
-  //   carouselContainer.scrollRight = newScrollPosition ;
-  //   currentIndex--;
-  //   if(currentIndex<0){
-  //     alert("beginning of list, current index"+currentIndex)
-
-  //   }
-
-    
-  // }
 
   function handleNextButtonClick() {
-    console.log("Nex button clicked")
-    
-    const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
-    const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
-  
-    console.log("index: ", activeMedia.dataset.index);
-    console.log("Next media is", parseInt(activeMedia.dataset.index) + 1)
+    console.log("Next button clicked")
   
     const carouselContainer = document.querySelector('#carousel-list');
     const carouselItems = Array.from(carouselContainer.children);  
+  
+    // Find the currently displayed media
+    const activeMediaCard = carouselItems.find(item => parseInt(item.dataset.currentindex) === 0);
+    const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+  
+    console.log("index before: ", activeMedia.dataset.indexBefore);
+    console.log("Next media is", parseInt(activeMediaCard.dataset.currentindex) + 1)
+  
     const itemWidth = carouselItems[0].getBoundingClientRect().width;
     const newScrollPosition = itemWidth * currentIndex;
     carouselContainer.scrollLeft = newScrollPosition;
@@ -167,6 +125,27 @@ async function fetchData() {
       currentIndex=0; //start at the beginning again
     }
   }
+
+  // function handleNextButtonClick() {
+  //   console.log("Nex button clicked")
+    
+  //   const activeMediaCard = document.querySelector('.mediacard[data-active="true"]');
+  //   const activeMedia = activeMediaCard.children[0]; // Assuming the media element is the first child
+  
+  //   console.log("index: ", activeMedia.dataset.index);
+  //   console.log("Next media is", parseInt(activeMedia.dataset.index) + 1)
+  
+  //   const carouselContainer = document.querySelector('#carousel-list');
+  //   const carouselItems = Array.from(carouselContainer.children);  
+  //   const itemWidth = carouselItems[0].getBoundingClientRect().width;
+  //   const newScrollPosition = itemWidth * currentIndex;
+  //   carouselContainer.scrollLeft = newScrollPosition;
+  //   currentIndex++;
+  //   if(currentIndex === carouselItems.length){
+  //     console.log("end of list, current index: ",currentIndex)
+  //     currentIndex=0; //start at the beginning again
+  //   }
+  // }
   
   function handlePrevButtonClick() {
     console.log("Previous button clicked")
@@ -191,30 +170,24 @@ async function fetchData() {
   function setActiveData(item, index) {
     const mediacontainer = item;
     mediacontainer.dataset.active = "true";
-    const media = item.children[0]; // img or video inside mediaitem container
-  
-    // If the data-index-before attribute doesn't exist, set it to the current index
-    if (!media.dataset.indexBefore) {
-      media.dataset.indexBefore = index;
-    }
-  
-    media.dataset.index = index;
-    mediacontainer.dataset.index = index; // Set mediacontainer index to the same as media
+    // Set the mediacontainer's data-currentindex attribute to the current index
+    mediacontainer.dataset.currentindex = index;
   }
-
-
-  function getCarouselList(mediaItemsDOM,media) {
-    let clickedIndex = parseInt(media.dataset.index);
+  
+  function getCarouselList(mediaItemsDOM, mediacontainer) {
+    let clickedIndex = parseInt(mediacontainer.dataset.currentindex);
   
     let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
     let secondHalf = mediaItemsDOM.slice(clickedIndex);
   
-    //new array of mediaItemsDOMwith clicked slide as first
+    //new array of mediaItemsDOM with clicked slide as first
     let reorganizedArray = secondHalf.concat(firstHalf);
-    currentIndex=0;
-    reorganizedArray.forEach((item ,index)=>{
-      item.dataset.index=index
-    })
+    currentIndex = 0;
+    reorganizedArray.forEach((item, index) => {
+      // Set the mediacontainer's data-currentindex attribute to the new index
+      item.dataset.currentindex = index;
+    });
+  
     return reorganizedArray;
   }
 
