@@ -520,4 +520,91 @@ overflow:hidden;
 
 
 
-/* Path: css/photographer.css */
+
+
+/*RESPONSIVE FOR MOBILE PHONES*/
+@media screen and (min-width: 350px) and (max-width: 680px) {
+ 
+  .photograph-header {
+    height: 200px;
+    margin: 0 50px;
+  }
+
+  .headercontainer {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .infos {
+    height: 150px;
+    width: 250px;
+  }
+
+  .contact_button {
+    width: 120px;
+    height: 50px;
+  }
+
+  .media_section {
+    margin-top: 40px;
+    margin-right: 44px;
+    margin-left: 44px;
+  }
+
+  .medialink {
+    width: 90%;
+    padding-bottom: 90%;
+  }
+
+  .captioncontainer {
+    font-size: 16px;
+  }
+
+  .likes {
+    font-size: 18px;
+  }
+
+  .modal {
+    width: 80%;
+    padding: 20px;
+  }
+
+  form label {
+    font-size: 24px;
+  }
+
+  form input {
+    height: 34px;
+  }
+
+  #message {
+    height: 100px;
+  }
+
+  .lightbox {
+    height: 90%;
+    width: 90%;
+  }
+
+  .carousel.active {
+    height: 80%;
+    width: 80%;
+  }
+
+  #carousel-list {
+    height: 90%;
+  }
+
+  #carousel-button-prev {
+    left: -40px;
+  }
+
+  #carousel-button-next {
+    right: -40px;
+  }
+}
+
+/*RESPONSIVE FOR  TABLETS*/
+@media screen and (min-width: 681px) and (max-width: 1024px) {
+
+}
