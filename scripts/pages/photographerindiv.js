@@ -34,6 +34,7 @@ async function init() {
   const photographers = await getPhotographers();
   const person = findperson(photographers, urlid);
   displayHeader(person);
+  insertNameForm(person)
 
   //ORIGINAL ARRAY OF OBJECTS FROM JSON FILE
   const indivJSONmediaObjects = await getMedia();

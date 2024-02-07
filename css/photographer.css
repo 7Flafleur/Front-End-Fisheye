@@ -42,23 +42,24 @@ body {
 }
 
 .infos {
-   /* border: dotted aqua;   */
+  /* border: dotted aqua;   */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  
+
   height: 200px;
   width: 350px;
 
 }
 
-h2{
+h2 {
   font-size: ;
 }
 
-.infos h1, h2{
-  margin:0;
+.infos h1,
+h2 {
+  margin: 0;
 }
 
 .infos blockquote {
@@ -81,6 +82,11 @@ h2{
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.contact_button:hover, .contact_button:focus{
+  background-color: #db8876;
+  color: #000;
 }
 
 .media_section {
@@ -125,44 +131,50 @@ h2{
   color: white;
   font-size: 16px;
   padding: 10px;
-  
+
 }
 
-.option{
+.option {
   padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  
+
 }
 
 .option:hover::after {
-  content: "\00a0 \00a0  \00a0 \f077";  /* Unicode for the fa-caret-up icon */
-  font-family: "Font Awesome 5 Free";  /* Font family for the free Font Awesome icons */
-  font-weight: 900;  /* Font weight for the free Font Awesome icons */
+  content: "\00a0 \00a0  \00a0 \f077";
+  /* Unicode for the fa-caret-up icon */
+  font-family: "Font Awesome 5 Free";
+  /* Font family for the free Font Awesome icons */
+  font-weight: 900;
+  /* Font weight for the free Font Awesome icons */
   font-size: 0.7em;
 }
 
-#listbox-id{
+#listbox-id {
   border-radius: 5%;
 }
 
-#pop, #date  {
-  
-  
+#pop,
+#date {
+
+
   cursor: pointer;
- 
+
 
 }
 
-#date,#titre{
+#date,
+#titre {
   border-top: #fafafa 1px solid;
   display: none;
   cursor: pointer;
 }
 
-#pop:hover #titre, #pop:hover #date {
+#pop:hover #titre,
+#pop:hover #date {
   display: block;
 }
 
@@ -172,7 +184,8 @@ h2{
   /* border: #312e2e dotted;  */
   text-decoration: none;
   width: 28%;
-  padding-bottom: 28%; /* Set padding to create a square aspect ratio */
+  padding-bottom: 28%;
+  /* Set padding to create a square aspect ratio */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -186,7 +199,7 @@ h2{
 }
 
 /* Absolute positioning for child elements */
-.medialink > * {
+.medialink>* {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -194,7 +207,7 @@ h2{
 
 .media_section img,
 video {
-   border-radius: 1%; 
+  border-radius: 1%;
   width: 100%;
   height: 85%;
   object-fit: cover;
@@ -258,49 +271,70 @@ video {
 .modal {
   border-radius: 5px;
   background-color: #db8876;
+  height:90%;;
   width: 30%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px;
+  padding: 25px;
   position: sticky;
-  top: 100px;
+  top: 20px;
   margin: auto;
   z-index: 30;
 }
 
 #hi {
+  border: blue solid 2px;
   display: none;
+  height: 83vh;
+
+}
+
+
+#contactForm {
+  border: yellowgreen solid 2px;
+  height:100%;
 }
 
 .modal header {
-  justify-content: space-between;
+  border: red solid 2px;
+  display: flex;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  margin: top -18px;
+  position: relative;
 }
 
 .modal header img {
   cursor: pointer;
+  height:24px;
+  position: relative;
+  top:-31px;
 }
 
 .modal header h2 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: normal;
   text-align: left;
 }
 
 form {
+
   display: flex;
   width: 100%;
+
   flex-direction: column;
+justify-content: space-evenly;
   align-items: flex-start;
+
 }
 
 form label {
-  border: olivedrab solid 1px;
+   border: olivedrab solid 1px; 
   color: #312e2e;
-  font-size: 36px;
+  font-size: 25px;
   display: inline;
+  padding-bottom: 0;
 }
 
 form div {
@@ -308,14 +342,19 @@ form div {
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
+  
 }
 
-form input {
+form input,
+textarea {
   width: 100%;
-  height: 68px;
+  
   border: none;
   border-radius: 5px;
+}
+
+form input{
+  height: 35px;
 }
 
 .errormsg {
@@ -330,7 +369,7 @@ form input {
   content: attr(data-error);
   display: inline;
   color: yellow;
-  font-size: 25px;
+  font-size: 20px;
   opacity: 0;
 }
 
@@ -341,6 +380,15 @@ form input {
 #message {
   height: 200px;
 }
+
+#send{
+  height:unset;
+  width:unset;
+  padding: 14px 30px;
+  font-size: 14px;
+}
+
+
 
 #bye {
   display: none;
@@ -354,7 +402,7 @@ form input {
 
 .lightbox {
   display: none;
-  
+
   position: fixed;
   z-index: 100;
   top: 50%;
@@ -385,19 +433,19 @@ form input {
   border: pink 8px dotted;
   align-items: center;
 
-  
+
 
   height: 87%;
   width: 72%;
-  position:fixed;
- 
+  position: fixed;
+
 }
 
 #carousel-list {
-  
-position:relative;
+
+  position: relative;
   height: 95%;
-  
+
 
 
   display: flex;
@@ -411,54 +459,46 @@ position:relative;
 
   padding: 0;
 
-   overflow: hidden; 
+  overflow: hidden;
 
   scroll-behavior: smooth;
 }
 
-/* .carouselItem {
- border: blue 2px dashed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-overflow:hidden;
-  flex: 1 0 100%;
-  position: relative;
-} */
+
 
 .carouselItem {
-  display: none;  /* Hide all slides */
+  display: none;
+  /* Hide all slides */
 }
 
 .carouselItem[data-active='true'] {
-  display: flex;  /* Display the active slide */
+  display: flex;
+  /* Display the active slide */
   border: blue 2px dashed;
-  
+
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
-overflow:hidden;
+  overflow: hidden;
   flex: 1 0 100%;
   position: relative;
 }
 
 
-.carouselItem > img {
+.carouselItem>img {
   border: yellow 4px solid;
-  
-  
+
+
   width: 98%;
   object-fit: cover;
 }
 
-.carouselItem video{
+.carouselItem video {
   border: yellow 4px solid;
-  height:98%;
-  width:98%;
-  object-fit:cover;
+  height: 98%;
+  width: 98%;
+  object-fit: cover;
 }
 
 
@@ -481,8 +521,8 @@ overflow:hidden;
   cursor: pointer;
 
 
- 
-/* 
+
+  /* 
   border: solid yellow 1px; */
 }
 
@@ -491,7 +531,7 @@ overflow:hidden;
   opacity: 1;
 }
 
-#closeLB{
+#closeLB {
   position: absolute;
   top: 0;
   right: 20px;
@@ -500,7 +540,7 @@ overflow:hidden;
 #carousel-button-prev {
   position: absolute;
 
- 
+
 
   top: 0;
 
@@ -518,7 +558,7 @@ overflow:hidden;
 
   position: absolute;
 
- 
+
 
   top: 0;
 

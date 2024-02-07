@@ -22,17 +22,17 @@
    
       
       
-      <div role="button" id="trierpar"  aria-haspopup="listbox" aria-controls="listbox-id" aria-expanded="true">
+      <div role="button" id="trierpar"  aria-haspopup="listbox" aria-controls="listbox-id" tabindex="0" aria-expanded="true">
         Trier par
       </div>
      
-      <div role="listbox" id="listbox-id" class="dropdown-content" aria-activedescendant="pop" aria-selected="true" aria-labelledby="trierpar">
-        <div id="pop" class="option" role="option">Popularité</div>
-        <div id="date" class="option" role="option">Date</div>
-        <div id="titre" class="option" role="option">Titre</div>
+      <div role="listbox" id="listbox-id" class="dropdown-content" aria-activedescendant="pop"  aria-labelledby="trierpar">
+        <div id="pop" class="option" role="option" tabindex="0">Popularité</div>
+        <div id="date" class="option" role="option" tabindex="0">Date</div>
+        <div id="titre" class="option" role="option"tabindex="0" >Titre</div>
       </div>
       
-      <section class="media_section" role="media-section">
+      <section class="media_section" role="main">
        
       
       </section>
@@ -54,7 +54,7 @@
   </button>
         </section>
       </section>
-       <aside id="pricetag" role="price"> 
+       <aside id="pricetag" > 
         <span id="nblikes"></span> <span id="price"></span>
        </aside> 
     </main>
@@ -97,14 +97,15 @@
             <div>
               <label for="message">Votre message
               </label>
-            </div>      <input id="message" type="textarea" name="message">
-
+            </div>      
+            <textarea id="message" name="message"></textarea>
             
 
 					</div>
-          <button class="contact_button" role="send" >Envoyer</button>
+          <button class="contact_button" id="send" role="send" >Envoyer</button>
 				</form>
 			</div>
+
 
 
 
