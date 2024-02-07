@@ -64,15 +64,46 @@ function MediaTemplate(data) {
             updateGlobalLikesDOM(globallikes)
         }
 
-        function noMoreLike(){
-            icon.removeEventListener('click', incrementLike)
-            console.log("removed");
-        }
+
+        icon.addEventListener('click', function handleLike(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            incrementLike();
+          
+            // Remove the event listener
+            icon.removeEventListener('click', handleLike);
+            icon.addEventListener('click', event => {
+                    event.preventDefault();
+                    event.stopPropagation();
+            })
+
+          });
 
 
-        icon.addEventListener('click', incrementLike
-          )
-        icon.addEventListener('click', noMoreLike);
+
+
+
+
+        // function noMoreLike(){
+        //     icon.removeEventListener('click', incrementLike)
+        //     console.log("removed");
+        // }
+
+
+        // // icon.addEventListener('click', incrementLike
+        // //   )
+        // icon.addEventListener('click', event => {
+        //     event.preventDefault();
+        //     event.stopPropagation();
+        //     incrementLike()}
+        //    )
+
+        //    icon.addEventListener('click', event => {
+        //     event.preventDefault();
+        //     event.stopPropagation();
+        //     noMoreLike()}
+        //    )
+
             
         captioncontainer.appendChild(likes)
 
@@ -137,15 +168,21 @@ function MediaTemplate(data) {
             
         
         }
+        icon.addEventListener('click', function handleLike(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            incrementLike();
+          
+            // Remove the event listener
+            icon.removeEventListener('click', handleLike);
+            icon.addEventListener('click', event => {
+                    event.preventDefault();
+                    event.stopPropagation();
+            })
 
-        function noMoreLike(){
-            icon.removeEventListener('click', incrementLike)
-            console.log("removed");
-        }
+          });
 
-        icon.addEventListener('click', incrementLike
-        )
-      icon.addEventListener('click', noMoreLike);
+
 
         captioncontainer.appendChild(likes)
 
