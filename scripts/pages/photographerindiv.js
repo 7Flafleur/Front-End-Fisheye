@@ -13,7 +13,6 @@ const pop = document.querySelector("#pop");
 const date = document.querySelector("#date");
 const titre = document.querySelector("#titre");
 
-let currentIndex;       //Index for carousel function
 globallikes = 0;    //sum of LIKES on each mediacard
 
 
@@ -22,6 +21,12 @@ globallikes = 0;    //sum of LIKES on each mediacard
 //START INIT FUNCTION
 
 async function init() {
+
+
+
+  let actives=document.querySelectorAll("[data-active='true']")
+  console.log(actives)
+
 
 //////DATA RETRIEVAL
   /////////////////////////
@@ -101,6 +106,7 @@ pop.addEventListener("click", async () => {
     carouselList=getCarouselList(mediaItemsDOM, figure)
     console.log("New array for carousel ", carouselList)
     integrateCarousel(carouselList)
+
   
   });
   });
@@ -197,6 +203,7 @@ mediaItemsDOM.forEach((a)=>{
   carouselList=getCarouselList(mediaItemsDOM, figure)
   console.log("New array for carousel ", carouselList)
   integrateCarousel(carouselList)
+  
   }
   )
 }

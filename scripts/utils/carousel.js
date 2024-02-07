@@ -58,24 +58,15 @@ nextButton.addEventListener("click", handleNextButtonClick)
 
 prevButton.addEventListener("click", handlePrevButtonClick)
 
-//   // Add event listeners to the buttons
-//   nextButton.addEventListener('click', () => {
-//     moveCarousel('next', carouselList);
-//   });
-
-//   prevButton.addEventListener('click', () => {
-//     moveCarousel('prev', carouselList);
-//   });
-
 
 
 const closeButton=document.getElementById("closeLB")
 
 closeButton.addEventListener("click", closeLightBox)
 
-    const lightBox = document.querySelector(".lightbox");
+const lightBox = document.querySelector(".lightbox");
 
-    lightBox.focus();
+lightBox.focus();
 
 
 
@@ -99,6 +90,46 @@ closeButton.addEventListener("click", closeLightBox)
 
 }
 
-// function changeSlide(){
 
-// }
+function handleNextButtonClick() {
+
+   
+    
+    console.log("Next button clicked")
+    let activeItem = document.querySelector(".carouselItem[data-active='true']");
+    console.log("active item:",activeItem)
+  
+    // // Get all carousel items
+    // let items = document.querySelectorAll(".carouselItem");
+  
+    // // Remove the data-active attribute from the current active item
+    // items[currentIndex].dataset.active = 'false';
+  
+    // // Increment the current index, and loop back to 0 if it's past the end of the items
+    // NewIndex = (currentIndex + 1) % items.length;
+  
+    // // Set the data-active attribute on the new active item
+    // items[NewIndex].dataset.active = 'true';
+  
+    // // Scroll the new active item into view
+    // items[NewIndex].scrollIntoView({ behavior: 'smooth' });
+
+    // lightboxFactory(items[currentIndex])
+
+  
+  
+    // // Update the lightbox to display the new active item
+
+  }
+
+  
+  function handlePrevButtonClick() {
+    console.log("Previous button clicked")
+    let activeItem = document.querySelector(".carouselItem[data-active='true']");
+    console.log("active item:",activeItem)
+    let prevItem = activeItem.previousElementSibling;
+    console.log("previous item:", prevItem);
+
+  }
+
+

@@ -74,7 +74,10 @@ async function fetchData() {
 
 
   function closeLightBox() {
-    // currentIndex=0;
+    let carouselItems = document.querySelectorAll(".carouselItem");
+    carouselItems.forEach(item => {
+      item.dataset.active = 'false';
+    });
     const lightBox = document.querySelector(".lightbox")
     const carousel = document.querySelector(".carousel")
     const mediaSection = document.querySelector(".media_section")
@@ -109,27 +112,6 @@ async function fetchData() {
   
   
 
-  function handleNextButtonClick() {
-    console.log("Next button clicked")
-    let activeItem = document.querySelector(".carouselItem[data-active='true']");
-    console.log("active item:",activeItem)
-    let nextItem = activeItem.nextElementSibling;
-    console.log("next item:", nextItem);
-
-
-  }
-
-  
-  function handlePrevButtonClick() {
-    console.log("Previous button clicked")
-    let activeItem = document.querySelector(".carouselItem[data-active='true']");
-    console.log("active item:",activeItem)
-    let prevItem = activeItem.previousElementSibling;
-    console.log("previous item:", prevItem);
-
-  }
-
-
 
 
 
@@ -150,7 +132,7 @@ async function fetchData() {
   
     //new array of mediaItemsDOM with clicked slide as first
     let reorganizedArray = secondHalf.concat(firstHalf);
-    currentIndex = 0;
+
     reorganizedArray.forEach((item, index) => {
       // Set the mediacontainer's data-currentindex attribute to the new index
       item.dataset.currentindex = index;
