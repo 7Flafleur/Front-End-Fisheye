@@ -51,12 +51,26 @@ function integrateCarousel(mediaArray) {
 
 });
 
-let prevButton =document.getElementById("carousel-button-prev")
-let nextButton=document.getElementById("carousel-button-next")
+const buttons = document.querySelectorAll("#carousel-button-prev, #carousel-button-next");
 
-nextButton.addEventListener("click", handleNextButtonClick)
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    console.log("Button clicked")
+    const offset = button.id === "carousel-button-next" ? 1 : -1;
+    const slides = document.querySelectorAll(".carouselItem");
+    console.log("slides", typeof(slides))
 
-prevButton.addEventListener("click", handlePrevButtonClick)
+    const slidesArray = Array.from(slides);
+    const activeSlide = slidesArray.find(slide => slide.dataset.active === 'true');
+    console.log("active slide: ",activeSlide)
+    let newIndex = slidesArray.indexOf(activeSlide) + offset;
+    if (newIndex < 0) newIndex = slidesArray.length - 1;
+    if (newIndex >= slidesArray.length) newIndex = 0;
+
+    slidesArray[newIndex].dataset.active = 'true';
+    delete activeSlide.dataset.active;
+  });
+});
 
 
 
@@ -89,47 +103,5 @@ lightBox.focus();
   
 
 }
-
-
-function handleNextButtonClick() {
-
-   
-    
-    console.log("Next button clicked")
-    let activeItem = document.querySelector(".carouselItem[data-active='true']");
-    console.log("active item:",activeItem)
-  
-    // // Get all carousel items
-    // let items = document.querySelectorAll(".carouselItem");
-  
-    // // Remove the data-active attribute from the current active item
-    // items[currentIndex].dataset.active = 'false';
-  
-    // // Increment the current index, and loop back to 0 if it's past the end of the items
-    // NewIndex = (currentIndex + 1) % items.length;
-  
-    // // Set the data-active attribute on the new active item
-    // items[NewIndex].dataset.active = 'true';
-  
-    // // Scroll the new active item into view
-    // items[NewIndex].scrollIntoView({ behavior: 'smooth' });
-
-    // lightboxFactory(items[currentIndex])
-
-  
-  
-    // // Update the lightbox to display the new active item
-
-  }
-
-  
-  function handlePrevButtonClick() {
-    console.log("Previous button clicked")
-    let activeItem = document.querySelector(".carouselItem[data-active='true']");
-    console.log("active item:",activeItem)
-    let prevItem = activeItem.previousElementSibling;
-    console.log("previous item:", prevItem);
-
-  }
 
 
