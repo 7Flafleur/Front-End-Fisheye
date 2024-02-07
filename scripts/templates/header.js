@@ -3,7 +3,7 @@ function findperson(dataparameter, criteria) {
     for (let i = 0; i < dataparameter.length; i++) {
         const person = dataparameter[i];
         if (person.id == criteria) {
-            console.log("Match found!");
+            // console.log("Match found!");
             return person; // Return the index of the matched person
         } 
     }

@@ -189,7 +189,7 @@ video {
   justify-content: space-between;
   align-items: center;
   font-family: DM Sans;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -316,7 +316,7 @@ form input {
   opacity: 0;
 }
 
-.formData[data-error-visible="true"]::after {
+.errormsg[data-error-visible=true]::after {
   opacity: 1;
 }
 
@@ -393,12 +393,12 @@ position:relative;
 
   padding: 0;
 
-  /* overflow: hidden; */
+   overflow: hidden; 
 
   scroll-behavior: smooth;
 }
 
-.carouselItem {
+/* .carouselItem {
  border: blue 2px dashed;
   display: flex;
   align-items: center;
@@ -408,12 +408,30 @@ position:relative;
 overflow:hidden;
   flex: 1 0 100%;
   position: relative;
+} */
+
+.carouselItem {
+  display: none;  /* Hide all slides */
 }
+
+.carouselItem[data-active='true'] {
+  display: flex;  /* Display the active slide */
+  border: blue 2px dashed;
+  
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+overflow:hidden;
+  flex: 1 0 100%;
+  position: relative;
+}
+
 
 .carouselItem > img {
   border: yellow 4px solid;
-  box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  height: 98%;
+  
+  
   width: 98%;
   object-fit: cover;
 }

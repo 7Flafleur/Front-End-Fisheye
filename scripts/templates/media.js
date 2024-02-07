@@ -59,17 +59,51 @@ function MediaTemplate(data) {
             likes.innerHTML=likeContainer+"  ";
             likes.appendChild(icon);
             console.log("liked")
+            globallikes++;
+            console.log("More global likes: ", globallikes)
+            updateGlobalLikesDOM(globallikes)
         }
 
-        function noMoreLike(){
-            icon.removeEventListener('click', incrementLike)
-            console.log("removed");
-        }
+
+        icon.addEventListener('click', function handleLike(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            incrementLike();
+          
+            // Remove the event listener
+            icon.removeEventListener('click', handleLike);
+            icon.addEventListener('click', event => {
+                    event.preventDefault();
+                    event.stopPropagation();
+            })
+
+          });
 
 
-        icon.addEventListener('click', incrementLike
-          )
-        icon.addEventListener('click', noMoreLike);
+
+
+
+
+        // function noMoreLike(){
+        //     icon.removeEventListener('click', incrementLike)
+        //     console.log("removed");
+        // }
+
+
+        // // icon.addEventListener('click', incrementLike
+        // //   )
+        // icon.addEventListener('click', event => {
+        //     event.preventDefault();
+        //     event.stopPropagation();
+        //     incrementLike()}
+        //    )
+
+        //    icon.addEventListener('click', event => {
+        //     event.preventDefault();
+        //     event.stopPropagation();
+        //     noMoreLike()}
+        //    )
+
             
         captioncontainer.appendChild(likes)
 
@@ -122,29 +156,42 @@ function MediaTemplate(data) {
         let likeContainer=parseInt(likesh);
 
         function incrementLike(){
+            //increment likes on media
             likeContainer++;
             likes.innerHTML=likeContainer+"  ";
             likes.appendChild(icon);
             console.log("liked")
+                // Increment globallikes
+            globallikes++;
+            console.log("More global likes: ", globallikes)
+            updateGlobalLikesDOM(globallikes)
+            
+        
         }
+        icon.addEventListener('click', function handleLike(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            incrementLike();
+          
+            // Remove the event listener
+            icon.removeEventListener('click', handleLike);
+            icon.addEventListener('click', event => {
+                    event.preventDefault();
+                    event.stopPropagation();
+            })
 
-        function noMoreLike(){
-            icon.removeEventListener('click', incrementLike)
-            console.log("removed");
-        }
+          });
 
-        icon.addEventListener('click', incrementLike
-        )
-      icon.addEventListener('click', noMoreLike);
+
 
         captioncontainer.appendChild(likes)
 
         mediacard.setAttribute("data-likes",likesh)
 
-        console.log("date",dateh)
+        
         mediacard.setAttribute("data-date",dateh)
         mediacard.setAttribute("data-title",titleh)
-        console.log(typeof(titleh))
+       
 
         return medialink;
     } //   end getMovieCardDOM
@@ -166,27 +213,9 @@ function MediaTemplate(data) {
 } //end MediaTemplate function
 
 
-//SORTING FUNCTIONS
-
-function compareDatasetValue(value) {
-    //compare two values in an array 
-    return function(a, b) {
-        //values are object properties
-        if (a[value] > b[value]) {
-            return 1; //return value 1 indicates that sort needs to be done, switch indexes of elements
-        } else if (a[value] < b[value]) {
-            return -1; // do not sor
-        } else {
-            return 0; // do not sort
-        }
-    }
+function updateGlobalLikesDOM(globallikes) {
+    const nblikes = document.querySelector("#nblikes");
+    nblikes.textContent = globallikes + "  ";
 }
-
-
-const compareByPop = compareDatasetValue("likes");
-const compareByDate = compareDatasetValue("date");
-const compareByTitle = compareDatasetValue("title");
-
-
 
 
