@@ -42,7 +42,7 @@ body {
 }
 
 .infos {
-   /* border: dotted aqua;  */
+   /* border: dotted aqua;   */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -106,7 +106,7 @@ h2{
   top: 10px;
   font-size: 20px;
   font-weight: 600;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 
@@ -123,10 +123,9 @@ h2{
 }
 
 .dropdown-content {
-  border: orangered solid 2px;
+  /* border: orangered solid 2px; */
   display: inline-flex;
   flex-direction: column;
-  border: solid 1px;
   text-decoration: none;
   position: relative;
   left: 120px;
@@ -134,28 +133,41 @@ h2{
   background: #901c1c;
   color: white;
   font-size: 20px;
-  padding: 18px;
-  
-}
-
-.option{
   padding: 10px;
   
 }
 
+.option{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  
+}
+
+.option:hover::after {
+  content: "\00a0 \00a0  \00a0 \f077";  /* Unicode for the fa-caret-up icon */
+  font-family: "Font Awesome 5 Free";  /* Font family for the free Font Awesome icons */
+  font-weight: 900;  /* Font weight for the free Font Awesome icons */
+  font-size: 0.7em;
+}
+
+#listbox-id{
+  border-radius: 5%;
+}
 
 #pop, #date  {
-  border-bottom: #fafafa solid 1px;
-  padding: 8px;
+  
+  
   cursor: pointer;
  
 
 }
 
 #date,#titre{
+  border-top: #fafafa 1px solid;
   display: none;
-  padding-top: 15px;
   cursor: pointer;
 }
 
