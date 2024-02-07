@@ -398,7 +398,7 @@ position:relative;
   scroll-behavior: smooth;
 }
 
-.carouselItem {
+/* .carouselItem {
  border: blue 2px dashed;
   display: flex;
   align-items: center;
@@ -408,12 +408,30 @@ position:relative;
 overflow:hidden;
   flex: 1 0 100%;
   position: relative;
+} */
+
+.carouselItem {
+  display: none;  /* Hide all slides */
 }
+
+.carouselItem[data-active='true'] {
+  display: flex;  /* Display the active slide */
+  border: blue 2px dashed;
+  
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+overflow:hidden;
+  flex: 1 0 100%;
+  position: relative;
+}
+
 
 .carouselItem > img {
   border: yellow 4px solid;
   
-  height: 98%;
+  
   width: 98%;
   object-fit: cover;
 }
