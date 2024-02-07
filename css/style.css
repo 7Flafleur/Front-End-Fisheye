@@ -82,7 +82,7 @@ a:focus {
 }
 
 .photograph-header h1 {
-  font-size: 48px;
+  font-size: 44px;
   text-align: left;
 }
 
@@ -104,6 +104,7 @@ a:focus {
 }
 
 .photographer_section blockquote {
+  border:blue dotted 2px;
   margin: 0 0 2px 0;
   color: #000;
   text-align: center;
