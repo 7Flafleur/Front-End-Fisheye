@@ -284,7 +284,7 @@ video {
 }
 
 #hi {
-  border: blue solid 2px;
+  /* border: blue solid 2px; */
   display: none;
   height: 83vh;
 
@@ -292,12 +292,12 @@ video {
 
 
 #contactForm {
-  border: yellowgreen solid 2px;
+  /* border: yellowgreen solid 2px; */
   height:100%;
 }
 
 .modal header {
-  border: red solid 2px;
+  /* border: red solid 2px; */
   display: flex;
   width: 100%;
   margin-bottom: 20px;
@@ -330,7 +330,7 @@ justify-content: space-evenly;
 }
 
 form label {
-   border: olivedrab solid 1px; 
+   /* border: olivedrab solid 1px;  */
   color: #312e2e;
   font-size: 25px;
   display: inline;
@@ -430,7 +430,7 @@ form input{
 
 .carousel.active {
   display: flex;
-  border: pink 8px dotted;
+  /* border: pink 8px dotted; */
   align-items: center;
 
 
@@ -474,7 +474,7 @@ form input{
 .carouselItem[data-active='true'] {
   display: flex;
   /* Display the active slide */
-  border: blue 2px dashed;
+  /* border: blue 2px dashed; */
 
   align-items: center;
   justify-content: center;
@@ -487,7 +487,7 @@ form input{
 
 
 .carouselItem>img {
-  border: yellow 4px solid;
+  /* border: yellow 4px solid; */
 
 
   width: 98%;
@@ -495,7 +495,7 @@ form input{
 }
 
 .carouselItem video {
-  border: yellow 4px solid;
+  /* border: yellow 4px solid; */
   height: 98%;
   width: 98%;
   object-fit: cover;
