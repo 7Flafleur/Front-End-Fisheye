@@ -1,3 +1,9 @@
+
+:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 #contact_modal {
   display: none;
   position: fixed;
@@ -193,9 +199,11 @@ h2 {
   margin-bottom: 20px;
 }
 
-.medialink:hover {
+.medialink:hover, .medialink:focus {
   cursor: pointer;
   transform: perspective(2000px) translate3d(0px, 0px, 50px);
+  outline:none;
+
 }
 
 /* Absolute positioning for child elements */

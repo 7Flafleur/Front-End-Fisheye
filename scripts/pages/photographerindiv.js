@@ -16,6 +16,7 @@ const titre = document.querySelector("#titre");
 globallikes = 0;    //sum of LIKES on each mediacard
 
 
+
 ////////////////////////////////////////////////////////////////
 
 //START INIT FUNCTION
@@ -226,7 +227,50 @@ listbox.addEventListener('mouseout', () => {
   date.style.display = 'none';
 });
 
+//EVENT LISTENERS FOR KEY PRESS
 
+window.addEventListener('keydown', function(event) {
+  switch (event.key)  {
+    case 'ArrowUp':
+    console.log('Arrow Up ');
+    break;
+    case 'ArrowLeft':
+      console.log("arrow left");
+      break;
+      case 'ArrowDown':
+        console.log("arrox down");
+        break;
+      case 'ArrowRight':
+        console.log("arrow right");
+        break;
+  }
+});
+
+var focusableMedialinks = Array.from(document.querySelectorAll('.medialink'));
+
+
+focusableMedialinks.forEach(function(mediacard, index) {
+  mediacard.addEventListener('keydown', function(event) {
+    switch (event.key) {
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        // If there's a previous element, focus it
+        if (index > 0) {
+          focusableMedialinks[index - 1].focus();
+          event.preventDefault();
+        }
+        break;
+      case 'ArrowDown':
+      case 'ArrowRight':
+        // If there's a next element, focus it
+        if (index < focusableMedialinks.length - 1) {
+          focusableMedialinks[index + 1].focus();
+          event.preventDefault();
+        }
+        break;
+    }
+  });
+});
 
 
 
