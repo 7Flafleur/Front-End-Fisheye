@@ -210,7 +210,20 @@ mediaItemsDOM.forEach((a)=>{
 )
 
 
+// Get the elements
 
+const listbox=document.getElementById("listbox-id")
+
+// Add hover event listeners to the pop element
+listbox.addEventListener('mouseover', () => {
+  titre.style.display = 'block';
+  date.style.display = 'block';
+});
+
+listbox.addEventListener('mouseout', () => {
+  titre.style.display = 'none';
+  date.style.display = 'none';
+});
 
 
 

@@ -133,20 +133,25 @@ body {
   
 }
 
+
+
 #pop, #date  {
   border-bottom: #fafafa solid 1px;
- 
-  padding: 10px;
+  padding: 8px;
   cursor: pointer;
  
 
 }
 
 #date,#titre{
+  display: none;
   padding-top: 15px;
   cursor: pointer;
 }
 
+#pop:hover #titre, #pop:hover #date {
+  display: block;
+}
 
 
 
