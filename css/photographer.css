@@ -59,9 +59,7 @@ body {
 
 }
 
-h2 {
-  font-size: ;
-}
+
 
 .infos h1,
 h2 {
@@ -309,7 +307,7 @@ video {
   display: flex;
   width: 100%;
   margin-bottom: 20px;
-  margin: top -18px;
+ 
   position: relative;
 }
 

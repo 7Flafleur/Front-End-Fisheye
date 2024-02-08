@@ -93,7 +93,7 @@ function firstnamenonvalid(){
     firstnameerror.setAttribute("data-error-visible","false")
     return false;
   }
-};
+}
 
 function lastnamenonvalid(){
   if (last.value.length<2){
@@ -105,7 +105,7 @@ return true;
     lastnameerror.setAttribute("data-error-visible","false")
     return false;
   }
-};
+}
 
 function melnonvalid(){
   if(!regexmel.test(mail.value)){
@@ -117,7 +117,7 @@ return true;
     emailerror.setAttribute("data-error-visible","false")
     return false;
   }
-};
+}
 
 
 function isformcomplete(){
