@@ -13,7 +13,7 @@ const pop = document.querySelector("#pop");
 const date = document.querySelector("#date");
 const titre = document.querySelector("#titre");
 
-globallikes = 0;    //sum of LIKES on each mediacard
+let globallikes = 0;    //sum of LIKES on each mediacard
 
 
 

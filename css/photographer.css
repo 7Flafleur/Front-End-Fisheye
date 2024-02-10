@@ -245,6 +245,7 @@ video {
 }
 
 #pricetag {
+  border-radius: 3%;
   display: flex;
   justify-content: space-evenly;
   width: fit-content;
