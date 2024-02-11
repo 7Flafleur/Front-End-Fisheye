@@ -439,7 +439,7 @@ form input{
   transform: translate(-50%, -50%);
   height: 97%;
   width: 95%;
-  overflow: auto;
+  overflow: hidden;
   background-color: rgba(255, 255, 255, 1);
 }
 
@@ -519,7 +519,7 @@ form input{
   /* border: yellow 4px solid; */
 
 
-  height:80%;
+  max-height:80%;
   width:82%;
   object-fit: cover;
 }
@@ -527,7 +527,7 @@ form input{
 .carouselItem video {
   /* border: yellow 4px solid; */
   height: 90%;
-  width: auto;
+  /* width: auto; */
   object-fit: cover;
 }
 
