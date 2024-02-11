@@ -13,7 +13,7 @@ const pop = document.querySelector("#pop");
 const date = document.querySelector("#date");
 const titre = document.querySelector("#titre");
 
-let globallikes = 0;    //sum of LIKES on each mediacard
+globallikes = 0;    //sum of LIKES on each mediacard
 
 
 
@@ -182,6 +182,12 @@ mediaItemsDOM.forEach((a) => {
 });
 });
 });
+
+//ACESSIBILITY 
+
+pop.setAttribute('tabindex', '0');
+date.setAttribute('tabindex', '0');
+titre.setAttribute('tabindex', '0');
 
 
 
