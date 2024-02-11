@@ -109,3 +109,10 @@ lightBox.focus();
 }
 
 
+function triggerClickOnEnterOrSpace(event) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    event.target.click();
+  }
+}
+
