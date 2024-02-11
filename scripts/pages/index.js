@@ -10,7 +10,7 @@ async function fetchData() {
   //await promise, return array
   async function getPhotographers() {
     let photographers = await fetchData();
-    console.log(photographers)
+    
     return photographers;
   }
   

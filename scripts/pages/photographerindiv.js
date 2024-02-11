@@ -26,7 +26,7 @@ async function init() {
 
 
   let actives=document.querySelectorAll("[data-active='true']")
-  console.log(actives)
+ 
 
 
 //////DATA RETRIEVAL
@@ -56,7 +56,7 @@ mediaItemsDOM.forEach(item => {
   globallikes += parseInt(item.dataset.likes);
 });
 
-console.log("global likes",globallikes)
+
 
 //PREVENT SCROLLUP
 mediaItemsDOM.forEach(a => {
@@ -80,13 +80,12 @@ a.dataset.indexBefore=index;
 //EVENT LISTENER FOR SORTING FUNCTIONS
 
 pop.addEventListener("click", async () => {
-  console.log("pop");
+  
   const sorted = indivmedia.sort(compareByPop)
   displayMedia(sorted);
     //UPDATE array of media items for later use
   mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
-  console.log("sorted ob: ", sorted)
-  console.log("New media Items sorted by pop: ",mediaItemsDOM)
+
   //PREVENT SCROLLUP
   mediaItemsDOM.forEach((a) => {
     a.addEventListener('click', function(event) {
@@ -104,9 +103,9 @@ pop.addEventListener("click", async () => {
       let figure=event.currentTarget;
       figure.setAttribute('data-active', 'true');
   
-    console.log("targeted element", figure)
+    
     carouselList=getCarouselList(mediaItemsDOM, figure)
-    console.log("New array for carousel ", carouselList)
+    
     integrateCarousel(carouselList)
 
   
@@ -118,13 +117,10 @@ pop.addEventListener("click", async () => {
 pop.addEventListener("keydown", triggerClickOnEnterOrSpace)
 
 date.addEventListener("click", () => {
-  console.log("date");
   const sorted = indivmedia.sort(compareByDate)
   displayMedia(sorted)
     //UPDATE array of media items for later use
   mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
-  console.log("sorted objects: ", sorted)
-  console.log("New media Items sorted by date: ",mediaItemsDOM)
   //PREVENT SCROLLUP
   mediaItemsDOM.forEach((a) => {
     a.addEventListener('click', function(event) {
@@ -142,9 +138,7 @@ date.addEventListener("click", () => {
       let figure=event.currentTarget;
       figure.setAttribute('data-active', 'true');
   
-    console.log("targeted element", figure)
     carouselList=getCarouselList(mediaItemsDOM, figure)
-    console.log("New array for carousel ", carouselList)
     integrateCarousel(carouselList)
   
   });
@@ -155,13 +149,10 @@ date.addEventListener('keydown', triggerClickOnEnterOrSpace);
 
 
 titre.addEventListener("click", () => {
-  console.log("titre");
   const sorted = indivmedia.sort(compareByTitle)
   displayMedia(sorted)
   //UPDATE array of media items for later use
   mediaItemsDOM = Array.from(document.querySelectorAll(".mediacard"));
-  console.log("sorted objects: ", sorted)
-  console.log("New media Items sorted by title: ",mediaItemsDOM)
   //PREVENT SCROLLUP
 mediaItemsDOM.forEach((a) => {
   a.addEventListener('click', function(event) {
@@ -179,9 +170,7 @@ mediaItemsDOM.forEach((a) => {
     let figure=event.currentTarget;
     figure.setAttribute('data-active', 'true');
 
-  console.log("targeted element", figure)
   carouselList=getCarouselList(mediaItemsDOM, figure)
-  console.log("New array for carousel ", carouselList)
   integrateCarousel(carouselList)
 
 });
@@ -214,9 +203,7 @@ mediaItemsDOM.forEach((a)=>{
       
   let figure=event.currentTarget;
   figure.setAttribute('data-active', 'true');
-  console.log("targeted element", figure)
   carouselList=getCarouselList(mediaItemsDOM, figure)
-  console.log("New array for carousel ", carouselList)
   integrateCarousel(carouselList)
   
   }
