@@ -31,6 +31,7 @@ function MediaTemplate(data) {
         picth.setAttribute("src", pic);
         picth.setAttribute("alt", titleh);
         picth.setAttribute("data-index","")
+        picth.setAttribute("tabindex", "0")
         mediacard.appendChild(picth)
 
 
@@ -130,6 +131,7 @@ function MediaTemplate(data) {
         const movie = document.createElement('video');
         movie.setAttribute("src", videoh);
         movie.setAttribute("data-index","")
+        movie.setAttribute("tabindex","0")
         movie.controls=false;
     
         mediacard.appendChild(movie)

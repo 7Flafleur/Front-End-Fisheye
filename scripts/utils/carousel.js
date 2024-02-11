@@ -72,6 +72,10 @@ buttons.forEach(button => {
   });
 });
 
+buttons.forEach(button =>
+  button.addEventListener("keydonw", triggerClickOnEnterOrSpace)
+)
+
 
 
 const closeButton=document.getElementById("closeLB")

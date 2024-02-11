@@ -115,6 +115,8 @@ pop.addEventListener("click", async () => {
 
 });
 
+pop.addEventListener("keydown", triggerClickOnEnterOrSpace)
+
 date.addEventListener("click", () => {
   console.log("date");
   const sorted = indivmedia.sort(compareByDate)
@@ -148,6 +150,9 @@ date.addEventListener("click", () => {
   });
   });
 });
+
+date.addEventListener('keydown', triggerClickOnEnterOrSpace);
+
 
 titre.addEventListener("click", () => {
   console.log("titre");
@@ -183,11 +188,13 @@ mediaItemsDOM.forEach((a) => {
 });
 });
 
+titre.addEventListener('keydown', triggerClickOnEnterOrSpace);
+
 //ACESSIBILITY 
 
-pop.setAttribute('tabindex', '0');
-date.setAttribute('tabindex', '0');
-titre.setAttribute('tabindex', '0');
+
+
+
 
 
 
@@ -265,6 +272,9 @@ focusableMedialinks.forEach(function(mediacard, index) {
           focusableMedialinks[index - 1].focus();
           event.preventDefault();
         }
+        else{
+          focusableMedialinks[focusableMedialinks.length-1].focus()
+        }
         break;
       case 'ArrowDown':
       case 'ArrowRight':
@@ -273,10 +283,23 @@ focusableMedialinks.forEach(function(mediacard, index) {
           focusableMedialinks[index + 1].focus();
           event.preventDefault();
         }
+        else{
+          focusableMedialinks[0].focus()
+        }
         break;
     }
   });
 });
+
+//ALL EVENTS CAN BE TRIGGERED BY KEYS AS WELL
+
+function triggerClickOnEnterOrSpace(event) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    event.target.click();
+  }
+}
+
 
 
 
