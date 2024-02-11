@@ -464,7 +464,7 @@ form input{
 
 
 
-  height: 87%;
+  height: 90%;
   width: 72%;
   position: fixed;
 
@@ -473,7 +473,7 @@ form input{
 #carousel-list {
 
   position: relative;
-  height: 95%;
+  height: 100%;
 
 
 
@@ -507,8 +507,8 @@ form input{
 
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: 80%;
   overflow: hidden;
   flex: 1 0 100%;
   position: relative;
@@ -519,14 +519,15 @@ form input{
   /* border: yellow 4px solid; */
 
 
-  width: 98%;
-  object-fit: cover;
+  height:90%;
+  width:90%;
+  object-fit: contain;
 }
 
 .carouselItem video {
   /* border: yellow 4px solid; */
-  height: 98%;
-  width: 98%;
+  height: 90%;
+  width: auto;
   object-fit: cover;
 }
 
