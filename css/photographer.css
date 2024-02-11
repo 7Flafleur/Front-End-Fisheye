@@ -325,6 +325,7 @@ video {
   text-align: left;
 }
 
+
 form {
 
   display: flex;
@@ -399,11 +400,33 @@ form input{
 
 #bye {
   display: none;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: normal;
-  text-align: left;
+  text-align: center;
   height: 60vh;
 }
+
+.modal#bye {
+
+  display: flex;
+  align-items: center;
+  
+
+}
+
+#bye > header{
+ 
+  display: flex;
+  justify-content: end;
+}
+
+.merciflex{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height:64%;
+}
+
 
 /*LIGHTBOX*/
 

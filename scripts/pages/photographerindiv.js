@@ -269,11 +269,11 @@ document.addEventListener('keydown', (event) => {
 
   const offset = event.key === "ArrowRight" ? 1 : -1;
   const slides = document.querySelectorAll(".carouselItem");
-  console.log("slides", typeof(slides))
+  // console.log("slides", typeof(slides))
 
   const slidesArray = Array.from(slides);
   const activeSlide = slidesArray.find(slide => slide.dataset.active === 'true');
-  console.log("active slide: ",activeSlide)
+  // console.log("active slide: ",activeSlide)
   let newIndex = slidesArray.indexOf(activeSlide) + offset;
   if (newIndex < 0) newIndex = slidesArray.length - 1;
   if (newIndex >= slidesArray.length) newIndex = 0;
