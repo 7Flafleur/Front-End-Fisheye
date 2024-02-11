@@ -82,7 +82,9 @@ async function fetchData() {
     const carousel = document.querySelector(".carousel")
     const mediaSection = document.querySelector(".media_section")
     lightBox.classList.remove("active");
-    carousel.classList.remove("active")
+    carousel.classList.remove("active");
+
+    isCarouselActive = false;
   
     mediaSection.style.display = "flex";
     

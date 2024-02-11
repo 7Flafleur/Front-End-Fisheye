@@ -1,4 +1,4 @@
-
+let isCarouselActive = false;
 
 function integrateCarousel(mediaArray) {
 
@@ -73,7 +73,7 @@ buttons.forEach(button => {
 });
 
 buttons.forEach(button =>
-  button.addEventListener("keydonw", triggerClickOnEnterOrSpace)
+  button.addEventListener("keydown", triggerClickOnEnterOrSpace)
 )
 
 
@@ -92,6 +92,7 @@ lightBox.focus();
     lightBox.classList.add("active");
     carousel.classList.add("active");
 
+    isCarouselActive = true;
 
 
 

@@ -229,30 +229,13 @@ listbox.addEventListener('mouseout', () => {
 
 //EVENT LISTENERS FOR KEY PRESS
 
-window.addEventListener('keydown', function(event) {
-  switch (event.key)  {
-    case 'ArrowUp':
-    console.log('Arrow Up ');
-    break;
-    case 'ArrowLeft':
-      console.log("arrow left");
-      break;
-      case 'ArrowDown':
-        console.log("arrox down");
-        break;
-      case 'ArrowRight':
-        console.log("arrow right");
-        break;
-  }
-});
-
 var focusableMedialinks = Array.from(document.querySelectorAll('.medialink'));
 
 
 focusableMedialinks.forEach(function(mediacard, index) {
   mediacard.addEventListener('keydown', function(event) {
     switch (event.key) {
-      case 'ArrowUp':
+      
       case 'ArrowLeft':
         // If there's a previous element, focus it
         if (index > 0) {
@@ -263,7 +246,7 @@ focusableMedialinks.forEach(function(mediacard, index) {
           focusableMedialinks[focusableMedialinks.length-1].focus()
         }
         break;
-      case 'ArrowDown':
+      
       case 'ArrowRight':
         // If there's a next element, focus it
         if (index < focusableMedialinks.length - 1) {
@@ -276,6 +259,28 @@ focusableMedialinks.forEach(function(mediacard, index) {
         break;
     }
   });
+});
+
+//navigate carsouel on arrow key press
+
+document.addEventListener('keydown', (event) => {
+  // If the carousel is not active, do nothing
+  if (!isCarouselActive) return;
+
+  const offset = event.key === "ArrowRight" ? 1 : -1;
+  const slides = document.querySelectorAll(".carouselItem");
+  console.log("slides", typeof(slides))
+
+  const slidesArray = Array.from(slides);
+  const activeSlide = slidesArray.find(slide => slide.dataset.active === 'true');
+  console.log("active slide: ",activeSlide)
+  let newIndex = slidesArray.indexOf(activeSlide) + offset;
+  if (newIndex < 0) newIndex = slidesArray.length - 1;
+  if (newIndex >= slidesArray.length) newIndex = 0;
+
+  slidesArray[newIndex].dataset.active = 'true';
+  delete activeSlide.dataset.active;
+
 });
 
 //ALL EVENTS CAN BE TRIGGERED BY KEYS AS WELL
