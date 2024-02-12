@@ -53,28 +53,28 @@ function integrateCarousel(mediaArray) {
 
 const buttons = document.querySelectorAll("#carousel-button-prev, #carousel-button-next");
 
+
+
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    console.log("Button clicked")
     const offset = button.id === "carousel-button-next" ? 1 : -1;
     const slides = document.querySelectorAll(".carouselItem");
-    console.log("slides", typeof(slides))
-
     const slidesArray = Array.from(slides);
     const activeSlide = slidesArray.find(slide => slide.dataset.active === 'true');
-    console.log("active slide: ",activeSlide)
     let newIndex = slidesArray.indexOf(activeSlide) + offset;
     if (newIndex < 0) newIndex = slidesArray.length - 1;
     if (newIndex >= slidesArray.length) newIndex = 0;
 
-    slidesArray[newIndex].dataset.active = 'true';
-    delete activeSlide.dataset.active;
+    activeSlide.dataset.active = 'false'; // Set the current active slide's data-active attribute to 'false'
+    slidesArray[newIndex].dataset.active = 'true'; // Set the new active slide's data-active attribute to 'true'
   });
 });
 
-buttons.forEach(button =>
-  button.addEventListener("keydown", triggerClickOnEnterOrSpace)
-)
+
+
+// buttons.forEach(button =>
+//   button.addEventListener("keydown", triggerClickOnEnterOrSpace)
+// )
 
 
 
@@ -115,5 +115,23 @@ function triggerClickOnEnterOrSpace(event) {
     event.preventDefault();
     event.target.click();
   }
+}
+
+
+function closeLightBox() {
+  let carouselItems = document.querySelectorAll(".carouselItem");
+  carouselItems.forEach(item => {
+    item.dataset.active = 'false';
+  });
+  const lightBox = document.querySelector(".lightbox")
+  const carousel = document.querySelector(".carousel")
+  const mediaSection = document.querySelector(".media_section")
+  lightBox.classList.remove("active");
+  carousel.classList.remove("active");
+
+  isCarouselActive = false;
+
+  mediaSection.style.display = "flex";
+  
 }
 
