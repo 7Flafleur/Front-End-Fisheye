@@ -65,6 +65,7 @@ mediaItemsDOM.forEach(a => {
   a.addEventListener('click', function(event) {
     // Prevent default action
     event.preventDefault();
+    
 });
 });
 
@@ -118,7 +119,7 @@ pop.addEventListener("click", async () => {
 
 
 
-pop.addEventListener("keydown", triggerClickOnEnterOrSpace)
+// pop.addEventListener("keydown", triggerClickOnEnterOrSpace)
 
 
 if (pop === document.activeElement) {
@@ -222,6 +223,7 @@ mediaItemsDOM.forEach((a)=>{
   
   }
   )
+  a.addEventListener("keydown", triggerClickOnEnterOrSpace)
 }
 )
 
@@ -241,15 +243,6 @@ listbox.addEventListener('mouseout', () => {
   date.style.display = 'none';
 });
 
-pop.addEventListener('keydown', (event) => {
-  if (event.key === ' ') {
-    event.preventDefault(); // Prevent the default action of the Space bar
-    let nextElement = event.target.nextElementSibling;
-    if (nextElement) {
-      nextElement.focus();
-    } 
-  }
-});
 
 
 
@@ -260,6 +253,10 @@ pop.addEventListener('keydown', (event) => {
 //EVENT LISTENERS FOR KEY PRESS
 
 var focusableMedialinks = Array.from(document.querySelectorAll('.medialink'));
+
+focusableMedialinks.forEach(item => {
+  item.addEventListener('keydown', triggerClickOnEnterOrSpace);
+});
 
 
 focusableMedialinks.forEach(function(mediacard, index) {
@@ -352,31 +349,19 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('keydown', (event) => {
   // If the Escape key is pressed
   if (event.key === 'Escape') {
-    console.log("Escape key pressed")
+    // console.log("Escape key pressed")
     const lightbox = document.querySelector(".lightbox");
     // If the modal is open
     if (lightbox.classList.contains('active')) {
       // Close the lightbox
-      closeLightox();
+      closeLightBox();
     }
   }
 });
 
 //8 make sorting listbox accessible on keypress
 
-const children = listbox.querySelectorAll(':scope > *');
 
-children.forEach(child => {
-  child.addEventListener('focus', () => {
-    listbox.classList.add('child-focused');
-  });
-  child.addEventListener('blur', () => {
-    listbox.classList.remove('child-focused');
-  });
-});
-
-
- 
   
 
 

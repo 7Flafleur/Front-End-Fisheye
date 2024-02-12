@@ -20,18 +20,19 @@ function MediaTemplate(data) {
 
         const medialink = document.createElement('a');
         medialink.setAttribute("class", "focusable medialink");
-        medialink.setAttribute("tabindex", "0");
+        // medialink.setAttribute("tabindex", "0");
         medialink.setAttribute("href", "#");    //elements nécessaires pour la lightbox
 
         const mediacard = document.createElement('figure');
         mediacard.setAttribute("class", "mediacard");
+        mediacard.setAttribute("tabindex", "0")
         medialink.appendChild(mediacard)
 
         const picth = document.createElement('img');
         picth.setAttribute("src", pic);
         picth.setAttribute("alt", titleh);
         picth.setAttribute("data-index","")
-        picth.setAttribute("tabindex", "0")
+        // picth.setAttribute("tabindex", "0")
         mediacard.appendChild(picth)
 
 
@@ -85,25 +86,7 @@ function MediaTemplate(data) {
 
 
 
-        // function noMoreLike(){
-        //     icon.removeEventListener('click', incrementLike)
-        //     console.log("removed");
-        // }
 
-
-        // // icon.addEventListener('click', incrementLike
-        // //   )
-        // icon.addEventListener('click', event => {
-        //     event.preventDefault();
-        //     event.stopPropagation();
-        //     incrementLike()}
-        //    )
-
-        //    icon.addEventListener('click', event => {
-        //     event.preventDefault();
-        //     event.stopPropagation();
-        //     noMoreLike()}
-        //    )
 
             
         captioncontainer.appendChild(likes)
@@ -121,17 +104,18 @@ function MediaTemplate(data) {
 
         const medialink = document.createElement('a');
         medialink.setAttribute("class", "focusable medialink");
-        medialink.setAttribute("tabindex", "0");
+        // medialink.setAttribute("tabindex", "0");
         medialink.setAttribute("href", "#");    //elements nécessaires pour la lightbox
 
         const mediacard = document.createElement('figure');
         mediacard.setAttribute("class", "mediacard");
+        mediacard.setAttribute("tabindex", "0")
         medialink.appendChild(mediacard)
 
         const movie = document.createElement('video');
         movie.setAttribute("src", videoh);
         movie.setAttribute("data-index","")
-        movie.setAttribute("tabindex","0")
+        // movie.setAttribute("tabindex","0")
         movie.controls=false;
     
         mediacard.appendChild(movie)
