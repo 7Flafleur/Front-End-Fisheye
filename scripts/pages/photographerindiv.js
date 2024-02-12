@@ -17,6 +17,8 @@ globallikes = 0;    //sum of LIKES on each mediacard
 
 
 
+
+
 ////////////////////////////////////////////////////////////////
 
 //START INIT FUNCTION
@@ -114,7 +116,19 @@ pop.addEventListener("click", async () => {
 
 });
 
+
+
 pop.addEventListener("keydown", triggerClickOnEnterOrSpace)
+
+
+if (pop === document.activeElement) {
+  console.log('#pop has focus');
+} 
+ 
+
+
+
+
 
 date.addEventListener("click", () => {
   const sorted = indivmedia.sort(compareByDate)
@@ -356,36 +370,60 @@ children.forEach(child => {
 
 //navigate listbox 
 
+
+
 listbox.addEventListener("keydown", (event) => {
-  let offset;
+
   
-  switch(event.key){
-    case "ArrowDown":
-      offset = 1;
-      break;
-    case "ArrowUp":
-      offset = -1;
-      break;
-    default:
-      return;
-  }
+  const children=Array.from(listbox.children);
 
   //find focused element inside listbox
   let currentfocus = children.find(element => element === document.activeElement);
-  let newIndex = children.indexOf(currentfocus) + offset;
+let newIndex;
+  let offset=1;
+  
+  switch(event.key){
+    case "ArrowDown":
+      console.log("arrow down")
+      event.preventDefault();
+      newIndex = children.indexOf(currentfocus) + offset;
+if (newIndex >= children.length){
+console.log("end of listbox")  }
+else {
+  //set focus on other element
+  children[newIndex].focus();
+}
 
-  if(newIndex < 0){
+      break;
+    case "ArrowUp":
+      console.log("arrow up")
+      event.preventDefault();
+      newIndex = children.indexOf(currentfocus) - offset;
+ if(newIndex < 0){
     listbox.focus();
-  }
-  else if (newIndex >= children.length){
-    // Do nothing or handle the case when the focus goes beyond the last child
   }
   else {
     //set focus on other element
     children[newIndex].focus();
   }
+      break;
+    default:
+      return;
+  }
+
+
+ 
+  
+
 });
 
+//check for active element
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Tab') {
+    console.log(document.activeElement);
+  }
+});
 
 
 } //end init function
