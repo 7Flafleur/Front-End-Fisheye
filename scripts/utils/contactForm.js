@@ -7,6 +7,8 @@ function displayModal() {
     //display modal
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
+  modal.setAttribute("data-active", "true");
+
 
     //display contact form
     const form = document.getElementById("hi");
@@ -22,6 +24,8 @@ function closeModal() {
 
     const contactform = document.getElementById("contactForm");
     contactform.reset();
+    modal.setAttribute("data-active", "false");
+
     
 }
 

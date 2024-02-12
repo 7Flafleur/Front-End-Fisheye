@@ -266,8 +266,20 @@ focusableMedialinks.forEach(function(mediacard, index) {
 document.addEventListener('keydown', (event) => {
   // If the carousel is not active, do nothing
   if (!isCarouselActive) return;
+  let offset;
 
-  const offset = event.key === "ArrowRight" ? 1 : -1;
+  switch(event.key){
+    case "ArrowRight":
+      offset=1;
+      break;
+    case "ArrowLeft":
+      offset=-1;
+      break;
+    default:
+      
+    return;
+}
+
   const slides = document.querySelectorAll(".carouselItem");
   // console.log("slides", typeof(slides))
 
@@ -291,6 +303,34 @@ function triggerClickOnEnterOrSpace(event) {
     event.target.click();
   }
 }
+
+//CLOASE MODALS ON ESC PRESS
+
+document.addEventListener('keydown', (event) => {
+  // If the Escape key is pressed
+  if (event.key === 'Escape') {
+    console.log("Escape key pressed")
+    const modal = document.getElementById("contact_modal");
+    // If the modal is open
+    if (modal.getAttribute("data-active")==="true") {
+      // Close the modal
+      closeModal();
+    }
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  // If the Escape key is pressed
+  if (event.key === 'Escape') {
+    console.log("Escape key pressed")
+    const lightbox = document.querySelector(".lightbox");
+    // If the modal is open
+    if (lightbox.classList.contains('active')) {
+      // Close the lightbox
+      closeLightBox();
+    }
+  }
+});
 
 
 
