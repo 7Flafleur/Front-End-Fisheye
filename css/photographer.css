@@ -145,6 +145,18 @@ h2 {
 
 
 }
+
+.option:hover #titre,
+.option:hover #date{
+  display: block;
+}
+
+.option:focus #titre,
+.option:focus #date{
+  display: block;
+}
+
+
 .option:focus::after,
 .option:hover::after {
   content: "\00a0 \00a0  \00a0 \f077";
@@ -160,8 +172,8 @@ h2 {
   border-radius: 5%;
 }
 
-#listbox-id:focus #titre,
-#listbox-id:focus #date {
+#listbox-id.child-focused #titre,
+#listbox-id.child-focused #date {
   display: block;
 }
 
@@ -181,12 +193,6 @@ h2 {
   cursor: pointer;
 }
 
-#pop:hover #titre,
-#pop:hover #date,
-#pop:focus #titre,
-#pop:focus  #date {
-  display: block;
-}
 
 
 .medialink {

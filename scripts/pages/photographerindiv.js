@@ -227,6 +227,15 @@ listbox.addEventListener('mouseout', () => {
   date.style.display = 'none';
 });
 
+listbox.addEventListener("focus", () => {
+  titre.style.display = 'block';
+  date.style.display = 'block';})
+
+listbox.addEventListener("blur", () => {
+  titre.style.display = 'none';
+  date.style.display = 'none';
+})
+
 //EVENT LISTENERS FOR KEY PRESS
 
 var focusableMedialinks = Array.from(document.querySelectorAll('.medialink'));
@@ -332,8 +341,50 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+//8 make sorting listbox accessible on keypress
 
+const children = listbox.querySelectorAll(':scope > *');
 
+children.forEach(child => {
+  child.addEventListener('focus', () => {
+    listbox.classList.add('child-focused');
+  });
+  child.addEventListener('blur', () => {
+    listbox.classList.remove('child-focused');
+  });
+});
+
+//navigate listbox 
+
+listbox.addEventListener("keydown", (event) => {
+  let offset;
+  
+  switch(event.key){
+    case "ArrowDown":
+      offset = 1;
+      break;
+    case "ArrowUp":
+      offset = -1;
+      break;
+    default:
+      return;
+  }
+
+  //find focused element inside listbox
+  let currentfocus = children.find(element => element === document.activeElement);
+  let newIndex = children.indexOf(currentfocus) + offset;
+
+  if(newIndex < 0){
+    listbox.focus();
+  }
+  else if (newIndex >= children.length){
+    // Do nothing or handle the case when the focus goes beyond the last child
+  }
+  else {
+    //set focus on other element
+    children[newIndex].focus();
+  }
+});
 
 
 
