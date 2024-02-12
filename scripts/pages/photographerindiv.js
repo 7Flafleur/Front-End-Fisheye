@@ -241,15 +241,6 @@ listbox.addEventListener('mouseout', () => {
   date.style.display = 'none';
 });
 
-listbox.addEventListener('focusin', () => {
-  date.style.display = 'block';
-  titre.style.display = 'block';
-});
-
-listbox.addEventListener('focusout', () => {
-  date.style.display = 'none';
-  titre.style.display = 'none';
-});
 
 //EVENT LISTENERS FOR KEY PRESS
 
