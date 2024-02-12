@@ -241,6 +241,21 @@ listbox.addEventListener('mouseout', () => {
   date.style.display = 'none';
 });
 
+pop.addEventListener('keydown', (event) => {
+  if (event.key === ' ') {
+    event.preventDefault(); // Prevent the default action of the Space bar
+    let nextElement = event.target.nextElementSibling;
+    if (nextElement) {
+      nextElement.focus();
+    } 
+  }
+});
+
+
+
+
+
+
 
 //EVENT LISTENERS FOR KEY PRESS
 
