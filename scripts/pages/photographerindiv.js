@@ -241,14 +241,15 @@ listbox.addEventListener('mouseout', () => {
   date.style.display = 'none';
 });
 
-listbox.addEventListener("focus", () => {
+listbox.addEventListener('focusin', () => {
+  date.style.display = 'block';
   titre.style.display = 'block';
-  date.style.display = 'block';})
+});
 
-listbox.addEventListener("blur", () => {
-  titre.style.display = 'none';
+listbox.addEventListener('focusout', () => {
   date.style.display = 'none';
-})
+  titre.style.display = 'none';
+});
 
 //EVENT LISTENERS FOR KEY PRESS
 
@@ -368,54 +369,11 @@ children.forEach(child => {
   });
 });
 
-//navigate listbox 
-
-
-
-listbox.addEventListener("keydown", (event) => {
-
-  
-  const children=Array.from(listbox.children);
-
-  //find focused element inside listbox
-  let currentfocus = children.find(element => element === document.activeElement);
-let newIndex;
-  let offset=1;
-  
-  switch(event.key){
-    case "ArrowDown":
-      console.log("arrow down")
-      event.preventDefault();
-      newIndex = children.indexOf(currentfocus) + offset;
-if (newIndex >= children.length){
-console.log("end of listbox")  }
-else {
-  //set focus on other element
-  children[newIndex].focus();
-}
-
-      break;
-    case "ArrowUp":
-      console.log("arrow up")
-      event.preventDefault();
-      newIndex = children.indexOf(currentfocus) - offset;
- if(newIndex < 0){
-    listbox.focus();
-  }
-  else {
-    //set focus on other element
-    children[newIndex].focus();
-  }
-      break;
-    default:
-      return;
-  }
-
 
  
   
 
-});
+
 
 //check for active element
 
