@@ -327,7 +327,7 @@ document.addEventListener('keydown', (event) => {
     // If the modal is open
     if (lightbox.classList.contains('active')) {
       // Close the lightbox
-      closeLightBox();
+      closeLightox();
     }
   }
 });

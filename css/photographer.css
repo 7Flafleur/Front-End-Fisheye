@@ -1,7 +1,7 @@
 
-:focus:not(feComponentTransfer) {
+/* :focus:not(feComponentTransfer) {
   outline: none;
-}
+} */
 
 #contact_modal {
   display: none;
@@ -145,7 +145,7 @@ h2 {
 
 
 }
-
+.option:focus::after,
 .option:hover::after {
   content: "\00a0 \00a0  \00a0 \f077";
   /* Unicode for the fa-caret-up icon */
@@ -158,6 +158,11 @@ h2 {
 
 #listbox-id {
   border-radius: 5%;
+}
+
+#listbox-id:focus #titre,
+#listbox-id:focus #date {
+  display: block;
 }
 
 #pop,
@@ -177,10 +182,11 @@ h2 {
 }
 
 #pop:hover #titre,
-#pop:hover #date {
+#pop:hover #date,
+#pop:focus #titre,
+#pop:focus  #date {
   display: block;
 }
-
 
 
 .medialink {
