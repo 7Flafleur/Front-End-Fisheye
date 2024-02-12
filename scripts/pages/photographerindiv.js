@@ -243,8 +243,35 @@ listbox.addEventListener('mouseout', () => {
   date.style.display = 'none';
 });
 
+//navigate carousel with buttons
+
+const buttons = document.querySelectorAll("#carousel-button-prev, #carousel-button-next");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    // If the carousel is not active, do nothing
+    if (!isCarouselActive) return;
+    
+
+    const offset = button.id === "carousel-button-next" ? 1 : -1; //
 
 
+    console.log("offset", offset)
+
+    const slides = document.querySelectorAll(".carouselItem");
+
+    const slidesArray = Array.from(slides);
+    const activeSlide = slidesArray.find(slide => slide.dataset.active === 'true');
+    let newIndex = slidesArray.indexOf(activeSlide) + offset;
+    if (newIndex < 0) newIndex = slidesArray.length - 1;
+    if (newIndex >= slidesArray.length) newIndex = 0;
+
+    slidesArray[newIndex].dataset.active = 'true';
+    delete activeSlide.dataset.active;
+
+   
+  });
+});
 
 
 

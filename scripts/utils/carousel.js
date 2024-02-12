@@ -2,6 +2,11 @@ let isCarouselActive = false;
 
 function integrateCarousel(mediaArray) {
 
+
+  const activeElements = document.querySelectorAll('[data-active]');
+  console.log("Active elements",activeElements)
+  console.log("N° of active elements",activeElements.length)
+
     const carousel = document.querySelector(".carousel");
   // Check if there's already a ul with an id of carousel-list
   const existingCarouselList = document.querySelector("#carousel-list");
@@ -51,29 +56,7 @@ function integrateCarousel(mediaArray) {
 
 });
 
-const buttons = document.querySelectorAll("#carousel-button-prev, #carousel-button-next");
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    // If the carousel is not active, do nothing
-    if (!isCarouselActive) return;
-
-    const offset = button.id === "carousel-button-next" ? 1 : -1;
-
-    const slides = document.querySelectorAll(".carouselItem");
-
-    const slidesArray = Array.from(slides);
-    const activeSlide = slidesArray.find(slide => slide.dataset.active === 'true');
-    let newIndex = slidesArray.indexOf(activeSlide) + offset;
-    if (newIndex < 0) newIndex = slidesArray.length - 1;
-    if (newIndex >= slidesArray.length) newIndex = 0;
-
-    slidesArray[newIndex].dataset.active = 'true';
-    delete activeSlide.dataset.active;
-
-   
-  });
-});
 
 // buttons.forEach(button =>
 //   button.addEventListener("keydown", triggerClickOnEnterOrSpace)
@@ -120,12 +103,16 @@ function triggerClickOnEnterOrSpace(event) {
   }
 }
 
-
 function closeLightBox() {
-  let carouselItems = document.querySelectorAll(".carouselItem");
-  carouselItems.forEach(item => {
-    item.dataset.active = 'false';
+  // Get all the slides
+  const slides = document.querySelectorAll('.carouselItem');
+
+  // Loop through the slides and remove the data-active attribute and the slide itself
+  slides.forEach(slide => {
+    slide.removeAttribute('data-active');
+    slide.remove();
   });
+
   const lightBox = document.querySelector(".lightbox")
   const carousel = document.querySelector(".carousel")
   const mediaSection = document.querySelector(".media_section")
@@ -135,6 +122,34 @@ function closeLightBox() {
   isCarouselActive = false;
 
   mediaSection.style.display = "flex";
-  
 }
+
+
+
+
+
+
+
+
+// function closeLightBox() {
+
+//   const activeElements = document.querySelectorAll('[data-active]');
+//   console.log("Active elements",activeElements)
+//   console.log("N° of active elements",activeElements.length)
+
+//   let carouselItems = document.querySelectorAll(".carouselItem");
+//   carouselItems.forEach(item => {
+//     item.dataset.active = 'false';
+//   });
+//   const lightBox = document.querySelector(".lightbox")
+//   const carousel = document.querySelector(".carousel")
+//   const mediaSection = document.querySelector(".media_section")
+//   lightBox.classList.remove("active");
+//   carousel.classList.remove("active");
+
+//   isCarouselActive = false;
+
+//   mediaSection.style.display = "flex";
+  
+// }
 
