@@ -21,10 +21,7 @@
       </div> 
    
       
-      
-      <div role="button" id="trierpar"  aria-haspopup="listbox" aria-controls="listbox-id" tabindex="0" aria-expanded="true">
-        Trier par
-      </div>
+
      
       <!-- <ul role="listbox" id="listbox-id" class="dropdown-content" aria-activedescendant="pop"  aria-labelledby="trierpar" tabindex="0">
         <li id="pop" class="option" role="button" tabindex="0">Popularité</li>
@@ -32,19 +29,21 @@
         <li id="titre" class="option" role="button" tabindex="0">Titre</li>
       </ul>
        -->
+       <span id="trierpar">Trier par</span>
+  
+        <ul id="listbox-id" role="listbox" class="dropdown-content" tabindex="0"  hidden >
+          <li class="option">
+            <a href="#" id="pop" class="option-link"> Popularité</a>
+          </li>
+          <li class="option">
+            <a href="#"  id="date" class="option-link">Date</a>
+          </li>
+          <li class="option">
+            <a href="#" id="titre" class="option-link">Titre</a>
+          </li>
+  
+        </ul>
 
-      <ul id="listbox-id" role="listbox" class="dropdown-content" aria-labelledby="trierpar" tabindex="0" >
-        <li class="option">
-          <a href="#" id="pop" class="option-link"> Popularité</a>
-        </li>
-        <li class="option">
-          <a href="#"  id="date" class="option-link">Date</a>
-        </li>
-        <li class="option">
-          <a href="#" id="titre" class="option-link">Titre</a>
-        </li>
-     
-      </ul>
 
 
 

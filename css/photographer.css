@@ -107,9 +107,25 @@ h2 {
   position: relative;
 }
 
+/*///////listbox//////*/
+
+
+
+:focus:not(:focus-visible),
+:focus:not(:-moz-focusring) {
+    outline: 0;
+}
+
+:focus-visible,
+:-moz-focusring {
+    outline: 2px solid red;
+}
+
+
+
 #trierpar {
   /* border: tan solid 1px; */
-  display: inline;
+  
   position: relative;
   left: 100px;
   top: 10px;
@@ -199,6 +215,23 @@ h2 {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
 
 .medialink {
   /* border: #312e2e dotted;  */

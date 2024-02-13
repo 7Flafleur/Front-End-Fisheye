@@ -82,7 +82,8 @@ a.dataset.indexBefore=index;
 
 //EVENT LISTENER FOR SORTING FUNCTIONS
 
-pop.addEventListener("click", async () => {
+pop.addEventListener("click", (event) => {
+  event.stopPropagation();
   
   const sorted = indivmedia.sort(compareByPop)
   displayMedia(sorted);
@@ -131,7 +132,8 @@ if (pop === document.activeElement) {
 
 
 
-date.addEventListener("click", () => {
+date.addEventListener("click", (event) => {
+  event.stopPropagation();
   const sorted = indivmedia.sort(compareByDate)
   displayMedia(sorted)
     //UPDATE array of media items for later use
@@ -163,7 +165,8 @@ date.addEventListener("click", () => {
 date.addEventListener('keydown', triggerClickOnEnterOrSpace);
 
 
-titre.addEventListener("click", () => {
+titre.addEventListener("click", (event) => {
+  event.stopPropagation();
   const sorted = indivmedia.sort(compareByTitle)
   displayMedia(sorted)
   //UPDATE array of media items for later use
@@ -358,7 +361,7 @@ function triggerClickOnEnterOrSpace(event) {
   }
 }
 
-//CLOASE MODALS ON ESC PRESS
+//CLOSE MODALS ON ESC PRESS
 
 document.addEventListener('keydown', (event) => {
   // If the Escape key is pressed
@@ -400,6 +403,20 @@ document.addEventListener('keydown', (event) => {
     console.log(document.activeElement);
   }
 });
+
+
+
+//listbox//
+
+
+
+
+
+
+
+
+
+
 
 
 } //end init function
