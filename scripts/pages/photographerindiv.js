@@ -27,9 +27,6 @@ async function init() {
 
 
 
-  let actives=document.querySelectorAll("[data-active='true']")
- 
-
 
 //////DATA RETRIEVAL
   /////////////////////////
@@ -82,7 +79,15 @@ a.dataset.indexBefore=index;
 
 //EVENT LISTENER FOR SORTING FUNCTIONS
 
-pop.addEventListener("click", async () => {
+
+const listbox = document.querySelector('#listbox-id');
+ const defo=document.getElementById("default")
+ const optionlinks=listbox.querySelectorAll(".option-link")
+
+
+
+pop.addEventListener("click", (event) => {
+  event.stopPropagation();
   
   const sorted = indivmedia.sort(compareByPop)
   displayMedia(sorted);
@@ -114,7 +119,7 @@ pop.addEventListener("click", async () => {
   
   });
   });
-
+defo.textContent="Popularité"
 });
 
 
@@ -131,7 +136,8 @@ if (pop === document.activeElement) {
 
 
 
-date.addEventListener("click", () => {
+date.addEventListener("click", (event) => {
+  event.stopPropagation();
   const sorted = indivmedia.sort(compareByDate)
   displayMedia(sorted)
     //UPDATE array of media items for later use
@@ -158,12 +164,14 @@ date.addEventListener("click", () => {
   
   });
   });
+  defo.textContent="Date"
 });
 
 date.addEventListener('keydown', triggerClickOnEnterOrSpace);
 
 
-titre.addEventListener("click", () => {
+titre.addEventListener("click", (event) => {
+  event.stopPropagation();
   const sorted = indivmedia.sort(compareByTitle)
   displayMedia(sorted)
   //UPDATE array of media items for later use
@@ -186,21 +194,60 @@ mediaItemsDOM.forEach((a) => {
     figure.setAttribute('data-active', 'true');
 
   carouselList=getCarouselList(mediaItemsDOM, figure)
-  integrateCarousel(carouselList)
-
+  integrateCarousel(carouselList) 
 });
 });
+defo.textContent="Titre"
 });
 
-titre.addEventListener('keydown', triggerClickOnEnterOrSpace);
+titre.addEventListener("keydown", triggerClickOnEnterOrSpace);
 
-//ACESSIBILITY 
-
-
+//LISTBOX 
 
 
 
+ // Function to hide visible elements and show default content
+function hideVisibleElements() {
+  if (listbox.dataset.visible === 'true') {
+    const visibleElements = listbox.querySelectorAll(".option-link");
+    console.log("visible elements", visibleElements);
+    visibleElements.forEach(element => {
+      element.style.display = "none";
+    });
+    defo.style.display = "flex";
+    listbox.dataset.visible = "false";
+  }
+}
 
+
+listbox.addEventListener('click', () => {
+  listbox.dataset.visible="true";
+  // Make the descendants visible
+ 
+  defo.style.display="none"
+  optionlinks.forEach(element => {
+    
+    element.style.display = 'block'; // Or whatever makes them visible
+  });
+});
+
+listbox.addEventListener("keydown",triggerClickOnEnterOrSpace )
+
+
+document.addEventListener('click', (event) => {
+  // If the listbox is open and the click was outside the listbox, close the listbox
+  if (listbox.dataset.visible === 'true' && !listbox.contains(event.target)) {
+    
+  hideVisibleElements()
+  }
+});
+
+// When the Escape key is pressed, if the listbox is visible, hide it and its descendants and set data-visible to 'false'
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && listbox.dataset.visible === 'true') {
+hideVisibleElements()
+  }
+});
 
 //EVENT LISTENERS FOR CAROUSEL FUNCTION
 
@@ -228,20 +275,6 @@ mediaItemsDOM.forEach((a)=>{
 )
 
 
-// Get the elements
-
-const listbox=document.getElementById("listbox-id")
-
-// Add hover event listeners to the pop element
-listbox.addEventListener('mouseover', () => {
-  titre.style.display = 'block';
-  date.style.display = 'block';
-});
-
-listbox.addEventListener('mouseout', () => {
-  titre.style.display = 'none';
-  date.style.display = 'none';
-});
 
 //navigate carousel with buttons
 
@@ -358,7 +391,7 @@ function triggerClickOnEnterOrSpace(event) {
   }
 }
 
-//CLOASE MODALS ON ESC PRESS
+//CLOSE MODALS ON ESC PRESS
 
 document.addEventListener('keydown', (event) => {
   // If the Escape key is pressed
@@ -400,6 +433,20 @@ document.addEventListener('keydown', (event) => {
     console.log(document.activeElement);
   }
 });
+
+
+
+//listbox//
+
+
+
+
+
+
+
+
+
+
 
 
 } //end init function

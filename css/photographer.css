@@ -107,9 +107,25 @@ h2 {
   position: relative;
 }
 
+/*///////listbox//////*/
+
+
+
+:focus:not(:focus-visible),
+:focus:not(:-moz-focusring) {
+    outline: 0;
+}
+
+:focus-visible,
+:-moz-focusring {
+    outline: 2px solid red;
+}
+
+
+
 #trierpar {
   /* border: tan solid 1px; */
-  display: inline;
+  
   position: relative;
   left: 100px;
   top: 10px;
@@ -127,6 +143,7 @@ h2 {
   display: inline-flex;
   flex-direction: column;
   text-decoration: none;
+  justify-content: center;
   position: relative;
   left: 120px;
   top: 18px;
@@ -134,11 +151,12 @@ h2 {
   color: white;
   font-size: 16px;
   padding: 10px;
+   min-width:   8%; 
 
 }
 
 .option {
-  padding: 5px;
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -146,10 +164,24 @@ h2 {
 
 }
 
+#default{
+  display: flex;
+  justify-content: center;
+}
+
+
+.option-link{
+  color:#fafafa;
+  text-decoration: none;
+  
+}
+
+
+
 .option:hover #titre,
 .option:hover #date{
   display: block;
-}
+} 
 
 .option:focus #titre,
 .option:focus #date{
@@ -157,8 +189,9 @@ h2 {
 }
 
 
-.option:focus::after,
-.option:hover::after {
+
+.option-link:hover::after
+ {
   content: "\00a0 \00a0  \00a0 \f077";
   /* Unicode for the fa-caret-up icon */
   font-family: "Font Awesome 5 Free";
@@ -177,23 +210,39 @@ h2 {
   display: block;
 }
 
+
 #pop,
-#date {
-
-
-  cursor: pointer;
-
-
-}
-
 #date,
 #titre {
   border-top: #fafafa 1px solid;
   display: none;
   cursor: pointer;
+  /* border: yellow solid 2px; */
+  padding: 5px;
+  width:100%;
+}
+
+#pop{
+  border-top: unset;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
 
 .medialink {
   /* border: #312e2e dotted;  */
