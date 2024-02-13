@@ -58,9 +58,6 @@ function integrateCarousel(mediaArray) {
 
 
 
-// buttons.forEach(button =>
-//   button.addEventListener("keydown", triggerClickOnEnterOrSpace)
-// )
 
 
 
