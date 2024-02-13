@@ -199,10 +199,15 @@ titre.addEventListener('keydown', triggerClickOnEnterOrSpace);
 
 //ACESSIBILITY 
 
+const listbox = document.querySelector('#listbox-id');
+const descendants = listbox.querySelectorAll('*'); // Selects all descendants
 
-
-
-
+listbox.addEventListener('click', () => {
+  // Make the descendants visible
+  descendants.forEach(element => {
+    element.style.display = 'block'; // Or whatever makes them visible
+  });
+});
 
 
 //EVENT LISTENERS FOR CAROUSEL FUNCTION
@@ -231,20 +236,6 @@ mediaItemsDOM.forEach((a)=>{
 )
 
 
-// Get the elements
-
-const listbox=document.getElementById("listbox-id")
-
-// Add hover event listeners to the pop element
-listbox.addEventListener('mouseover', () => {
-  titre.style.display = 'block';
-  date.style.display = 'block';
-});
-
-listbox.addEventListener('mouseout', () => {
-  titre.style.display = 'none';
-  date.style.display = 'none';
-});
 
 //navigate carousel with buttons
 
