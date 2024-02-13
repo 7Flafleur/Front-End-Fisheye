@@ -218,8 +218,11 @@ listbox.addEventListener("keydown",triggerClickOnEnterOrSpace )
 // When the Escape key is pressed, if the listbox is visible, hide it and its descendants and set data-visible to 'false'
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && listbox.dataset.visible === 'true') {
-    
-    date.st
+    const visibleelements=listbox.querySelectorAll(".option-link")
+    console.log("visible elements",visibleelements)
+    visibleelements.forEach(element=>{
+      element.style.display="none";
+    })
   
   }
 });

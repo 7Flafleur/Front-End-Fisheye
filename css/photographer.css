@@ -210,15 +210,8 @@ h2 {
   display: block;
 }
 
+
 #pop,
-#date {
-
-  border: yellow solid 2px;
-  cursor: pointer;
-
-
-}
-
 #date,
 #titre {
   border-top: #fafafa 1px solid;
