@@ -195,7 +195,7 @@ mediaItemsDOM.forEach((a) => {
 });
 });
 
-titre.addEventListener('keydown', triggerClickOnEnterOrSpace);
+titre.addEventListener("keydown", triggerClickOnEnterOrSpace);
 
 //ACESSIBILITY 
 
@@ -203,12 +203,26 @@ const listbox = document.querySelector('#listbox-id');
 const descendants = listbox.querySelectorAll('*'); // Selects all descendants
 
 listbox.addEventListener('click', () => {
+  listbox.dataset.visible="true";
   // Make the descendants visible
   descendants.forEach(element => {
+    element.dataset.visible="true";
     element.style.display = 'block'; // Or whatever makes them visible
   });
 });
 
+listbox.addEventListener("keydown",triggerClickOnEnterOrSpace )
+
+
+
+// When the Escape key is pressed, if the listbox is visible, hide it and its descendants and set data-visible to 'false'
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && listbox.dataset.visible === 'true') {
+    
+    date.st
+  
+  }
+});
 
 //EVENT LISTENERS FOR CAROUSEL FUNCTION
 

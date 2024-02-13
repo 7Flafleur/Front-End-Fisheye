@@ -134,6 +134,13 @@ h2 {
   /* cursor: pointer; */
 }
 
+#listbox-id:empty::before {
+  content: "Default content";
+}
+
+.option[data-visible="true"] ~ #listbox-id::before {
+  content: "";
+}
 
 
 
@@ -162,6 +169,10 @@ h2 {
 
 }
 
+.option[data-visible="true"] {
+  /* Your styles here */
+}
+
 .option-link{
   color:#fafafa;
   text-decoration: none;
@@ -178,8 +189,8 @@ h2 {
 }
 
 
-.option:focus::after,
-/* .option:hover::after */
+
+.option-link[data-visible="true"]:hover::after
  {
   content: "\00a0 \00a0  \00a0 \f077";
   /* Unicode for the fa-caret-up icon */
