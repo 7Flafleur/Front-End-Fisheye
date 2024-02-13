@@ -27,9 +27,6 @@ async function init() {
 
 
 
-  let actives=document.querySelectorAll("[data-active='true']")
- 
-
 
 //////DATA RETRIEVAL
   /////////////////////////
@@ -82,6 +79,13 @@ a.dataset.indexBefore=index;
 
 //EVENT LISTENER FOR SORTING FUNCTIONS
 
+
+const listbox = document.querySelector('#listbox-id');
+ const defo=document.getElementById("default")
+ const optionlinks=listbox.querySelectorAll(".option-link")
+
+
+
 pop.addEventListener("click", (event) => {
   event.stopPropagation();
   
@@ -115,7 +119,7 @@ pop.addEventListener("click", (event) => {
   
   });
   });
-
+defo.textContent="Popularité"
 });
 
 
@@ -160,6 +164,7 @@ date.addEventListener("click", (event) => {
   
   });
   });
+  defo.textContent="Date"
 });
 
 date.addEventListener('keydown', triggerClickOnEnterOrSpace);
@@ -189,19 +194,16 @@ mediaItemsDOM.forEach((a) => {
     figure.setAttribute('data-active', 'true');
 
   carouselList=getCarouselList(mediaItemsDOM, figure)
-  integrateCarousel(carouselList)
-
+  integrateCarousel(carouselList) 
 });
 });
+defo.textContent="Titre"
 });
 
 titre.addEventListener("keydown", triggerClickOnEnterOrSpace);
 
 //LISTBOX 
 
-const listbox = document.querySelector('#listbox-id');
- const defo=document.getElementById("default")
- const optionlinks=listbox.querySelectorAll(".option-link")
 
 
  // Function to hide visible elements and show default content
