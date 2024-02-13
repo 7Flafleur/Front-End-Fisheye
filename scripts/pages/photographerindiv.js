@@ -197,11 +197,25 @@ mediaItemsDOM.forEach((a) => {
 
 titre.addEventListener("keydown", triggerClickOnEnterOrSpace);
 
-//ACESSIBILITY 
+//LISTBOX 
 
 const listbox = document.querySelector('#listbox-id');
  const defo=document.getElementById("default")
  const optionlinks=listbox.querySelectorAll(".option-link")
+
+
+ // Function to hide visible elements and show default content
+function hideVisibleElements() {
+  if (listbox.dataset.visible === 'true') {
+    const visibleElements = listbox.querySelectorAll(".option-link");
+    console.log("visible elements", visibleElements);
+    visibleElements.forEach(element => {
+      element.style.display = "none";
+    });
+    defo.style.display = "block";
+    listbox.dataset.visible = "false";
+  }
+}
 
 
 listbox.addEventListener('click', () => {
@@ -222,27 +236,14 @@ document.addEventListener('click', (event) => {
   // If the listbox is open and the click was outside the listbox, close the listbox
   if (listbox.dataset.visible === 'true' && !listbox.contains(event.target)) {
     
-    listbox.dataset.visible = 'false';
-
-    // Also hide the descendants
-
-    optionlinks.forEach(element => {
-      element.style.display = 'none';
-    });
-    defo.style.display="block"
+  hideVisibleElements()
   }
 });
 
 // When the Escape key is pressed, if the listbox is visible, hide it and its descendants and set data-visible to 'false'
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && listbox.dataset.visible === 'true') {
-    const visibleelements=listbox.querySelectorAll(".option-link")
-    console.log("visible elements",visibleelements)
-    visibleelements.forEach(element=>{
-      element.style.display="none";
-    })
-  defo.style.display="block";
-  listbox.dataset.visible="false";
+hideVisibleElements()
   }
 });
 
