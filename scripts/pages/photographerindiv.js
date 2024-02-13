@@ -214,7 +214,7 @@ function hideVisibleElements() {
     visibleElements.forEach(element => {
       element.style.display = "none";
     });
-    defo.style.display = "block";
+    defo.style.display = "flex";
     listbox.dataset.visible = "false";
   }
 }

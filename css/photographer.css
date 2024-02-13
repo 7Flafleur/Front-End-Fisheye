@@ -151,7 +151,7 @@ h2 {
   color: white;
   font-size: 16px;
   padding: 10px;
-  min-width:98px;
+   min-width:   8%; 
 
 }
 
@@ -164,6 +164,10 @@ h2 {
 
 }
 
+#default{
+  display: flex;
+  justify-content: center;
+}
 
 
 .option-link{
@@ -171,6 +175,8 @@ h2 {
   text-decoration: none;
   
 }
+
+
 
 .option:hover #titre,
 .option:hover #date{
