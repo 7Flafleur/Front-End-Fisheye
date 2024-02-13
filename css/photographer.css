@@ -146,6 +146,11 @@ h2 {
 
 }
 
+.option-link{
+  color:#fafafa;
+  text-decoration: none;
+}
+
 .option:hover #titre,
 .option:hover #date{
   display: block;
