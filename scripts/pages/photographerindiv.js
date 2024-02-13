@@ -201,15 +201,16 @@ titre.addEventListener("keydown", triggerClickOnEnterOrSpace);
 
 const listbox = document.querySelector('#listbox-id');
  const defo=document.getElementById("default")
+ const optionlinks=listbox.querySelectorAll(".option-link")
+
 
 listbox.addEventListener('click', () => {
   listbox.dataset.visible="true";
   // Make the descendants visible
  
   defo.style.display="none"
-  const optionlinks=listbox.querySelectorAll(".option-link")
   optionlinks.forEach(element => {
-    element.dataset.visible="true";
+    
     element.style.display = 'block'; // Or whatever makes them visible
   });
 });
@@ -217,6 +218,20 @@ listbox.addEventListener('click', () => {
 listbox.addEventListener("keydown",triggerClickOnEnterOrSpace )
 
 
+document.addEventListener('click', (event) => {
+  // If the listbox is open and the click was outside the listbox, close the listbox
+  if (listbox.dataset.visible === 'true' && !listbox.contains(event.target)) {
+    
+    listbox.dataset.visible = 'false';
+
+    // Also hide the descendants
+
+    optionlinks.forEach(element => {
+      element.style.display = 'none';
+    });
+    defo.style.display="block"
+  }
+});
 
 // When the Escape key is pressed, if the listbox is visible, hide it and its descendants and set data-visible to 'false'
 document.addEventListener('keydown', (event) => {
@@ -227,6 +242,7 @@ document.addEventListener('keydown', (event) => {
       element.style.display="none";
     })
   defo.style.display="block";
+  listbox.dataset.visible="false";
   }
 });
 
