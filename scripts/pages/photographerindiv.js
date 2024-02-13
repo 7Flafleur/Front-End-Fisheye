@@ -200,12 +200,15 @@ titre.addEventListener("keydown", triggerClickOnEnterOrSpace);
 //ACESSIBILITY 
 
 const listbox = document.querySelector('#listbox-id');
-const descendants = listbox.querySelectorAll('*'); // Selects all descendants
+ const defo=document.getElementById("default")
 
 listbox.addEventListener('click', () => {
   listbox.dataset.visible="true";
   // Make the descendants visible
-  descendants.forEach(element => {
+ 
+  defo.style.display="none"
+  const optionlinks=listbox.querySelectorAll(".option-link")
+  optionlinks.forEach(element => {
     element.dataset.visible="true";
     element.style.display = 'block'; // Or whatever makes them visible
   });
@@ -223,7 +226,7 @@ document.addEventListener('keydown', (event) => {
     visibleelements.forEach(element=>{
       element.style.display="none";
     })
-  
+  defo.style.display="block";
   }
 });
 
