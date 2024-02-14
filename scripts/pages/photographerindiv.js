@@ -420,7 +420,11 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-
+document.addEventListener("keydown", (event)=>
+{if(event.key=='Tab')
+{
+  console.log(document.activeElement);
+}})
 
 
 

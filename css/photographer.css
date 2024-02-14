@@ -114,7 +114,17 @@ h2 {
 
 /*///////listbox//////*/
 
+.focusable:hover,
+.focusable:focus .dropdown-content{
+  cursor: pointer;
+  transform: perspective(2000px) translate3d(0px, 0px, 50px);
+  outline:none;
 
+}
+
+#listbox-id:focus {
+  transform: perspective(2000px) translate3d(0px, 0px, 50px) scale(1.1);
+}
 
 
 
@@ -184,7 +194,7 @@ h2 {
 }
 
 
-
+.option-link:focus::after,
 .option-link:hover::after
  {
   content: "\00a0 \00a0  \00a0 \f077";
