@@ -1,11 +1,22 @@
 // VARIABLES
 
 const contactform = document.getElementById("contactForm");
+const modal = document.getElementById("contact_modal");
+ const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
+
+
+    function trapFocus(event) {
+      if (event.key === 'Tab' && !modal.contains(document.activeElement)) {
+        event.preventDefault();
+        firstFocusableElement.focus();
+      }
+    }
 
 
 function displayModal() {
     //display modal
-    const modal = document.getElementById("contact_modal");
+    
 	modal.style.display = "block";
   modal.setAttribute("data-active", "true");
 
@@ -13,6 +24,14 @@ function displayModal() {
     //display contact form
     const form = document.getElementById("hi");
     form.style.display = "flex"; 
+
+   
+  
+
+
+      document.addEventListener('keydown', trapFocus);
+
+
 
 }
 
@@ -32,6 +51,7 @@ function closeModal() {
     element.setAttribute('data-error-visible', 'false');
   });
 
+  document.removeEventListener('keydown', trapFocus);
     
 }
 
@@ -138,6 +158,7 @@ function isformcomplete(){
     return true;
   }
 }
+
 
 
 // MAIN CODE
