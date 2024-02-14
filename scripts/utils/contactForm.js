@@ -26,6 +26,12 @@ function closeModal() {
     contactform.reset();
     modal.setAttribute("data-active", "false");
 
+      // Set all data-error-visible attributes to false
+  const errorElements = document.querySelectorAll('[data-error-visible]');
+  errorElements.forEach(element => {
+    element.setAttribute('data-error-visible', 'false');
+  });
+
     
 }
 
