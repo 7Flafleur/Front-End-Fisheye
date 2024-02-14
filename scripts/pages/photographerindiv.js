@@ -419,27 +419,6 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-//8 make sorting listbox accessible on keypress
-
-
-  
-
-
-
-//check for active element
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Tab') {
-    console.log(document.activeElement);
-  }
-});
-
-
-
-//listbox//
-
-
-
 
 
 
