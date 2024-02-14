@@ -1,7 +1,7 @@
 
-/* :focus:not(feComponentTransfer) {
+:focus:not(form) {
   outline: none;
-} */
+}
 
 #contact_modal {
   display: none;
@@ -110,16 +110,6 @@ h2 {
 /*///////listbox//////*/
 
 
-
-:focus:not(:focus-visible),
-:focus:not(:-moz-focusring) {
-    outline: 0;
-}
-
-:focus-visible,
-:-moz-focusring {
-    outline: 2px solid red;
-}
 
 
 
