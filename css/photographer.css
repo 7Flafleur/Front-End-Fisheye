@@ -261,12 +261,22 @@ video {
 }
 
 .likes {
-  font-size: 22px;
+  font-size: 20px;
   padding-right: 8px;
-  padding-top: 5px;
+  padding-top: 3px;
 }
 
+.fa-heart:hover,
+.fa-heart:focus{
+  cursor: pointer;
+  transform: perspective(2000px) translate3d(0px, 0px, 50px);
+  border:  #db8876 solid 0.5px;
+ 
+}
+
+
 .fa-heart {
+  border-radius: 30%;
   height: 24px;
   width: 21px;
 }

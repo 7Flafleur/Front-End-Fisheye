@@ -110,7 +110,8 @@ function MediaTemplate(data) {
     captioncontainer.innerHTML = titleh; // infos supplémentaires?
 
     const icon = document.createElement("i"); //heart icon
-    icon.classList.add("fa-solid", "fa-heart", "fa-lg");
+    icon.classList.add("fa-solid", "fa-heart", "fa-");
+    icon.classList.add("icons")
     icon.setAttribute("style", "color: #901c1c;");
     icon.setAttribute("tabindex", "0");
 

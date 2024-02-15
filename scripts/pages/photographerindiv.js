@@ -213,6 +213,19 @@ async function init() {
       hideVisibleElements();
     }
   });
+  //LIKES on enter
+
+  // If icons is a class
+const icons = document.querySelectorAll(".icons");
+
+// If icons is an id
+// const icons = document.querySelectorAll("#icons");
+
+const allIcons = Array.from(icons);
+
+allIcons.forEach(icon => {
+  icon.addEventListener("keydown", triggerClickOnEnterOrSpace);
+});
 
   //EVENT LISTENERS FOR CAROUSEL FUNCTION
 
