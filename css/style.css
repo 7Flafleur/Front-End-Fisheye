@@ -47,8 +47,8 @@ img {
 
 }
 
-.photographer_section a:hover, article:hover {
-  cursor: pointer;
+.photographer_section a:hover, article:hover,article:focus {
+  
   transform: perspective(2000px) translate3d(0px, 0px, 50px);
   border-radius: 30%;}
 
