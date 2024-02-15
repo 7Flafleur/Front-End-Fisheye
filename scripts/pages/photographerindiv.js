@@ -22,8 +22,8 @@ globallikes = 0; //sum of LIKES on each mediacard
 async function init() {
   //////DATA RETRIEVAL
   /////////////////////////
-  // Get data from JSON file
-  const photographers = await getPhotographers();
+  
+  const photographers = await getPhotographers();//function defined in index.js file
   const person = findperson(photographers, urlid);
   displayHeader(person);
   insertNameForm(person);

@@ -148,6 +148,13 @@ h2 {
   min-width: 8%;
 }
 
+.dropdown-content:focus,
+.dropdown-content:hover{
+  cursor: pointer;
+  transform: perspective(200px) translate3d(0px, 0px, 5px);
+  outline: none;
+}
+
 .option {
   display: flex;
   align-items: center;
@@ -158,6 +165,8 @@ h2 {
   display: flex;
   justify-content: center;
 }
+
+
 
 .option-link {
   color: #fafafa;
@@ -230,6 +239,8 @@ h2 {
   transform: perspective(2000px) translate3d(0px, 0px, 50px);
   outline: none;
 }
+
+
 
 /* Absolute positioning for child elements */
 .medialink > * {
