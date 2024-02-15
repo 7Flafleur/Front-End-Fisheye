@@ -13,6 +13,7 @@ function findperson(dataparameter, criteria) {
 
 
 function HeaderTemplate(dataparameter) {
+    //DESTRUCTURE data 
     const { name, id, city, country, tagline, price, portrait, } = dataparameter;
 
     const picture = `./assets/photographers/${portrait}`;
@@ -107,8 +108,6 @@ function addPriceTag(dataobject,globallikes){
     price.innerHTML=pricevalue+"€ / jour";
     price.textContent=pricevalue+"€ / jour"; //globallikes+
     pricetag.append(nblikes,price);
-
-
 
 
 }

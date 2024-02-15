@@ -130,7 +130,7 @@ function compareDatasetValue(value) {
         if (a[value] > b[value]) {
             return 1; //return value 1 indicates that sort needs to be done, switch indexes of elements
         } else if (a[value] < b[value]) {
-            return -1; // do not sor
+            return -1; // do not sort
         } else {
             return 0; // do not sort
         }
