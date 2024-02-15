@@ -1,130 +1,115 @@
 function photographerTemplate(data) {
-    const { name,id,city,country,tagline,price, portrait, } = data;
+  const { name, id, city, country, tagline, price, portrait } = data;
 
-        const picture = `./assets/photographers/${portrait}`;
-        // const id  = `${id}`;
-        // const city = `${city}`;
-        // const country = `${country}`;
-        // const tagline = `${tagline}`;
-        // const price = `${price}`;
+  const picture = `./assets/photographers/${portrait}`;
+  // const id  = `${id}`;
+  // const city = `${city}`;
+  // const country = `${country}`;
+  // const tagline = `${tagline}`;
+  // const price = `${price}`;
 
-       
+  function getUserCardDOM() {
+    const photographerpage = "photographer.html?id=" + id;
 
-    function getUserCardDOM() {
+    const usercard = document.createElement("div");
+    usercard.setAttribute("class", "usercard");
 
-        const photographerpage ="photographer.html?id="+id
+    const href = document.createElement("a");
+    href.setAttribute("href", photographerpage);
+    href.setAttribute("class", "focusable");
+    href.setAttribute("tabindex", "0");
 
-        const usercard = document.createElement('div');
-        usercard.setAttribute("class","usercard");
+    const article = document.createElement("article");
+    article.setAttribute("id", id); // create id for each article
 
-        const href= document.createElement('a');
-        href.setAttribute("href",photographerpage)
-        href.setAttribute("class","focusable")
-        href.setAttribute("tabindex","0")
+    const img = document.createElement("img");
+    img.setAttribute("src", picture);
+    let imgatt = "image de " + name;
+    img.setAttribute("alt", imgatt);
 
-        const article = document.createElement( 'article' );
-        article.setAttribute("id",id)  // create id for each article
+    const h2 = document.createElement("h2");
+    h2.textContent = name;
 
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        let imgatt= "image de " + name
-        img.setAttribute("alt",imgatt)
+    const h3 = document.createElement("h3");
+    let text = city + "," + country;
+    h3.innerHTML = text;
+    h3.textContent = city + "," + country;
 
+    const blockquote = document.createElement("blockquote");
+    blockquote.textContent = tagline;
 
+    const pricetag = document.createElement("aside");
+    pricetag.textContent = price + "€/jour";
 
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
+    usercard.appendChild(href);
 
-        const h3 = document.createElement('h3');
-        let text = city + "," + country
-        h3.innerHTML = text;
-        h3.textContent = city + "," + country;
+    href.appendChild(img);
+    href.appendChild(h2);
+    href.appendChild(h3);
 
-       
+    href.insertAdjacentElement("afterend", article);
 
-        const blockquote = document.createElement('blockquote');
-        blockquote.textContent=tagline;
+    article.appendChild(h3);
+    article.appendChild(blockquote);
+    article.appendChild(pricetag);
 
-        const pricetag = document.createElement('aside');
-        pricetag.textContent = price +"€/jour";
+    return usercard;
+  }
 
-        usercard.appendChild(href);
+  function getuserHeaderDOM() {
+    //create section container for DOM elements
+    const userHeaderDOM = document.createElement("section");
+    userHeaderDOM.setAttribute("class", "headercontainer");
 
-        href.appendChild(img);
-        href.appendChild(h2);
-        href.appendChild(h3);
-        
+    //infocontainer
+    const infos = document.createElement("div");
+    infos.setAttribute("class", "infos");
 
-        href.insertAdjacentElement('afterend',article);
+    const h2 = document.createElement("h1");
+    h2.textContent = name;
 
+    const h3 = document.createElement("h2");
+    let text = city + "," + country;
+    h3.innerHTML = text;
 
-        article.appendChild(h3);
-        article.appendChild(blockquote);
-        article.appendChild(pricetag);
+    const blockquote = document.createElement("blockquote");
+    blockquote.textContent = tagline;
 
-       
-        
-        
+    infos.append(h2, h3, blockquote);
 
-        return usercard;
-    }
+    //button
 
-     function getuserHeaderDOM(){
+    const button = document.createElement("button");
+    button.setAttribute("class", "contact_button");
+    button.setAttribute("onclick", "displayModal()");
+    button.innerHTML = "Contactez-moi";
 
-        //create section container for DOM elements
-        const userHeaderDOM=document.createElement('section');
-        userHeaderDOM.setAttribute("class", "headercontainer");
+    //img
 
-        //infocontainer
-        const infos =document.createElement('div');
-        infos.setAttribute("class","infos")
+    const figure = document.createElement("figure");
+    figure.setAttribute("class", "portrait");
+    const img = document.createElement("img");
+    img.setAttribute("src", picture);
+    let imgatt = "image de " + name;
+    img.setAttribute("alt", imgatt);
 
-        const h2 = document.createElement( 'h1' );
-        h2.textContent = name;
+    figure.appendChild(img);
 
-        const h3 = document.createElement('h2');
-        let text = city + "," + country
-        h3.innerHTML = text;
+    userHeaderDOM.append(infos, button, img);
 
-        const blockquote = document.createElement('blockquote');
-        blockquote.textContent=tagline;
+    //return container
+    return userHeaderDOM;
+  }
 
-        infos.append(h2,h3,blockquote);
-
-        //button
-
-        const button=document.createElement("button")
-        button.setAttribute("class","contact_button")
-        button.setAttribute("onclick","displayModal()")
-        button.innerHTML="Contactez-moi";
-
-        //img
-        
-        const figure=document.createElement("figure");
-        figure.setAttribute("class","portrait" )
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        let imgatt= "image de " + name
-        img.setAttribute("alt",imgatt)
-
-        figure.appendChild(img)
-
-        userHeaderDOM.append(infos,button,img)
-
-
-        
-        
-        //return container
-           return userHeaderDOM
-
-     }
-
-
-
-    return { name, picture,id,city,country,tagline,price, getUserCardDOM,getuserHeaderDOM, }
-
-
-
+  return {
+    name,
+    picture,
+    id,
+    city,
+    country,
+    tagline,
+    price,
+    getUserCardDOM,
+    getuserHeaderDOM,
+  };
 }
-
-

@@ -91,18 +91,6 @@ async function fetchData() {
   }
 
 
-// as Eventhandler only
-  // function clickedMediaFirst(){
-  //   let clickedIndex = parseInt(this.dataset.index);
-  //       let firstHalf = mediaItemsDOM.slice(0, clickedIndex);
-  //   let secondHalf = mediaItemsDOM.slice(clickedIndex);
-  //     //  new array of mediaItemsDOMwith clicked slide as first
-  //   let reorganizedArray = secondHalf.concat(firstHalf);
-  //   return reorganizedArray;
-  // }
-  
-  
-
   
  
    function createCarouselButtons(){
@@ -115,16 +103,6 @@ async function fetchData() {
   
 
 
-
-
-
-
-  // function setActiveData(item, index) {
-  //   const mediacontainer = item;
-  //   mediacontainer.dataset.active = "true";
-  //   // Set the mediacontainer's data-currentindex attribute to the current index
-  //   mediacontainer.dataset.currentindex = index;
-  // }
   
   function getCarouselList(mediaItemsDOM, mediacontainer) {
     let clickedIndex = mediaItemsDOM.indexOf(mediacontainer);
@@ -165,6 +143,12 @@ const compareByDate = compareDatasetValue("date");
 const compareByTitle = compareDatasetValue("title");
 
 
+function triggerClickOnEnterOrSpace(event) {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    event.target.click();
+  }
+}
 
 
 
@@ -174,6 +158,3 @@ const compareByTitle = compareDatasetValue("title");
 
 
 
-
-
-function movetoNext(){}
