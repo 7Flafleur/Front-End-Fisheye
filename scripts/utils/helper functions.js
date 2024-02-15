@@ -92,16 +92,6 @@ async function fetchData() {
 
 
   
- 
-   function createCarouselButtons(){
-   let nextButton = document.querySelector("#carousel-button-next")
-    let prevButton = document.querySelector("#carousel-button-prev")
-    nextButton.addEventListener("click", handleNextButtonClick);
-    prevButton.addEventListener("click", handlePrevButtonClick);
-  }
-  
-  
-
 
   
   function getCarouselList(mediaItemsDOM, mediacontainer) {

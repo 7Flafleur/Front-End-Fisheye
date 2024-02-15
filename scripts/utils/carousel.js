@@ -86,24 +86,3 @@ function closeLightBox() {
   mediaSection.style.display = "flex";
 }
 
-// function closeLightBox() {
-
-//   const activeElements = document.querySelectorAll('[data-active]');
-//   console.log("Active elements",activeElements)
-//   console.log("N° of active elements",activeElements.length)
-
-//   let carouselItems = document.querySelectorAll(".carouselItem");
-//   carouselItems.forEach(item => {
-//     item.dataset.active = 'false';
-//   });
-//   const lightBox = document.querySelector(".lightbox")
-//   const carousel = document.querySelector(".carousel")
-//   const mediaSection = document.querySelector(".media_section")
-//   lightBox.classList.remove("active");
-//   carousel.classList.remove("active");
-
-//   isCarouselActive = false;
-
-//   mediaSection.style.display = "flex";
-
-// }
