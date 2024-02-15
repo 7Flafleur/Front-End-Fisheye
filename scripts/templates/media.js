@@ -170,7 +170,3 @@ function MediaTemplate(data) {
   return { title, image, video, likes, dateh, getMediaCardDOM };
 } //end MediaTemplate function
 
-function updateGlobalLikesDOM(globallikes) {
-  const nblikes = document.querySelector("#nblikes");
-  nblikes.textContent = globallikes + "  ";
-}

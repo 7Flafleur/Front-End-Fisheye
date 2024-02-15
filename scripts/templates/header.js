@@ -17,12 +17,6 @@ function HeaderTemplate(dataparameter) {
 
     const picture = `./assets/photographers/${portrait}`;
    
-    
-    
- 
-   
-    
-
     function getuserHeaderDOM() {
 
         //create section container for DOM elements
@@ -119,3 +113,8 @@ function addPriceTag(dataobject,globallikes){
 
 }
 
+function updateGlobalLikesDOM(globallikes) {
+    const nblikes = document.querySelector("#nblikes");
+    nblikes.textContent = globallikes + "  ";
+  }
+  
