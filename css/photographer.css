@@ -1,11 +1,9 @@
-
 :focus:not(form) {
   outline: none;
 }
 
-form:focus{
+form:focus {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
-
 }
 
 #contact_modal {
@@ -60,10 +58,7 @@ body {
 
   height: 200px;
   width: 350px;
-
 }
-
-
 
 .infos h1,
 h2 {
@@ -92,7 +87,8 @@ h2 {
   cursor: pointer;
 }
 
-.contact_button:hover, .contact_button:focus{
+.contact_button:hover,
+.contact_button:focus {
   background-color: #db8876;
   color: #000;
 }
@@ -115,22 +111,19 @@ h2 {
 /*///////listbox//////*/
 
 .focusable:hover,
-.focusable:focus .dropdown-content{
+.focusable:focus .dropdown-content {
   cursor: pointer;
   transform: perspective(2000px) translate3d(0px, 0px, 50px);
-  outline:none;
-
+  outline: none;
 }
 
 #listbox-id:focus {
   transform: perspective(2000px) translate3d(0px, 0px, 50px) scale(1.1);
 }
 
-
-
 #trierpar {
   /* border: tan solid 1px; */
-  
+
   position: relative;
   left: 100px;
   top: 10px;
@@ -138,10 +131,6 @@ h2 {
   font-weight: 600;
   /* cursor: pointer; */
 }
-
-
-
-
 
 .dropdown-content {
   /* border: orangered solid 2px; */
@@ -156,47 +145,37 @@ h2 {
   color: white;
   font-size: 16px;
   padding: 10px;
-   min-width:   8%; 
-
+  min-width: 8%;
 }
 
 .option {
-  
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-
 }
 
-#default{
+#default {
   display: flex;
   justify-content: center;
 }
 
-
-.option-link{
-  color:#fafafa;
+.option-link {
+  color: #fafafa;
   text-decoration: none;
-  
 }
-
-
 
 .option:hover #titre,
-.option:hover #date{
-  display: block;
-} 
-
-.option:focus #titre,
-.option:focus #date{
+.option:hover #date {
   display: block;
 }
 
+.option:focus #titre,
+.option:focus #date {
+  display: block;
+}
 
 .option-link:focus::after,
-.option-link:hover::after
- {
+.option-link:hover::after {
   content: "\00a0 \00a0  \00a0 \f077";
   /* Unicode for the fa-caret-up icon */
   font-family: "Font Awesome 5 Free";
@@ -215,7 +194,6 @@ h2 {
   display: block;
 }
 
-
 #pop,
 #date,
 #titre {
@@ -224,28 +202,12 @@ h2 {
   cursor: pointer;
   /* border: yellow solid 2px; */
   padding: 5px;
-  width:100%;
+  width: 100%;
 }
 
-#pop{
+#pop {
   border-top: unset;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**/
 
@@ -262,15 +224,15 @@ h2 {
   margin-bottom: 20px;
 }
 
-.medialink:hover, .medialink:focus {
+.medialink:hover,
+.medialink:focus {
   cursor: pointer;
   transform: perspective(2000px) translate3d(0px, 0px, 50px);
-  outline:none;
-
+  outline: none;
 }
 
 /* Absolute positioning for child elements */
-.medialink>* {
+.medialink > * {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -336,14 +298,13 @@ video {
 }
 
 #price {
-
   padding: 14px;
 }
 
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  height:90%;;
+  height: 90%;
   width: 30%;
   flex-direction: column;
   align-items: center;
@@ -359,13 +320,11 @@ video {
   /* border: blue solid 2px; */
   display: none;
   height: 83vh;
-
 }
-
 
 #contactForm {
   /* border: yellowgreen solid 2px; */
-  height:100%;
+  height: 100%;
 }
 
 .modal header {
@@ -373,15 +332,15 @@ video {
   display: flex;
   width: 100%;
   margin-bottom: 20px;
- 
+
   position: relative;
 }
 
 .modal header img {
   cursor: pointer;
-  height:24px;
+  height: 24px;
   position: relative;
-  top:-31px;
+  top: -31px;
 }
 
 .modal header h2 {
@@ -390,20 +349,17 @@ video {
   text-align: left;
 }
 
-
 form {
-
   display: flex;
   width: 100%;
 
   flex-direction: column;
-justify-content: space-evenly;
+  justify-content: space-evenly;
   align-items: flex-start;
-
 }
 
 form label {
-   /* border: olivedrab solid 1px;  */
+  /* border: olivedrab solid 1px;  */
   color: #312e2e;
   font-size: 25px;
   display: inline;
@@ -415,18 +371,17 @@ form div {
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  
 }
 
 form input,
 textarea {
   width: 100%;
-  
+
   border: none;
   border-radius: 5px;
 }
 
-form input{
+form input {
   height: 35px;
 }
 
@@ -446,7 +401,7 @@ form input{
   opacity: 0;
 }
 
-.errormsg[data-error-visible=true]::after {
+.errormsg[data-error-visible="true"]::after {
   opacity: 1;
 }
 
@@ -454,14 +409,12 @@ form input{
   height: 200px;
 }
 
-#send{
-  height:unset;
-  width:unset;
+#send {
+  height: unset;
+  width: unset;
   padding: 14px 30px;
   font-size: 14px;
 }
-
-
 
 #bye {
   display: none;
@@ -472,26 +425,20 @@ form input{
 }
 
 .modal#bye {
-
- 
   align-items: center;
-  
-
 }
 
-#bye > header{
- 
+#bye > header {
   display: flex;
   justify-content: end;
 }
 
-.merciflex{
+.merciflex {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height:64%;
+  height: 64%;
 }
-
 
 /*LIGHTBOX*/
 
@@ -508,8 +455,6 @@ form input{
   overflow: hidden;
   background-color: rgba(255, 255, 255, 1);
 }
-
-
 
 .lightbox.active {
   display: flex;
@@ -528,25 +473,15 @@ form input{
   /* border: pink 8px dotted; */
   align-items: center;
 
-
-
   height: 95%;
   width: 72%;
   position: fixed;
-
 }
 
 #carousel-list {
-
   position: relative;
- 
-
-
 
   display: flex;
-
-
-
 
   list-style: none;
 
@@ -559,14 +494,12 @@ form input{
   scroll-behavior: smooth;
 }
 
-
-
 .carouselItem {
   display: none;
   /* Hide all slides */
 }
 
-.carouselItem[data-active='true'] {
+.carouselItem[data-active="true"] {
   display: flex;
   /* Display the active slide */
   /* border: blue 2px dashed; */
@@ -580,13 +513,11 @@ form input{
   position: relative;
 }
 
-
-.carouselItem>img {
+.carouselItem > img {
   /* border: yellow 4px solid; */
 
-
-  max-height:80%;
-  width:82%;
+  max-height: 80%;
+  width: 82%;
   object-fit: cover;
 }
 
@@ -597,9 +528,7 @@ form input{
   object-fit: cover;
 }
 
-
 .carousel-button {
-
   margin: auto;
 
   height: 4rem;
@@ -615,8 +544,6 @@ form input{
   padding: 0;
 
   cursor: pointer;
-
-
 
   /* 
   border: solid yellow 1px; */
@@ -636,12 +563,9 @@ form input{
 #carousel-button-prev {
   position: absolute;
 
-
-
   top: 0;
 
   bottom: 0;
-
 
   left: -80px;
 
@@ -651,10 +575,7 @@ form input{
 }
 
 #carousel-button-next {
-
   position: absolute;
-
-
 
   top: 0;
 
@@ -666,7 +587,5 @@ form input{
 
   border-radius: 2rem 0 0 2rem;
 }
-
-
 
 /* Path: css/photographer.css */

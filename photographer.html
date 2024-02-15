@@ -2,11 +2,17 @@
 <html lang="fr" dir="ltr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6a8014695a.js" crossorigin="anonymous"></script>
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6a8014695a.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - photographe</title>
   </head>
 
   <!-- <i class="fa-solid fa-chevron-left" style="color: #901c1c;"></i> -->
@@ -14,142 +20,140 @@
 
   <body>
     <header>
-      <a href="index.html" title="Site-Logo"><img src="assets/images/logo.png" class="logo" alt="Fisheye-Logo"/></a>
+      <a href="index.html" title="Site-Logo"
+        ><img src="assets/images/logo.png" class="logo" alt="Fisheye-Logo"
+      /></a>
     </header>
     <main id="main">
-      <div class="photograph-header">
-      </div> 
-   
-      
+      <div class="photograph-header"></div>
 
-     
       <!-- <ul role="listbox" id="listbox-id" class="dropdown-content" aria-activedescendant="pop"  aria-labelledby="trierpar" tabindex="0">
         <li id="pop" class="option" role="button" tabindex="0">Popularité</li>
         <li id="date" class="option" role="button" tabindex="0">Date</li>
         <li id="titre" class="option" role="button" tabindex="0">Titre</li>
       </ul>
        -->
-       <span id="trierpar">Trier par</span>
-  
-        <span class="focusable" tabindex="0">
-          <ul id="listbox-id" role="listbox" class="dropdown-content" tabindex="0"  hidden >
-            <li class="option" id="default" tabindex="0">Popularité</li>
-            <li class="option">
-              <a href="#" id="pop" class="option-link"> Popularité</a>
-            </li>
-            <li class="option">
-              <a href="#"  id="date" class="option-link">Date</a>
-            </li>
-            <li class="option">
-              <a href="#" id="titre" class="option-link">Titre</a>
-            </li>
-          </ul>
-        </span>
+      <span id="trierpar">Trier par</span>
 
+      <span class="focusable" tabindex="0">
+        <ul
+          id="listbox-id"
+          role="listbox"
+          class="dropdown-content"
+          tabindex="0"
+          hidden
+        >
+          <li class="option" id="default" tabindex="0">Popularité</li>
+          <li class="option">
+            <a href="#" id="pop" class="option-link"> Popularité</a>
+          </li>
+          <li class="option">
+            <a href="#" id="date" class="option-link">Date</a>
+          </li>
+          <li class="option">
+            <a href="#" id="titre" class="option-link">Titre</a>
+          </li>
+        </ul>
+      </span>
 
+      <section class="media_section" role="main"></section>
 
-
-
-
-
-
-
-
-
-      <section class="media_section" role="main">
-       
-      
-      </section>
-
-       
-
-       <section class="lightbox" role="dialog">
-         <button class="carousel-button" id="closeLB" tabindex="0">
-          <span class="fa-solid fa-xmark" style="color: #901c1c;">
-          </span></button>
+      <section class="lightbox" role="dialog">
+        <button class="carousel-button" id="closeLB" tabindex="0">
+          <span class="fa-solid fa-xmark" style="color: #901c1c"> </span>
+        </button>
         <section class="carousel">
-
-  
-  <button id="carousel-button-prev" class="carousel-button" tabindex="0">
-    <span class="fa-solid fa-chevron-left" style="color: #901c1c"></span>
-  </button>
-  <button id="carousel-button-next" class="carousel-button" tabindex="0">
-    <span class="fa-solid fa-chevron-right" style="color: #901c1c"></span>
-  </button>
+          <button
+            id="carousel-button-prev"
+            class="carousel-button"
+            tabindex="0"
+          >
+            <span
+              class="fa-solid fa-chevron-left"
+              style="color: #901c1c"
+            ></span>
+          </button>
+          <button
+            id="carousel-button-next"
+            class="carousel-button"
+            tabindex="0"
+          >
+            <span
+              class="fa-solid fa-chevron-right"
+              style="color: #901c1c"
+            ></span>
+          </button>
         </section>
       </section>
-       <aside id="pricetag" > 
+      <aside id="pricetag">
         <span id="nblikes"></span> <span id="price"></span>
-       </aside> 
+      </aside>
     </main>
     <div id="contact_modal" role="dialog">
-
-			<div class="modal" id="hi" role="form">
-				<header>
-          <h2 id="formheading">Contactez-moi</h2>
-        
-        
-          <img src="assets/icons/close.svg"  alt="closedialog" onclick="closeModal()" tabindex="0"/>
-        </header>
-				<form id="contactForm" name="contactForm" >
-					<div>
-            
-						
-              <div class="errormsg" id="firstnameerror" data-error="Au moins deux charactères!">
-                <label for="Prénom">Prénom
-                             </label> 
-                
-              </div>
-                           <input type="text" id="Prénom" name="Prénom"/>  
-        
-
-            <div class="errormsg" id="lastnameerror" data-error="Au moins deux charactères!"  > 
-              <label for="Nom">Nom
-                </label>
-                
-            </div>
-            <input type="text" id="Nom" name="Nom"/>
-
-            <div class="errormsg" id="emailerror" data-error="Email non valide!">
-              <label for="Email">Email</label>
-               
-            </div>
-             
-             <input type="email" id="Email" name="email"/>
-            
-        
-            <div>
-              <label for="message">Votre message
-              </label>
-            </div>      
-            <textarea id="message" name="message"></textarea>
-            
-
-					</div>
-          <button class="contact_button" id="send" role="send" >Envoyer</button>
-				</form>
-			</div>
-
-
-
-
-      <div class="modal" id="bye" role="dialog" tabindex="0"        >
+      <div class="modal" id="hi" role="form">
         <header>
-         
-        
-        
-          <img src="assets/icons/close.svg" alt="x" onclick="closeModal()" tabindex="0"/>
+          <h2 id="formheading">Contactez-moi</h2>
+
+          <img
+            src="assets/icons/close.svg"
+            alt="closedialog"
+            onclick="closeModal()"
+            tabindex="0"
+          />
+        </header>
+        <form id="contactForm" name="contactForm">
+          <div>
+            <div
+              class="errormsg"
+              id="firstnameerror"
+              data-error="Au moins deux charactères!"
+            >
+              <label for="Prénom">Prénom </label>
+            </div>
+            <input type="text" id="Prénom" name="Prénom" />
+
+            <div
+              class="errormsg"
+              id="lastnameerror"
+              data-error="Au moins deux charactères!"
+            >
+              <label for="Nom">Nom </label>
+            </div>
+            <input type="text" id="Nom" name="Nom" />
+
+            <div
+              class="errormsg"
+              id="emailerror"
+              data-error="Email non valide!"
+            >
+              <label for="Email">Email</label>
+            </div>
+
+            <input type="email" id="Email" name="email" />
+
+            <div>
+              <label for="message">Votre message </label>
+            </div>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <button class="contact_button" id="send" role="send">Envoyer</button>
+        </form>
+      </div>
+
+      <div class="modal" id="bye" role="dialog" tabindex="0">
+        <header>
+          <img
+            src="assets/icons/close.svg"
+            alt="x"
+            onclick="closeModal()"
+            tabindex="0"
+          />
         </header>
         <div class="merciflex">
           <div class="merci">Merci pour votre message!</div>
         </div>
-        
       </div>
-
-
-
-
-		</div>
+    </div>
 
     <script src="scripts/utils/helper functions.js"></script>
     <script src="scripts/templates/photographer.js"></script>
