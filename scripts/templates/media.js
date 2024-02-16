@@ -13,10 +13,9 @@ function MediaTemplate(data) {
 
   //CONSTRUCTOR function for Mediacards with images
   function getPhotoCardDOM() {
-    const medialink = document.createElement("a");
+    const medialink = document.createElement("article");
     medialink.setAttribute("class", "focusable medialink");
-    // medialink.setAttribute("tabindex", "0");
-    medialink.setAttribute("href", "#"); //elements nécessaires pour la lightbox
+   
 
     const mediacard = document.createElement("figure");
     mediacard.setAttribute("class", "mediacard");
@@ -84,10 +83,9 @@ function MediaTemplate(data) {
 
   //CONSTRUCTOR function for Mediacards with video
   function getMovieCardDOM() {
-    const medialink = document.createElement("a");
+    const medialink = document.createElement("article");
     medialink.setAttribute("class", "focusable medialink");
-    // medialink.setAttribute("tabindex", "0");
-    medialink.setAttribute("href", "#"); //elements nécessaires pour la lightbox
+
 
     const mediacard = document.createElement("figure");
     mediacard.setAttribute("class", "mediacard");

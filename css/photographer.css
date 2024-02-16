@@ -233,8 +233,8 @@ h2 {
   margin-bottom: 20px;
 }
 
-.medialink:hover,
-.medialink:focus {
+.mediacard:hover,
+.mediacard:focus {
   cursor: pointer;
   transform: perspective(2000px) translate3d(0px, 0px, 50px);
   outline: none;
