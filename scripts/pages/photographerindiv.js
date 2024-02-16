@@ -345,6 +345,24 @@ allIcons.forEach(icon => {
     slidesArray[newIndex].dataset.active = "true";
     delete activeSlide.dataset.active;
   });
+//   //Play video on enter
+
+//   // Select the video element    
+//   // Select the video element
+// const video = document.querySelector('video');
+
+// // Add a keydown event listener
+// document.addEventListener('keydown', function(event) {
+//   // Check if the video's parent li has data-active set to true
+//   if (video.parentElement.getAttribute('data-active') === 'true') {
+//     // Check if the key pressed was the Enter key
+//     if (event.key === " ") {
+//       // If it was, play the video
+//       console.log("Space pressed")
+//       video.play();
+//     }
+//   }
+// });  
 
   //ALL EVENTS CAN BE TRIGGERED BY KEYS AS WELL
 
@@ -360,15 +378,18 @@ allIcons.forEach(icon => {
   document.addEventListener("keydown", (event) => {
     // If the Escape key is pressed
     if (event.key === "Escape") {
-      console.log("Escape key pressed");
+      
       const modal = document.getElementById("contact_modal");
       // If the modal is open
       if (modal.getAttribute("data-active") === "true") {
         // Close the modal
+        console.log("Escape key pressed");
         closeModal();
       }
     }
   });
+
+  //LIGHTBOX
 
   document.addEventListener("keydown", (event) => {
     // If the Escape key is pressed
@@ -380,6 +401,7 @@ allIcons.forEach(icon => {
         // Close the lightbox
         closeLightBox();
       }
+
     }
   });
 
